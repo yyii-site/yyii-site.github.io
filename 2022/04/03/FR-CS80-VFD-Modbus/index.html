@@ -11,7 +11,7 @@
 
     <title>
         
-        Gitblit 安装使用 - undefined
+        FR-CS80 FVD Modbus Communication - undefined
         
     </title>
 
@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E6%96%87%E4%BB%B6"><span class="toc-text">准备文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Java"><span class="toc-text">安装Java</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGitblit"><span class="toc-text">配置Gitblit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86GitBlit"><span class="toc-text">管理GitBlit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E5%90%AF%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">设置开启自启动</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BE%9B%E7%94%B5"><span class="toc-text">1. 供电</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%80%9A%E8%AE%AF%E6%8E%A5%E7%BA%BF"><span class="toc-text">2. 通讯接线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8F%98%E9%A2%91%E5%99%A8%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-text">3. 变频器参数设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%8A%E4%BD%8D%E6%9C%BA%E8%BD%AF%E4%BB%B6%EF%BC%88Modbus-Poll%EF%BC%89%E8%AE%BE%E7%BD%AE"><span class="toc-text">4. 上位机软件（Modbus Poll）设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-End"><span class="toc-text">5.End</span></a></li></ol>
 </div>
     
 </div>
@@ -124,15 +124,15 @@
 
 <div class="post-container">
     <div class="post-title">
-        Gitblit 安装使用
+        FR-CS80 FVD Modbus Communication
     </div>
 
     <div class="post-meta">
-        <span class="attr">Post：<span>2020-11-22 19:33:27</span></span>
+        <span class="attr">Post：<span>2022-04-03 00:14:20</span></span>
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#Gitblit Windows git server 局域网" title="Gitblit Windows git server 局域网">Gitblit Windows git server 局域网</a>
+        <a class="tag" href="/tags/#MITSUBISHI 三菱 VFD 变频器 Modbus 通讯 RS485 RS422" title="MITSUBISHI 三菱 VFD 变频器 Modbus 通讯 RS485 RS422">MITSUBISHI 三菱 VFD 变频器 Modbus 通讯 RS485 RS422</a>
         <span>/</span>
         
         
@@ -142,43 +142,135 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><a target="_blank" rel="noopener" href="https://gitblit.github.io/gitblit/">Gitblit</a> is an open-source, pure Java stack for managing, viewing, and serving Git repositories.<br>It’s designed primarily as a tool for small workgroups who want to host centralized repositories.</p>
-<p> Gitblit是一个在Java环境中运行的Git服务器。在这里记录一下搭建过程。</p>
-<h1 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h1><ul>
-<li>jdk-11.0.2_windows-x64_bin.zip<a target="_blank" rel="noopener" href="https://repo.huaweicloud.com/java/jdk/">华为源</a></li>
-<li>gitblit安装包<a target="_blank" rel="noopener" href="https://gitblit.github.io/gitblit/">Gitblit</a></li>
+        <h2 id="1-供电"><a href="#1-供电" class="headerlink" title="1. 供电"></a>1. 供电</h2><p><img src="image-20220329235106376.png" alt="image-20220329235106376"></p>
+<h2 id="2-通讯接线"><a href="#2-通讯接线" class="headerlink" title="2. 通讯接线"></a>2. 通讯接线</h2><p><img src="image-20220329235152416.png" alt="image-20220329235152416"></p>
+<p><img src="image-20220329235832966.png" alt="image-20220329235832966"></p>
+<p><img src="image-20220330000913954.png" alt="image-20220330000913954"></p>
+<table>
+<thead>
+<tr>
+<th>USB-RS422</th>
+<th>T-568B</th>
+<th>VFD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T+</td>
+<td>G/   3</td>
+<td>RDA(R+)</td>
+</tr>
+<tr>
+<td>T-</td>
+<td>G    6</td>
+<td>RDB(R-)</td>
+</tr>
+<tr>
+<td>R+</td>
+<td>B/   5</td>
+<td>SDA(T+)</td>
+</tr>
+<tr>
+<td>R-</td>
+<td>B    4</td>
+<td>SDB(T-)</td>
+</tr>
+</tbody></table>
+<h2 id="3-变频器参数设置"><a href="#3-变频器参数设置" class="headerlink" title="3. 变频器参数设置"></a>3. 变频器参数设置</h2><ul>
+<li>首先恢复出厂设置</li>
 </ul>
-<h1 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h1><p>请参考<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-environment-setup.html">菜鸟教程</a></p>
-<h1 id="配置Gitblit"><a href="#配置Gitblit" class="headerlink" title="配置Gitblit"></a>配置Gitblit</h1><ol>
-<li>下载的zip文件只要解压缩即可，不用安装。建议放到D:\Program Files\gitblit-xxx目录中（xxx指版本号）</li>
-<li>新建一个用于存放git服务器数据的文件夹，如D:\GitBlit_repository</li>
-<li>配置gitblit.properties 文件。  <ul>
-<li>在D:\Program Files\gitblit-xxx\data目录中将defaults.properties文件复制一份，改名为my.properties  </li>
-<li>修改gitblit.properties文件，然后将 <code>include = defaults.properties</code> 注释掉  </li>
-<li>添加一代码<code>include = my.properties</code>表示使用my.properties这个配置。  </li>
+<p><img src="image-20220330001346543.png" alt="image-20220330001346543"></p>
+<ul>
+<li>按照表格依次设置</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>Pr.</th>
+<th>名称</th>
+<th>设定值</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>117</td>
+<td>PU 通讯站号</td>
+<td>1</td>
+<td>从机地址</td>
+</tr>
+<tr>
+<td>118</td>
+<td>PU 通讯速度</td>
+<td>192</td>
+<td>19200pbs</td>
+</tr>
+<tr>
+<td>120</td>
+<td>PU 通讯奇偶校验</td>
+<td>2</td>
+<td>偶数校验</td>
+</tr>
+<tr>
+<td>122</td>
+<td>PU 通讯校验时间间隔</td>
+<td>9999</td>
+<td>不进行通讯断线检测</td>
+</tr>
+<tr>
+<td>79</td>
+<td>运行模式选择</td>
+<td>0</td>
+<td>网络运行模式（可切换PU/网络）</td>
+</tr>
+<tr>
+<td>340</td>
+<td>通讯启动模式选择</td>
+<td>10</td>
+<td>网络运行模式（可切换PU/网络）</td>
+</tr>
+<tr>
+<td>342</td>
+<td>通讯 EEPROM 写入选择</td>
+<td>1</td>
+<td>PU接口写入参数仅限RAM（防止频繁写入EEPROM）</td>
+</tr>
+<tr>
+<td>549</td>
+<td>协议选择</td>
+<td>1</td>
+<td>MODBUS RTU 协议</td>
+</tr>
+</tbody></table>
+<p>说明：</p>
+<p>modbus通讯变频器必须工作在<strong>网络运行模式</strong>下（PU模式下数据可读取但无法写入）</p>
+<p>通讯调试阶段建议增加奇/偶校验（测试中遇到USB-422转换模块在无校验情况下通讯失败的情况）</p>
+<ul>
+<li>重启变频器</li>
+</ul>
+<p>PU、EXT 闪烁：网络运行模式时闪烁</p>
+<h2 id="4-上位机软件（Modbus-Poll）设置"><a href="#4-上位机软件（Modbus-Poll）设置" class="headerlink" title="4. 上位机软件（Modbus Poll）设置"></a>4. 上位机软件（Modbus Poll）设置</h2><ul>
+<li>通讯接口（F3）</li>
+</ul>
+<p><img src="image-20220330003925711.png" alt="image-20220330003925711"></p>
+<ul>
+<li><p>寄存器读取（F8）</p>
+<p>40009</p>
+<p><img src="image-20220402212121666.png" alt="image-20220402212121666"></p>
+<p>多段寄存器读取 File New</p>
+<p>20201</p>
+<p><img src="image-20220402212313037.png" alt="image-20220402212313037"></p>
 </li>
-<li>修改my.properties文件中的端口和服务器IP地址：  <ul>
-<li>修改git.repositoriesFolder = D:/Gitblit_repository（注意其中的D:\Gitblit_repository 中的”&quot;一定要用”/“。）  </li>
-<li>修改server.httpPort = 10101  </li>
-<li>修改server.httpBindInterface = 192.168123.15（我自己的服务器IP地址为192.168.123.15）  </li>
-<li>修改server.httpsBindInterface = localhost  </li>
-<li>最后修改server.certificateAlias = localhost</li>
-</ul>
+<li><p>寄存器写入</p>
+<p><img src="image-20220402212557637.png" alt="image-20220402212557637"></p>
+<p>正转：0x0002</p>
+<p>反转：0x0004</p>
+<p>软件支持按位改变</p>
+<p><img src="image-20220402212806410.png" alt="image-20220402212806410"></p>
 </li>
-<li>运行Gitblit服务。在D:\Program Files\gitblit-xxx目录下运行gitblit.cmd命令。注意看命令行中的提示，检查程序是否运行正常。</li>
-<li>命令行中会有服务器ip和端口号请注意查看。</li>
-</ol>
-<h1 id="管理GitBlit"><a href="#管理GitBlit" class="headerlink" title="管理GitBlit"></a>管理GitBlit</h1><p>在浏览器地址栏中输入命令行中提示的服务器ip和端口号<br>如果成功加载，说明服务器搭建完毕。默认账号密码均为admin</p>
-<h1 id="设置开启自启动"><a href="#设置开启自启动" class="headerlink" title="设置开启自启动"></a>设置开启自启动</h1><p>设置以Windows Service方式启动Gitblit.  </p>
-<ol>
-<li>在Gitblit目录下，找到installService.cmd文件。鼠标右键使用记事本打开。  </li>
-<li>设置 CD 为程序目录 <code>SET CD=D:\Program Files\gitblit-xxx(xxx修改为你自己的目录)</code>  </li>
-<li>保存，关闭文件</li>
-<li>右键installService.cmd文件，选择以管理员的身份运行  </li>
-<li>点击开始菜单输入services.msc 打开Windows服务查找gitblit，如果未启动，请手动启动。注意确保为自动模式，这样每次windows启动后都自动启动此项服务。</li>
-</ol>
-
+<li><p>查看通讯log数据</p>
+<p><img src="image-20220402213119377.png" alt="image-20220402213119377"></p>
+</li>
+</ul>
+<h2 id="5-End"><a href="#5-End" class="headerlink" title="5.End"></a>5.End</h2>
         
         <br />
         <div id="comment-container">
