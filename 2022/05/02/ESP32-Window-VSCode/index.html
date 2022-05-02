@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        ESP32 Windows VSCode IDE - undefined
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -92,6 +92,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ESP32-IDE-Windows-VSCode-Extension"><span class="toc-text">ESP32 IDE Windows VSCode Extension</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode"><span class="toc-text">VSCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode-Extension"><span class="toc-text">VSCode Extension</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-ESP-IDF"><span class="toc-text">Install ESP-IDF</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Creat-Project"><span class="toc-text">Creat Project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#end"><span class="toc-text">end</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -116,91 +120,59 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2021-03-21</div>
-        <div class="post-info">
-            <a href="/2021/03/21/Archlinux下rCore-实验环境配置/">
-                <h3>
-                    Archlinux下rCore 实验环境配置
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#rCore Rust Qemu GDB Archlinux" title="rCore Rust Qemu GDB Archlinux">rCore Rust Qemu GDB Archlinux</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        ESP32 Windows VSCode IDE
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-03-21</div>
-        <div class="post-info">
-            <a href="/2021/03/21/Mosquitto-搭建及配置/">
-                <h3>
-                    Mosquitto 搭建及配置
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#mqtt server" title="mqtt server">mqtt server</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-05-02 15:50:41</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#ESP32 Windows VSCode IDE" title="ESP32 Windows VSCode IDE">ESP32 Windows VSCode IDE</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-11-22</div>
-        <div class="post-info">
-            <a href="/2020/11/22/Gitblit-安装使用/">
-                <h3>
-                    Gitblit 安装使用
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Gitblit Windows git server 局域网" title="Gitblit Windows git server 局域网">Gitblit Windows git server 局域网</a>
-                <span>/</span>
-                
-                
-            </p>
+    <div class="post-content ">
+        <h1 id="ESP32-IDE-Windows-VSCode-Extension"><a href="#ESP32-IDE-Windows-VSCode-Extension" class="headerlink" title="ESP32 IDE Windows VSCode Extension"></a>ESP32 IDE Windows VSCode Extension</h1><p><a target="_blank" rel="noopener" href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html">ESP-IDF Document</a></p>
+<h2 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h2><p><a target="_blank" rel="noopener" href="https://code.visualstudio.com/download">Download</a> and install  Visual Studio Code</p>
+<h2 id="VSCode-Extension"><a href="#VSCode-Extension" class="headerlink" title="VSCode Extension"></a>VSCode Extension</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension">Espressif IDF</a></li>
+<li><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a></li>
+<li><a target="_blank" rel="noopener" href="https://marketplace.visualstudio.com/items?itemName=webfreak.debug">Native Debug</a></li>
+</ol>
+<h2 id="Install-ESP-IDF"><a href="#Install-ESP-IDF" class="headerlink" title="Install ESP-IDF"></a>Install ESP-IDF</h2><p><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd>  ESP-IDF: Configure ESP-IDF extension</p>
+<p>Choose installation method (EXPRESS / ADVANCED / USE EXISTING SETUP)</p>
+<h2 id="Creat-Project"><a href="#Creat-Project" class="headerlink" title="Creat Project"></a>Creat Project</h2><p><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> ESP-IDF: Show Examples Projects</p>
+<p>get-started &gt;hello_world &gt; Create project using example hello_world</p>
+<ol>
+<li>Select Port</li>
+<li>Set Espressif device target</li>
+<li>Build</li>
+<li>Select flash method</li>
+<li>flash device</li>
+<li>Monitor device</li>
+</ol>
+<h2 id="end"><a href="#end" class="headerlink" title="end"></a>end</h2>
+        
+        <br />
+        <div id="comment-container">
         </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-24</div>
-        <div class="post-info">
-            <a href="/2020/05/24/hello-world/">
-                <h3>
-                    Hello World
-                </h3>
-            </a>
-            <p>
-                
-            </p>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
         </div>
+
     </div>
-    
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
 
     </div>
 </div>
@@ -267,7 +239,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 

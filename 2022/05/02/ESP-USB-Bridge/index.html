@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        ESP-USB-Bridge - undefined
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -92,6 +92,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Clone"><span class="toc-text">Clone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VSCode"><span class="toc-text">VSCode</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-Driver"><span class="toc-text">Install Driver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Connect-Target"><span class="toc-text">Connect Target</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End"><span class="toc-text">End</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -116,91 +120,106 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2021-03-21</div>
-        <div class="post-info">
-            <a href="/2021/03/21/Archlinux下rCore-实验环境配置/">
-                <h3>
-                    Archlinux下rCore 实验环境配置
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#rCore Rust Qemu GDB Archlinux" title="rCore Rust Qemu GDB Archlinux">rCore Rust Qemu GDB Archlinux</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        ESP-USB-Bridge
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-03-21</div>
-        <div class="post-info">
-            <a href="/2021/03/21/Mosquitto-搭建及配置/">
-                <h3>
-                    Mosquitto 搭建及配置
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#mqtt server" title="mqtt server">mqtt server</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-05-02 15:55:32</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#ESP32 USB Bridge" title="ESP32 USB Bridge">ESP32 USB Bridge</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-11-22</div>
-        <div class="post-info">
-            <a href="/2020/11/22/Gitblit-安装使用/">
-                <h3>
-                    Gitblit 安装使用
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Gitblit Windows git server 局域网" title="Gitblit Windows git server 局域网">Gitblit Windows git server 局域网</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-24</div>
-        <div class="post-info">
-            <a href="/2020/05/24/hello-world/">
-                <h3>
-                    Hello World
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
-</div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
-    </li>
-    
-    
+    <div class="post-content ">
+        <p><a target="_blank" rel="noopener" href="https://github.com/espressif/esp-usb-bridge">https://github.com/espressif/esp-usb-bridge</a></p>
+<h2 id="Clone"><a href="#Clone" class="headerlink" title="Clone"></a>Clone</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth 1 https://github.com/espressif/esp-usb-bridge.git</span><br></pre></td></tr></table></figure>
+
+<h2 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h2><p><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> ESP-IDF: Open ESP-IDF Terminal</p>
+<ol>
+<li>Config</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">idf.py menuconfig</span><br></pre></td></tr></table></figure>
+
+<p>down: <kbd>J</kbd>   up:<kbd>K</kbd> </p>
+<p>settings are in the “Bridge Configuration” sub-menu, swap  TDO/TDI target pin num.</p>
+<ol start="2">
+<li>Build</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">idf.py build</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>Flash</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">idf.py -p PORT flash monitor</span><br></pre></td></tr></table></figure>
+
+<p>PORT is the serial port created by an USB-to-UART chip</p>
+<p>Tips: set boot load mode</p>
+<p><img src="set-boot-step.png" alt="Step"></p>
+<ol>
+<li>Reboot</li>
+</ol>
+<h2 id="Install-Driver"><a href="#Install-Driver" class="headerlink" title="Install Driver"></a>Install Driver</h2><p>Windows Device manager</p>
+<p><img src="device-manager-0.png" alt="device manager 0"></p>
+<p>install driver</p>
+<p><a target="_blank" rel="noopener" href="https://visualgdb.com/UsbDriverTool/">UsbDriverTool</a></p>
+<p><img src="install-driver.png" alt="install driver.png"></p>
+<p>install success</p>
+<p><img src="device-manager-1.png" alt="device manager 1"></p>
+<h2 id="Connect-Target"><a href="#Connect-Target" class="headerlink" title="Connect Target"></a>Connect Target</h2><ol>
+<li>connect target mcu</li>
+</ol>
+<p><img src="concept.png" alt="concept"></p>
+<ol>
+<li>set target mcu download mode</li>
+</ol>
+<p><img src="target-mcu-download-mode.png" alt="target mcu download mode"></p>
+<ol>
+<li>OpenOCD connect ESP32-WROVER-E</li>
+</ol>
+<p><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> ESP-IDF: Open ESP-IDF Terminal</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd.exe -f interface/esp_usb_bridge.cfg -f target/esp32.cfg</span><br></pre></td></tr></table></figure>
+
+<p><img src="connect-esp32-wrover.png" alt="connect esp32 wrover"></p>
+<ol>
+<li>use jtag flash</li>
+</ol>
+<p><img src="use-jtag-flash.png" alt="use jtag flash"></p>
+<ol>
+<li><p>use serial</p>
+<ul>
+<li><p>Select Port  (COMx)</p>
+</li>
+<li><p>ESP-IDF Monitor device</p>
+</li>
+<li><p>reboot target mcu</p>
+</li>
 </ul>
+</li>
+</ol>
+<p><img src="serial-test.png" alt="serial test"></p>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
 
     </div>
 </div>
@@ -267,7 +286,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
