@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TFT-eSPI-drive-LCD"><span class="toc-text">TFT_eSPI drive LCD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#my-self-test-project-need-offset"><span class="toc-text">my self test project, need offset.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lvgl"><span class="toc-text">lvgl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lvgl-touch"><span class="toc-text">lvgl+touch</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lvgl-demo"><span class="toc-text">lvgl demo</span></a>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TFT-eSPI-drive-LCD"><span class="toc-text">TFT_eSPI drive LCD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#my-self-test-project-need-offset"><span class="toc-text">my self test project, need offset.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lvgl"><span class="toc-text">lvgl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lvgl-touch"><span class="toc-text">lvgl+touch</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lvgl-demo"><span class="toc-text">lvgl demo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%8C%85%E6%9D%BF%E6%B5%8B%E8%AF%95"><span class="toc-text">面包板测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E8%AE%BE%E8%AE%A1%E7%9A%84PCB%E6%9D%BF"><span class="toc-text">使用自己设计的PCB板</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#ESP32 LVGL TOUCH TFT" title="ESP32 LVGL TOUCH TFT">ESP32 LVGL TOUCH TFT</a>
+        <a class="tag" href="/tags/#ESP32 LVGL TOUCH TFT ST7789 CST816S" title="ESP32 LVGL TOUCH TFT ST7789 CST816S">ESP32 LVGL TOUCH TFT ST7789 CST816S</a>
         <span>/</span>
         
         
@@ -142,7 +142,8 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><img src="run_demo.png" alt="run_demo"></p>
+        <p>在ESP32开发板上使用LVGL框架开发LCD显示屏界面</p>
+<p><img src="run_demo.png" alt="run_demo"></p>
 <h2 id="TFT-eSPI-drive-LCD"><a href="#TFT-eSPI-drive-LCD" class="headerlink" title="TFT_eSPI drive LCD"></a>TFT_eSPI drive LCD</h2><p><a target="_blank" rel="noopener" href="https://github.com/Bodmer/TFT_eSPI/discussions/2555">https://github.com/Bodmer/TFT_eSPI/discussions/2555</a></p>
 <p>I have it working now. This wiki page was useful: <a target="_blank" rel="noopener" href="https://github.com/Bodmer/TFT_eSPI/wiki/Installing-on-PlatformIO">https://github.com/Bodmer/TFT_eSPI/wiki/Installing-on-PlatformIO</a></p>
 <p>That said, there are some missing parts that due to the state of the library will show up as a non-functioning screen. For my use case (an ILI9488 device), I needed to provide additional values. I believe some of these are necessary for all projects.</p>
@@ -174,6 +175,244 @@
 <li>包含头文件，例如在main.c文件中 <code>#include &quot;demos/lv_demos.h&quot;</code></li>
 <li>初始化等参考官方例程，setup中调用demo中的函数即可。 <code>lv_demo_widgets();</code></li>
 </ul>
+<h2 id="面包板测试"><a href="#面包板测试" class="headerlink" title="面包板测试"></a>面包板测试</h2><p>注意核对FPC座的线序(1脚的位置)</p>
+<table>
+<thead>
+<tr>
+<th>ESP32</th>
+<th>FPC</th>
+<th>Function</th>
+<th>Other</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GND</td>
+<td>1</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>2</td>
+<td>LED_K</td>
+<td>可通过PWM调整亮度</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>3</td>
+<td>VDD</td>
+<td>供电</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>4</td>
+<td>VDD</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>5</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>6</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+<td>D/C</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>8</td>
+<td>CS</td>
+<td>默认拉低一直有效</td>
+</tr>
+<tr>
+<td>18</td>
+<td>9</td>
+<td>SCL</td>
+<td>SPI_SCL</td>
+</tr>
+<tr>
+<td>23</td>
+<td>10</td>
+<td>SDA</td>
+<td>SPI_MOSI</td>
+</tr>
+<tr>
+<td>32</td>
+<td>11</td>
+<td>REST</td>
+<td>LCD_RST</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>12</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>13</td>
+<td>TP_SCL</td>
+<td>I2C0_SCL</td>
+</tr>
+<tr>
+<td>15</td>
+<td>14</td>
+<td>TP_SDA</td>
+<td>I2C0_SDA</td>
+</tr>
+<tr>
+<td>5</td>
+<td>15</td>
+<td>TP_RST</td>
+<td>Touch_RST</td>
+</tr>
+<tr>
+<td>34</td>
+<td>16</td>
+<td>TP_INT</td>
+<td>Touch_INT</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>17</td>
+<td>VDD</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>18</td>
+<td>GND</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="使用自己设计的PCB板"><a href="#使用自己设计的PCB板" class="headerlink" title="使用自己设计的PCB板"></a>使用自己设计的PCB板</h2><p>Controler_ESP32_V0.1（PFC座方向反了）</p>
+<table>
+<thead>
+<tr>
+<th>ESP32</th>
+<th>FPC</th>
+<th>Function</th>
+<th>Other</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GND</td>
+<td>1</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>2</td>
+<td>LED_K</td>
+<td>可通过PWM调整亮度</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>3</td>
+<td>VDD</td>
+<td>供电</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>4</td>
+<td>VDD</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>5</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>6</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+<td>D/C</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>8</td>
+<td>CS</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>9</td>
+<td>SCL</td>
+<td>SPI_SCL</td>
+</tr>
+<tr>
+<td>23</td>
+<td>10</td>
+<td>SDA</td>
+<td>SPI_MOSI</td>
+</tr>
+<tr>
+<td>PCA9535 IO10</td>
+<td>11</td>
+<td>REST</td>
+<td>IO扩展芯片 I2C0控制</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>12</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>13</td>
+<td>TP_SCL</td>
+<td>I2C0_SCL</td>
+</tr>
+<tr>
+<td>15</td>
+<td>14</td>
+<td>TP_SDA</td>
+<td>I2C0_SDA</td>
+</tr>
+<tr>
+<td>PCA9535 IO11</td>
+<td>15</td>
+<td>TP_RST</td>
+<td>IO扩展芯片 I2C0控制</td>
+</tr>
+<tr>
+<td>34</td>
+<td>16</td>
+<td>TP_INT</td>
+<td>Touch_INT</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>17</td>
+<td>VDD</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>18</td>
+<td>GND</td>
+<td></td>
+</tr>
+</tbody></table>
 
         
         <br />
@@ -195,7 +434,7 @@
     <ul class="list-inline text-center">
         
         <li>
-            <a target="_blank" href="https://twitter.com/abcyixyz">
+            <a target="_blank" href="https://twitter.com/yyii_site">
                             <span class="fa-stack fa-lg">
                                 <i class="iconfont icon-twitter"></i>
                             </span>
@@ -210,7 +449,7 @@
 
         
         <li>
-            <a target="_blank"  href="https://github.com/abcyixyz">
+            <a target="_blank"  href="https://github.com/yyii-site">
                             <span class="fa-stack fa-lg">
                                 <i class="iconfont icon-github"></i>
                             </span>
@@ -228,7 +467,7 @@
         <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
         <span>/</span>
         
-        <span><a href="mailto:abcyixyz@gmail.com">mail</a></span>
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
         <span>/</span>
         
     </p>
