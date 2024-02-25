@@ -165,36 +165,36 @@
 
 <p>PORT is the serial port created by an USB-to-UART chip</p>
 <p>Tips: set boot load mode</p>
-<p><img src="/set-boot-step.png" alt="Step"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/set-boot-step.png" alt="Step"></p>
 <ol>
 <li>Reboot</li>
 </ol>
 <h2 id="Install-Driver"><a href="#Install-Driver" class="headerlink" title="Install Driver"></a>Install Driver</h2><p>Windows Device manager</p>
-<p><img src="/device-manager-0.png" alt="device manager 0"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/device-manager-0.png" alt="device manager 0"></p>
 <p>install driver</p>
 <p><a target="_blank" rel="noopener" href="https://visualgdb.com/UsbDriverTool/">UsbDriverTool</a></p>
-<p><img src="/install-driver.png" alt="install driver.png"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/install-driver.png" alt="install driver.png"></p>
 <p>install success</p>
-<p><img src="/device-manager-1.png" alt="device manager 1"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/device-manager-1.png" alt="device manager 1"></p>
 <h2 id="Connect-Target"><a href="#Connect-Target" class="headerlink" title="Connect Target"></a>Connect Target</h2><ol>
 <li>connect target mcu</li>
 </ol>
-<p><img src="/concept.png" alt="concept"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/concept.png" alt="concept"></p>
 <ol>
 <li>set target mcu download mode</li>
 </ol>
-<p><img src="/target-mcu-download-mode.png" alt="target mcu download mode"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/target-mcu-download-mode.png" alt="target mcu download mode"></p>
 <ol>
 <li>OpenOCD connect ESP32-WROVER-E</li>
 </ol>
 <p><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> ESP-IDF: Open ESP-IDF Terminal</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openocd.exe -f interface/esp_usb_bridge.cfg -f target/esp32.cfg</span><br></pre></td></tr></table></figure>
 
-<p><img src="/connect-esp32-wrover.png" alt="connect esp32 wrover"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/connect-esp32-wrover.png" alt="connect esp32 wrover"></p>
 <ol>
 <li>use jtag flash</li>
 </ol>
-<p><img src="/use-jtag-flash.png" alt="use jtag flash"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/use-jtag-flash.png" alt="use jtag flash"></p>
 <ol>
 <li><p>use serial</p>
 <ul>
@@ -207,7 +207,7 @@
 </ul>
 </li>
 </ol>
-<p><img src="/serial-test.png" alt="serial test"></p>
+<p><img src="/2022/05/02/ESP-USB-Bridge/serial-test.png" alt="serial test"></p>
 <h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
         
         <br />

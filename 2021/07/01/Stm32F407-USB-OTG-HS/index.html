@@ -147,7 +147,7 @@
 <ol>
 <li>New &gt;&gt; RT-Thread Protect</li>
 </ol>
-<p><img src="/image-20210630223400016.png" alt="image-20210630223400016"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630223400016.png" alt="image-20210630223400016"></p>
 <h2 id="CubeMX-Settings"><a href="#CubeMX-Settings" class="headerlink" title="CubeMX Settings"></a>CubeMX Settings</h2><hr>
 <ol>
 <li>System Core &gt;&gt; RCC &gt;&gt; HSE &gt;&gt; Crystal(外部晶振)  </li>
@@ -155,22 +155,22 @@
 <li>Connectivity &gt;&gt; USART1 &gt;&gt; Asynchronous(用于finsh命令行)  </li>
 <li>Connectivity &gt;&gt; USB_OTG_HS &gt;&gt; Host_Only(开发板无供电控制故未勾选VBUS)</li>
 </ol>
-<p><img src="/image-20210630223923547.png" alt="image-20210630223923547"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630223923547.png" alt="image-20210630223923547"></p>
 <ol>
 <li>Enable HS global interrupt</li>
 </ol>
-<p><img src="/image-20210630223948843.png" alt="image-20210630223948843"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630223948843.png" alt="image-20210630223948843"></p>
 <ol start="6">
 <li><p>Clock Configuration(配置时钟)</p>
 <p>HCLK &gt;&gt; 168  &gt;&gt; Enter</p>
 </li>
 </ol>
-<p><img src="/image-20210630224636418.png" alt="image-20210630224636418"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224636418.png" alt="image-20210630224636418"></p>
 <ol start="7">
 <li>GENERATE COED (default seting)</li>
 </ol>
-<p><img src="/image-20210630224256382.png" alt="image-20210630224256382"></p>
-<p><img src="/image-20210630224307585.png" alt="image-20210630224307585"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224256382.png" alt="image-20210630224256382"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224307585.png" alt="image-20210630224307585"></p>
 <h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><hr>
 <ol>
 <li><em>applications&#x2F;main.c</em></li>
@@ -190,7 +190,7 @@
 <ol start="4">
 <li>new source file</li>
 </ol>
-<p><img src="/image-20210630224927209.png" alt="image-20210630224927209"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224927209.png" alt="image-20210630224927209"></p>
 <ol start="5">
 <li><code>applications/filesystem.c</code></li>
 </ol>
@@ -214,27 +214,27 @@
 <li>Exclude from Build</li>
 </ol>
 <p><del>cubemx&#x2F;Src&#x2F;main.c</del><br><del>cubemx&#x2F;Src&#x2F;stm32f4xx_it.c</del>  </p>
-<p><img src="/image-20210630224537429.png" alt="image-20210630224537429"></p>
-<p><img src="/image-20210630225754496.png" alt="image-20210630225754496"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224537429.png" alt="image-20210630224537429"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225754496.png" alt="image-20210630225754496"></p>
 <ol start="2">
 <li>Components &gt;&gt; Device Drivers &gt;&gt; Using USB &gt;&gt; Using USB host &gt;&gt; Enable Udisk Drivers &gt;&gt; Udisk mount dir &gt;&gt; &#x2F;udisk</li>
 </ol>
-<p><img src="/image-20210630225432224.png" alt="image-20210630225432224"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225432224.png" alt="image-20210630225432224"></p>
 <ol start="3">
 <li>Components &gt;&gt; Device virtual file system &gt;&gt; Using device virtual file system &gt;&gt; Enable elm-chan fatfs  &#x2F;  Enable ReadOnlay file system on flash</li>
 </ol>
-<p><img src="/image-20210630225517213.png" alt="image-20210630225517213"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225517213.png" alt="image-20210630225517213"></p>
 <h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><hr>
 <ol>
 <li>Build and Flash download</li>
 <li>Terminal</li>
 </ol>
 <p><kbd>Ctrl</kbd>+<kbd>Atl</kbd>+<kbd>Shift</kbd> +<kbd>T</kbd></p>
-<p><img src="/image-20210630225624874.png" alt="image-20210630225624874"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225624874.png" alt="image-20210630225624874"></p>
 <ol start="3">
 <li>Insert the u-disk(插入U盘)</li>
 </ol>
-<p><img src="/image-20210630225644852.png" alt="image-20210630225644852"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225644852.png" alt="image-20210630225644852"></p>
 <h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
         
         <br />
