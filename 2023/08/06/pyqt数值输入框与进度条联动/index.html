@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
 
@@ -143,11 +143,11 @@
     </div>
     <div class="post-content ">
         <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ol>
-<li><p>QSpinBox/QDoubleSpinBox（数值输入框）：</p>
+<li><p>QSpinBox&#x2F;QDoubleSpinBox（数值输入框）：</p>
 <p>使用<code>valuechange</code>信号，在修改数值的过程中会发送信号，如输入123，则会触发1、12、123三条信号。若是删除原有数据，产生的信号会更多。<code>editingFinished</code>在输入完成后鼠标离开控件（失去焦点）或按下回车才会触发信号。</p>
 </li>
 <li><p>QSlider （进度条）：</p>
-<p>使用<code>valuechange</code>信号，在滑块拖动过程中，信号将会被频繁发送。 如果是上位机通过串口向下位机发送指令，一般下位机（简单MCU做主控）无法响应高频率的指令。    <code>released</code>信号只有在释放滑块时才会发送，但点击slider部件造成的滑块移动，并不会发送released信号，就造成当前滑块位置与实际参数不一致的BUG。</p>
+<p>使用<code>valuechange</code>信号，在滑块拖动过程中，信号将会被频繁发送。 如果是上位机通过串口向下位机发送指令，一般下位机（简单MCU做主控）无法响应高频率的指令。	<code>released</code>信号只有在释放滑块时才会发送，但点击slider部件造成的滑块移动，并不会发送released信号，就造成当前滑块位置与实际参数不一致的BUG。</p>
 </li>
 </ol>
 <h2 id="控件联动和信号的产生"><a href="#控件联动和信号的产生" class="headerlink" title="控件联动和信号的产生"></a>控件联动和信号的产生</h2><ol>

@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
 
@@ -155,15 +155,15 @@
 <li>配置gitblit.properties 文件。  <ul>
 <li>在D:\Program Files\gitblit-xxx\data目录中将defaults.properties文件复制一份，改名为my.properties  </li>
 <li>修改gitblit.properties文件，然后将 <code>include = defaults.properties</code> 注释掉  </li>
-<li>添加一代码<code>include = my.properties</code>表示使用my.properties这个配置。  </li>
+<li>添加一代码<code>include = my.properties</code>表示使用my.properties这个配置。</li>
 </ul>
 </li>
 <li>修改my.properties文件中的端口和服务器IP地址：  <ul>
-<li>修改git.repositoriesFolder = D:/Gitblit_repository（注意其中的D:\Gitblit_repository 中的”&quot;一定要用”/“。）  </li>
-<li>修改server.httpPort = 10101  </li>
-<li>修改server.httpBindInterface = 192.168123.15（我自己的服务器IP地址为192.168.123.15）  </li>
-<li>修改server.httpsBindInterface = localhost  </li>
-<li>最后修改server.certificateAlias = localhost</li>
+<li>修改git.repositoriesFolder &#x3D; D:&#x2F;Gitblit_repository（注意其中的D:\Gitblit_repository 中的”&quot;一定要用”&#x2F;“。）  </li>
+<li>修改server.httpPort &#x3D; 10101  </li>
+<li>修改server.httpBindInterface &#x3D; 192.168123.15（我自己的服务器IP地址为192.168.123.15）  </li>
+<li>修改server.httpsBindInterface &#x3D; localhost  </li>
+<li>最后修改server.certificateAlias &#x3D; localhost</li>
 </ul>
 </li>
 <li>运行Gitblit服务。在D:\Program Files\gitblit-xxx目录下运行gitblit.cmd命令。注意看命令行中的提示，检查程序是否运行正常。</li>

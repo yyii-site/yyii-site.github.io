@@ -26,7 +26,7 @@
     <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
     <!-- ga & ba script hoook -->
     <script></script>
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.4.2"></head>
 
 <body>
 
@@ -143,7 +143,7 @@
     </div>
     <div class="post-content ">
         <p>在ESP32开发板上使用LVGL框架开发LCD显示屏界面</p>
-<p><img src="run_demo.png" alt="run_demo"></p>
+<p><img src="/run_demo.png" alt="run_demo"></p>
 <h2 id="TFT-eSPI-drive-LCD"><a href="#TFT-eSPI-drive-LCD" class="headerlink" title="TFT_eSPI drive LCD"></a>TFT_eSPI drive LCD</h2><p><a target="_blank" rel="noopener" href="https://github.com/Bodmer/TFT_eSPI/discussions/2555">https://github.com/Bodmer/TFT_eSPI/discussions/2555</a></p>
 <p>I have it working now. This wiki page was useful: <a target="_blank" rel="noopener" href="https://github.com/Bodmer/TFT_eSPI/wiki/Installing-on-PlatformIO">https://github.com/Bodmer/TFT_eSPI/wiki/Installing-on-PlatformIO</a></p>
 <p>That said, there are some missing parts that due to the state of the library will show up as a non-functioning screen. For my use case (an ILI9488 device), I needed to provide additional values. I believe some of these are necessary for all projects.</p>
@@ -155,7 +155,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Arduino.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;TFT_eSPI.h&gt;</span> <span class="comment">// Hardware-specific library</span></span></span><br><span class="line">TFT_eSPI tft = <span class="built_in">TFT_eSPI</span>(); <span class="comment">// Invoke custom library</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Serial.<span class="built_in">begin</span>(<span class="number">115200</span>); <span class="comment">// For debug</span></span><br><span class="line">tft.<span class="built_in">init</span>();</span><br><span class="line"></span><br><span class="line">tft.<span class="built_in">setRotation</span>(<span class="number">1</span>);</span><br><span class="line">tft.<span class="built_in">fillScreen</span>(TFT_GREEN);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// put your main code here, to run repeatedly:</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>Note that I had to include USER_SETUP_LOADED as well as SMOOTH_FONT.</p>
-<p>There are some minor errors in the wiki article. It projects like we need to have an =1 but I found it works just like the include system and is not necessary.</p>
+<p>There are some minor errors in the wiki article. It projects like we need to have an &#x3D;1 but I found it works just like the include system and is not necessary.</p>
 <h3 id="my-self-test-project-need-offset"><a href="#my-self-test-project-need-offset" class="headerlink" title="my self test project, need offset."></a>my self test project, need offset.</h3><p>platformio.ini:</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[env:wesp32]</span><br><span class="line">platform = espressif32</span><br><span class="line">board = wesp32</span><br><span class="line">framework = arduino</span><br><span class="line">monitor_speed = <span class="number">115200</span></span><br><span class="line">upload_speed = <span class="number">230400</span></span><br><span class="line">board_build.partitions = default_16MB.csv</span><br><span class="line">board_upload.flash_size = <span class="number">16</span>MB</span><br><span class="line">lib_deps = </span><br><span class="line">	bodmer/TFT_eSPI@^<span class="number">2.5</span><span class="number">.30</span></span><br><span class="line">    lvgl/lvgl@^<span class="number">8.3</span><span class="number">.7</span></span><br><span class="line">build_flags = </span><br><span class="line">	-D USER_SETUP_LOADED</span><br><span class="line">	-D ST7789_DRIVER</span><br><span class="line">	-D CGRAM_OFFSET</span><br><span class="line">	-D TFT_MOSI=<span class="number">23</span></span><br><span class="line">	-D TFT_SCLK=<span class="number">18</span></span><br><span class="line">	-D TFT_DC=<span class="number">2</span></span><br><span class="line">	-D TFT_RST=<span class="number">4</span></span><br><span class="line">	-D LOAD_GLCD=<span class="number">1</span></span><br><span class="line">	-D SMOOTH_FONT</span><br><span class="line">	-D SPI_FREQUENCY=<span class="number">55000000</span></span><br></pre></td></tr></table></figure>
 
@@ -171,7 +171,7 @@
 <h1 id="lvgl-demo"><a href="#lvgl-demo" class="headerlink" title="lvgl demo"></a>lvgl demo</h1><p>使用官方demos流程：</p>
 <ul>
 <li>lv_conf.h 中 <code>#define LV_USE_DEMO_WIDGETS 1</code></li>
-<li>将lvgl库中的demos移动到src文件夹。不然会出现<code>undefined reference to &#39;lv_demo_benchmark&#39;</code>（例如lv_demo_benchmark） 这是由于lv_demo_benchmark.c未被编译导致的 把demos文件夹移动到lvgl的src目录下就行了，这样就会参与到编译中了</li>
+<li>将lvgl库中的demos移动到src文件夹。不然会出现<code>undefined reference to &#39;lv_demo_benchmark&#39; </code>（例如lv_demo_benchmark） 这是由于lv_demo_benchmark.c未被编译导致的 把demos文件夹移动到lvgl的src目录下就行了，这样就会参与到编译中了</li>
 <li>包含头文件，例如在main.c文件中 <code>#include &quot;demos/lv_demos.h&quot;</code></li>
 <li>初始化等参考官方例程，setup中调用demo中的函数即可。 <code>lv_demo_widgets();</code></li>
 </ul>
@@ -224,7 +224,7 @@
 <tr>
 <td>2</td>
 <td>7</td>
-<td>D/C</td>
+<td>D&#x2F;C</td>
 <td></td>
 </tr>
 <tr>
@@ -343,7 +343,7 @@
 <tr>
 <td>2</td>
 <td>7</td>
-<td>D/C</td>
+<td>D&#x2F;C</td>
 <td></td>
 </tr>
 <tr>
