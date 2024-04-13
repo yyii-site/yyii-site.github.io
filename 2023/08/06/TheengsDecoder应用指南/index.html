@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        TheengsDecoder应用指南 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="toc-text">项目搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="toc-text">测试脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E8%A7%A3%E7%A0%81%E8%A7%84%E5%88%99"><span class="toc-text">新增解码规则</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        TheengsDecoder应用指南
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2023-08-06 22:35:24</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#IOT Theengs Decoder Python" title="IOT Theengs Decoder Python">IOT Theengs Decoder Python</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h2><ol>
+<li>clone工程</li>
+<li>将下载arduino_json项目并复制到src\arduino_json文件夹中</li>
+<li>如果是python使用，查看<a target="_blank" rel="noopener" href="https://decoder.theengs.io/use/python.html#dependencies">https://decoder.theengs.io/use/python.html#dependencies</a> (windows 下不用apt-get install cmake指令，在pip install . 指令脚本会自动安装依赖)</li>
+<li>在src\device\中增加新的硬件解码规则，device.h中增加头文件，并加入列表</li>
+<li>decoder.h中将新硬件加入列表（BLE_ID_MAX的前面）</li>
+<li>注意每次修改完解码规则文件，必须重新编译(例如python下使用pip install .)生效后方可测试</li>
+</ol>
+<h2 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> TheengsDecoder <span class="keyword">import</span> decodeBLE <span class="keyword">as</span> dble</span><br><span class="line"></span><br><span class="line">data_json = &#123;<span class="string">&quot;manufacturerdata&quot;</span>: <span class="string">&quot;1E5F0041004B00E107070C080A194000000400&quot;</span>, <span class="string">&quot;name&quot;</span>: <span class="string">&quot;YE600X&quot;</span>&#125;</span><br><span class="line"><span class="comment"># data_json = &#123;&quot;manufacturerdata&quot;: &quot;af097C1801f99c4408&quot;, &quot;name&quot;: &quot;sps&quot;&#125;</span></span><br><span class="line">data = dble(json.dumps(data_json))</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="新增解码规则"><a href="#新增解码规则" class="headerlink" title="新增解码规则"></a>新增解码规则</h2><p>YE600X_json.h</p>
+<p>被<code>/*R&quot;&quot;&quot;&quot;(</code>注释的代码要符合json格式</p>
+<p>删除空格回车，将<code>&quot;</code>前增加转义符<code>\</code></p>
+<p>索引编号从0开始，每个字符占一个；因为每个字符都是分开计算的，故位编号范围0-3</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">const char* _YE600X_json = &quot;&#123;\&quot;brand\&quot;:\&quot;YUWELL\&quot;,</span><br><span class="line">/*R&quot;&quot;&quot;&quot;(            //血压</span><br><span class="line">&#123;</span><br><span class="line">   &quot;brand&quot;:&quot;YUWELL&quot;,                   //品牌：鱼跃</span><br><span class="line">   &quot;model&quot;:&quot;BloodPressureMeters&quot;,      //型号：血压仪</span><br><span class="line">   &quot;model_id&quot;:&quot;YE600X&quot;,                //型号ID：YE600X</span><br><span class="line">   &quot;cidc&quot;:false,                       //起始字节不符合Bluetooth标准</span><br><span class="line">   &quot;condition&quot;:[&quot;manufacturerdata&quot;, &quot;=&quot;, 38, &quot;&amp;&quot;, &quot;name&quot;, &quot;index&quot;, 0, &quot;YE600X&quot;],  //条件：name = YE600X</span><br><span class="line">   &quot;properties&quot;:&#123;</span><br><span class="line">      &quot;pressure_unit&quot;:&#123;</span><br><span class="line">         &quot;decoder&quot;:[&quot;bit_static_value&quot;, &quot;manufacturerdata&quot;, 1, 0, &quot;mmHg&quot;, &quot;kPa&quot;]  //血压单位： 第0字节 第0位  true：mmHg false：kpa</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;systolic_pressure&quot;:&#123;</span><br><span class="line">         &quot;decoder&quot;:[&quot;value_from_hex_data&quot;, &quot;manufacturerdata&quot;, 2, 4, true]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const char* _YE600X_json_props = &quot;&#123;\&quot;properties\&quot;:</span><br><span class="line">/*R&quot;&quot;&quot;&quot;(</span><br><span class="line">&#123;</span><br><span class="line">   &quot;properties&quot;:&#123;</span><br><span class="line">      &quot;pressure_unit&quot;:&#123;</span><br><span class="line">         &quot;unit&quot;:&quot;string&quot;,</span><br><span class="line">         &quot;name&quot;:&quot;contact&quot;</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;systolic_pressure&quot;:&#123;</span><br><span class="line">         &quot;unit&quot;:&quot;string&quot;,</span><br><span class="line">         &quot;name&quot;:&quot;contact&quot;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

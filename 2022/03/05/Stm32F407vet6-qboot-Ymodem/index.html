@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Stm32F407vet6_qboot_Ymodem - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#qboot-project"><span class="toc-text">qboot project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#app-project"><span class="toc-text">app project</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Stm32F407vet6_qboot_Ymodem
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-03-05 22:22:41</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#stm32f407vet6 qboot Ymodem PuTTY" title="stm32f407vet6 qboot Ymodem PuTTY">stm32f407vet6 qboot Ymodem PuTTY</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="qboot-project"><a href="#qboot-project" class="headerlink" title="qboot project"></a>qboot project</h2><hr>
+<ol>
+<li><p>enable onchip and w25qxx flash</p>
+</li>
+<li><p>add qboot package</p>
+</li>
+</ol>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305212321866.png" alt="image-20220305212321866"></p>
+<ol start="3">
+<li>build download</li>
+</ol>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305212353411.png" alt="image-20220305212353411"></p>
+<h2 id="app-project"><a href="#app-project" class="headerlink" title="app project"></a>app project</h2><hr>
+<ol>
+<li><p>enable onchip and w25qxx flash</p>
+</li>
+<li><p>add ota_downloader</p>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305213051752.png" alt="image-20220305213051752"></p>
+</li>
+<li><p>edit link.lds</p>
+<p>0x20000 &#x3D; 128k          384 &#x3D; 512-128</p>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305213650986.png" alt="image-20220305213650986"></p>
+</li>
+<li><p>build and download</p>
+<p>qboot jump app</p>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305214540437.png" alt="image-20220305214540437"></p>
+</li>
+<li><p>change main.c</p>
+</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;rtthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;board.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_TAG <span class="string">&quot;main&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_LVL DBG_LOG</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;rtdbg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (count++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//LOG_D(&quot;Hello RT-Thread!&quot;);</span></span><br><span class="line">        rt_thread_mdelay(<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> RT_EOK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> RT_APP_PART_ADDR    0x08020000</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> NVIC_VTOR_MASK      0xFFFFFF80</span></span><br><span class="line"><span class="type">static</span> <span class="type">int</span> <span class="title function_">app_vtor__reconfig</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    SCB-&gt;VTOR = RT_APP_PART_ADDR &amp; NVIC_VTOR_MASK;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">INIT_BOARD_EXPORT(app_vtor__reconfig);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li><p>build download</p>
+<p>qboot jump app success</p>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305215300979.png" alt="image-20220305215300979"></p>
+</li>
+<li><p><strong>\packages\ota_downloader-latest\tools\ota_packager\rt_ota_packaging_tool.exe</strong></p>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305215722299.png" alt="image-20220305215722299"></p>
+</li>
+<li><p>ExtraPuTTY (PuTTY Session Manager)</p>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305220535007.png" alt="image-20220305220535007"></p>
+</li>
+<li><p>Ymodem Send</p>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305220451993.png" alt="image-20220305220451993"></p>
+</li>
+<li><p>System restart</p>
+<p>Qboot erase partition app</p>
+<p>Release firmware from download to app</p>
+<p>Jump to applicaton </p>
+<p><img src="/2022/03/05/Stm32F407vet6-qboot-Ymodem/image-20220305220906216.png" alt="image-20220305220906216"></p>
+</li>
+</ol>
+<p>End</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

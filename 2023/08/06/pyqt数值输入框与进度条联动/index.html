@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        pyqt数值输入框与进度条联动 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E4%BB%B6%E8%81%94%E5%8A%A8%E5%92%8C%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="toc-text">控件联动和信号的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%BB%91%E5%9D%97%E5%8D%95%E6%9C%BA%E6%97%A0%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">解决滑块单机无信号的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F"><span class="toc-text">结束</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        pyqt数值输入框与进度条联动
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2023-08-06 22:46:24</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#pyqt Qt Python QSlider QSpinBox QDoubleSpinBox" title="pyqt Qt Python QSlider QSpinBox QDoubleSpinBox">pyqt Qt Python QSlider QSpinBox QDoubleSpinBox</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ol>
+<li><p>QSpinBox&#x2F;QDoubleSpinBox（数值输入框）：</p>
+<p>使用<code>valuechange</code>信号，在修改数值的过程中会发送信号，如输入123，则会触发1、12、123三条信号。若是删除原有数据，产生的信号会更多。<code>editingFinished</code>在输入完成后鼠标离开控件（失去焦点）或按下回车才会触发信号。</p>
+</li>
+<li><p>QSlider （进度条）：</p>
+<p>使用<code>valuechange</code>信号，在滑块拖动过程中，信号将会被频繁发送。 如果是上位机通过串口向下位机发送指令，一般下位机（简单MCU做主控）无法响应高频率的指令。	<code>released</code>信号只有在释放滑块时才会发送，但点击slider部件造成的滑块移动，并不会发送released信号，就造成当前滑块位置与实际参数不一致的BUG。</p>
+</li>
+</ol>
+<h2 id="控件联动和信号的产生"><a href="#控件联动和信号的产生" class="headerlink" title="控件联动和信号的产生"></a>控件联动和信号的产生</h2><ol>
+<li>创建控件</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 整数</span></span><br><span class="line">self.d_slider = QtWidgets.QSlider(self.xxx)</span><br><span class="line">self.d_spin_box = QtWidgets.QSpinBox(self.xxx)</span><br><span class="line"><span class="comment"># 小数</span></span><br><span class="line">self.f_slider = QtWidgets.QSlider(self.xxx)</span><br><span class="line">self.f_slider = QtWidgets.QDoubleSpinBox(self.xxx)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>double数值输入和整数进度条控件相互转换需特殊处理（此处固定为1个小数点）</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">xx_sTb</span></span><br><span class="line">	self.f_spin_box.setValue(self.f_slider.value() / <span class="number">10</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">xx_bTs</span></span><br><span class="line">	self.f_slider.setValue(self.f_spin_box.value() * <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="3">
+<li>实现输入框和进度条联动（信号和槽）</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 整数直接相互设置</span></span><br><span class="line">self.d_slider.valueChanged.connect(self.d_spin_box.setValue)</span><br><span class="line">self.d_spin_box.valueChanged.connect(self.d_slider.setValue)</span><br><span class="line"></span><br><span class="line"><span class="comment">#小数需通过函数转换</span></span><br><span class="line">self.f_slider.valueChanged.connect(self.xx_sTb)</span><br><span class="line">self.f_spin_box.valueChanged.connect(self.xx_bTs)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="4">
+<li>槽函数</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 槽函数</span></span><br><span class="line">self.event_list = [</span><br><span class="line">	<span class="keyword">lambda</span>: self._send_message(<span class="number">0</span>), <span class="keyword">lambda</span>: self._send_message(<span class="number">1</span>)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 具体操作内容</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">_send_message</span>(<span class="params">self, <span class="built_in">id</span>: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">id</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;send0&quot;</span>)</span><br><span class="line">        buf = self.d_spin_box.value()  <span class="comment"># 数值输入框的值 进度条仅为整数需放大和缩小</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">id</span> == <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;send1&quot;</span>)</span><br><span class="line">        buf = self.f_spin_box.value()</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="5">
+<li>实现信号发出（信号和槽）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># </span><br><span class="line">self.d_slider.sliderReleased.connect(self.event_list[0])</span><br><span class="line">self.d_spin_box.editingFinished.connect(self.event_list[0])</span><br><span class="line"></span><br><span class="line">self.f_slider.sliderReleased.connect(self.event_list[1])</span><br><span class="line">self.f_spin_box.editingFinished.connect(self.event_list[1])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="6">
+<li>以上实现了控件联动和信号的产生发送，但是开头提到的<strong>滑块位置与实际参数不一致的BUG</strong>没有解决</li>
+</ol>
+<h2 id="解决滑块单机无信号的问题"><a href="#解决滑块单机无信号的问题" class="headerlink" title="解决滑块单机无信号的问题"></a>解决滑块单机无信号的问题</h2><ol>
+<li>安装事件过滤器</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为滑块安装过滤器</span></span><br><span class="line">self.d_slider.installEventFilter(self)</span><br><span class="line">self.f_slider.installEventFilter(self)</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>重写事件过滤方法。将滑块的左键单击，修改为滑块释放信号</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">eventFilter</span>(<span class="params">self, a0: <span class="string">&#x27;QObject&#x27;</span>, a1: <span class="string">&#x27;QEvent&#x27;</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">    name = a0.objectName()</span><br><span class="line">    <span class="comment"># 判断控件名称 防止与其他安装了过滤器的控件相互影响</span></span><br><span class="line">    <span class="keyword">if</span> name.endswith(<span class="string">&quot;_slider&quot;</span>) <span class="keyword">or</span> name.endswith(<span class="string">&quot;_dslider&quot;</span>):</span><br><span class="line">        <span class="keyword">if</span> a1.<span class="built_in">type</span>() == a1.MouseButtonRelease <span class="keyword">and</span> a1.button() == <span class="number">1</span>: <span class="comment"># 判断左键</span></span><br><span class="line">            <span class="number">0.</span>setSliderDown(<span class="literal">True</span>)  <span class="comment">#模拟滑块的点击</span></span><br><span class="line">            a0.setSliderDown(<span class="literal">False</span>) <span class="comment">#模拟滑块的点击</span></span><br><span class="line">            <span class="comment"># 必需先按下后释放，才能触发sliderReleased信号</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

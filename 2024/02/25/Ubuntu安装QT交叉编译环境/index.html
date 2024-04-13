@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Ubuntu安装QT交叉编译环境 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu-%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-text">Ubuntu 安装QT交叉编译环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ARM64%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">安装ARM64编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85qt%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">安装qt开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85qt%E5%B7%A5%E5%85%B7"><span class="toc-text">安装qt工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEQt%EF%BC%8C%E6%B7%BB%E5%8A%A0%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-text">配置Qt，添加交叉编译环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B-%E7%BC%96%E8%AF%91"><span class="toc-text">新建工程&amp;编译</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Ubuntu安装QT交叉编译环境
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-02-25 21:24:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Ubuntu x86 ARM64 Qt 交叉编译" title="Ubuntu x86 ARM64 Qt 交叉编译">Ubuntu x86 ARM64 Qt 交叉编译</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Ubuntu-安装QT交叉编译环境"><a href="#Ubuntu-安装QT交叉编译环境" class="headerlink" title="Ubuntu 安装QT交叉编译环境"></a>Ubuntu 安装QT交叉编译环境</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guohuaqu/article/details/109519744">参考</a></p>
+<p>需求实现再x86机器下完成对ARM64平台的程序开发</p>
+<h2 id="安装ARM64编译器"><a href="#安装ARM64编译器" class="headerlink" title="安装ARM64编译器"></a>安装ARM64编译器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu</span><br></pre></td></tr></table></figure>
+<p>查看</p>
+<p><img src="/2024/02/25/Ubuntu%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/1667790599228.png" alt="shell aarch64-linux-gnu-"></p>
+<h2 id="安装qt开发环境"><a href="#安装qt开发环境" class="headerlink" title="安装qt开发环境"></a>安装qt开发环境</h2><p>qt安装包：qt-opensource-linux-x64-5.12.12.run</p>
+<p>sudo chmod +x，然后运行，就会出现图形界面，按步骤一步步安装即可。</p>
+<h2 id="安装qt工具"><a href="#安装qt工具" class="headerlink" title="安装qt工具"></a>安装qt工具</h2><p>ARM64交叉编译器，例如qmake、库等</p>
+<p>下载qt源码包：<a target="_blank" rel="noopener" href="http://download.qt.io/archive/qt/5.14/5.12.12/single/qt-everywhere-src-5.12.12.tar.xz">qt-everywhere-src-5.12.12.tar.xz</a> </p>
+<p>解压 xz -d qt-everywhere-src-5.12.12.tar.xz</p>
+<p>修改编译配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">yi@linux:~/Downloads/qt-everywhere-src-5.12.12/qtbase/mkspecs$ <span class="built_in">ls</span></span><br><span class="line">aix-g++                macx-xcode</span><br><span class="line">aix-g++-64             modules</span><br><span class="line">android-clang          modules-inst</span><br><span class="line">android-g++            netbsd-g++</span><br><span class="line">common                 openbsd-g++</span><br><span class="line">cygwin-g++             qconfig.pri</span><br><span class="line">darwin-g++             qdevice.pri</span><br><span class="line">devices                qmodule.pri</span><br><span class="line">dummy                  qnx-aarch64le-qcc</span><br><span class="line">features               qnx-armle-v7-qcc</span><br><span class="line">freebsd-clang          qnx-x86-64-qcc</span><br><span class="line">freebsd-g++            qnx-x86-qcc</span><br><span class="line">haiku-g++              solaris-cc</span><br><span class="line">hpuxi-g++-64           solaris-cc-64</span><br><span class="line">hurd-g++               solaris-cc-64-stlport</span><br><span class="line">integrity-armv7        solaris-cc-stlport</span><br><span class="line">integrity-armv7-imx6   solaris-g++</span><br><span class="line">integrity-armv8-rcar   solaris-g++-64</span><br><span class="line">integrity-x86          unsupported</span><br><span class="line">linux-aarch64-gnu-g++  wasm-emscripten</span><br><span class="line">linux-arm-gnueabi-g++  win32-arm64-msvc2017</span><br><span class="line">linux-clang            win32-clang-g++</span><br><span class="line">linux-clang-libc++     win32-clang-msvc</span><br><span class="line">linux-g++              win32-g++</span><br><span class="line">linux-g++-32           win32-icc</span><br><span class="line">linux-g++-64           win32-icc-k1om</span><br><span class="line">linux-icc              win32-msvc</span><br><span class="line">linux-icc-32           winrt-arm64-msvc2017</span><br><span class="line">linux-icc-64           winrt-arm64-msvc2019</span><br><span class="line">linux-icc-k1om         winrt-arm-msvc2015</span><br><span class="line">linux-llvm             winrt-arm-msvc2017</span><br><span class="line">linux-lsb-g++          winrt-arm-msvc2019</span><br><span class="line">lynxos-g++             winrt-x64-msvc2015</span><br><span class="line">macx-clang             winrt-x64-msvc2017</span><br><span class="line">macx-g++               winrt-x64-msvc2019</span><br><span class="line">macx-icc               winrt-x86-msvc2015</span><br><span class="line">macx-ios-clang         winrt-x86-msvc2017</span><br><span class="line">macx-tvos-clang        winrt-x86-msvc2019</span><br></pre></td></tr></table></figure>
+
+<p>查看修改配置文件 vim linux-aarch64-gnu-g++&#x2F;qmake.conf</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># qmake configuration for building with aarch64-linux-gnu-g++</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"></span><br><span class="line">MAKEFILE_GENERATOR      = UNIX</span><br><span class="line">CONFIG                 += incremental</span><br><span class="line">QMAKE_INCREMENTAL_STYLE = sublib</span><br><span class="line"></span><br><span class="line">include(../common/linux.conf)</span><br><span class="line">include(../common/gcc-base-unix.conf)</span><br><span class="line">include(../common/g++-unix.conf)</span><br><span class="line"></span><br><span class="line"><span class="comment"># modifications to g++.conf</span></span><br><span class="line">QMAKE_CC                = aarch64-linux-gnu-gcc</span><br><span class="line">QMAKE_CXX               = aarch64-linux-gnu-g++</span><br><span class="line">QMAKE_LINK              = aarch64-linux-gnu-g++</span><br><span class="line">QMAKE_LINK_SHLIB        = aarch64-linux-gnu-g++</span><br><span class="line"></span><br><span class="line"><span class="comment"># modifications to linux.conf</span></span><br><span class="line">QMAKE_AR                = aarch64-linux-gnu-ar cqs</span><br><span class="line">QMAKE_OBJCOPY           = aarch64-linux-gnu-objcopy</span><br><span class="line">QMAKE_NM                = aarch64-linux-gnu-nm -P</span><br><span class="line">QMAKE_STRIP             = aarch64-linux-gnu-strip</span><br><span class="line">load(qt_config)</span><br></pre></td></tr></table></figure>
+
+<p>开始编译：</p>
+<p> 进入根目录cd qt-everywhere-src-5.12.12 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure -prefix /home/yi/Qt5.12.12/5.12.12/aarch64 -make libs -xplatform linux-aarch64-gnu-g++ -no-opengl -skip qtdeclarative</span><br></pre></td></tr></table></figure>
+
+<p>-prefix 代表你的安装文件夹</p>
+<p>-xplatform 代表你所制定的编译器</p>
+<p>no-opengl 跳过编译openGL(因为我已经安装了Qt，所以不需要界面)</p>
+<p>-skip qtdeclarative 跳过 qtdeclarative（不跳过，编译出错，出错的原因不清楚）</p>
+<p>线程开到了最大，并把log存在了本地。编译具体时间比较依赖自己PC的配置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make -j16 2&gt;&amp;1 | <span class="built_in">tee</span> build.log</span><br></pre></td></tr></table></figure>
+<p>创建安装文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mkdir -p Qt5.12.12/5.12.12/aarch64</span><br></pre></td></tr></table></figure>
+<p>安装</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>查看结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yi@linux:~/Qt5.12.12/5.12.12/aarch64$ <span class="built_in">ls</span></span><br><span class="line">bin  doc  include  lib  mkspecs  plugins  translations</span><br></pre></td></tr></table></figure>
+<h2 id="配置Qt，添加交叉编译环境"><a href="#配置Qt，添加交叉编译环境" class="headerlink" title="配置Qt，添加交叉编译环境"></a>配置Qt，添加交叉编译环境</h2><p>4.配置Qt，添加交叉编译环境</p>
+<p>a.打开Qt</p>
+<p>b.tools → options,打开面板</p>
+<p>c.设置compilers,手动添加ARM64交叉编译器</p>
+<p>add c</p>
+<p><img src="/2024/02/25/Ubuntu%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/commpilers.png" alt="commpilers"></p>
+<p>d.手动add qt version</p>
+<p><img src="/2024/02/25/Ubuntu%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/1667797779321.png" alt="qt kits-Versions"></p>
+<p>e.手动add Kits</p>
+<p><img src="/2024/02/25/Ubuntu%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/1667797929755.png" alt="qt kits-Manual"></p>
+<p><img src="/2024/02/25/Ubuntu%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/1667797958269.png" alt="qt Debugger"></p>
+<h2 id="新建工程-编译"><a href="#新建工程-编译" class="headerlink" title="新建工程&amp;编译"></a>新建工程&amp;编译</h2><p>选择刚刚手动添加的kits</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

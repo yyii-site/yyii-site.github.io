@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Stm32F407_USB_OTG_HS - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RT-Thread-Studio"><span class="toc-text">RT-Thread Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CubeMX-Settings"><span class="toc-text">CubeMX Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RT-Thread-Settings"><span class="toc-text">RT-Thread Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test"><span class="toc-text">Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End"><span class="toc-text">End</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Stm32F407_USB_OTG_HS
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-07-01 00:11:01</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#stm32 usb-otg-hs u-disk rt-thread studio" title="stm32 usb-otg-hs u-disk rt-thread studio">stm32 usb-otg-hs u-disk rt-thread studio</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a target="_blank" rel="noopener" href="https://github.com/abcyixyz/Stm32F407_USB_OTG_HS">github progect</a></p>
+<h2 id="RT-Thread-Studio"><a href="#RT-Thread-Studio" class="headerlink" title="RT-Thread Studio"></a>RT-Thread Studio</h2><hr>
+<ol>
+<li>New &gt;&gt; RT-Thread Protect</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630223400016.png" alt="image-20210630223400016"></p>
+<h2 id="CubeMX-Settings"><a href="#CubeMX-Settings" class="headerlink" title="CubeMX Settings"></a>CubeMX Settings</h2><hr>
+<ol>
+<li>System Core &gt;&gt; RCC &gt;&gt; HSE &gt;&gt; Crystal(外部晶振)  </li>
+<li>System Core &gt;&gt; SYS &gt;&gt; Debug(选择调试接口)   </li>
+<li>Connectivity &gt;&gt; USART1 &gt;&gt; Asynchronous(用于finsh命令行)  </li>
+<li>Connectivity &gt;&gt; USB_OTG_HS &gt;&gt; Host_Only(开发板无供电控制故未勾选VBUS)</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630223923547.png" alt="image-20210630223923547"></p>
+<ol>
+<li>Enable HS global interrupt</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630223948843.png" alt="image-20210630223948843"></p>
+<ol start="6">
+<li><p>Clock Configuration(配置时钟)</p>
+<p>HCLK &gt;&gt; 168  &gt;&gt; Enter</p>
+</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224636418.png" alt="image-20210630224636418"></p>
+<ol start="7">
+<li>GENERATE COED (default seting)</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224256382.png" alt="image-20210630224256382"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224307585.png" alt="image-20210630224307585"></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><hr>
+<ol>
+<li><em>applications&#x2F;main.c</em></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_TAG <span class="string">&quot;main&quot;</span></span></span><br><span class="line"><span class="comment">//#define DBG_LVL DBG_INFO</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_LVL DBG_INFO</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;rtdbg.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><em>drivers&#x2F;board.h</em></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_USING_UART1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_UART1_TX_PIN       <span class="string">&quot;PA9&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_UART1_RX_PIN       <span class="string">&quot;PA10&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_USING_USBHOST</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_USBD_TYPE_HS</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><em>drivers&#x2F;drv_clk.c</em> (copy from <em>cubemx&#x2F;Src&#x2F;main.c</em>)</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">SystemClock_Config</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">  RCC_OscInitTypeDef RCC_OscInitStruct = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">  RCC_ClkInitTypeDef RCC_ClkInitStruct = &#123;<span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/** Configure the main internal regulator output voltage</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  __HAL_RCC_PWR_CLK_ENABLE();</span><br><span class="line">  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);</span><br><span class="line">  <span class="comment">/** Initializes the RCC Oscillators according to the specified parameters</span></span><br><span class="line"><span class="comment">  * in the RCC_OscInitTypeDef structure.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;</span><br><span class="line">  RCC_OscInitStruct.HSEState = RCC_HSE_ON;</span><br><span class="line">  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;</span><br><span class="line">  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;</span><br><span class="line">  RCC_OscInitStruct.PLL.PLLM = <span class="number">25</span>;</span><br><span class="line">  RCC_OscInitStruct.PLL.PLLN = <span class="number">336</span>;</span><br><span class="line">  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;</span><br><span class="line">  RCC_OscInitStruct.PLL.PLLQ = <span class="number">7</span>;</span><br><span class="line">  <span class="keyword">if</span> (HAL_RCC_OscConfig(&amp;RCC_OscInitStruct) != HAL_OK)</span><br><span class="line">  &#123;</span><br><span class="line">    Error_Handler();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/** Initializes the CPU, AHB and APB buses clocks</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK</span><br><span class="line">                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;</span><br><span class="line">  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;</span><br><span class="line">  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;</span><br><span class="line">  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;</span><br><span class="line">  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (HAL_RCC_ClockConfig(&amp;RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)</span><br><span class="line">  &#123;</span><br><span class="line">    Error_Handler();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//void system_clock_config(int target_freq_mhz)</span></span><br><span class="line"><span class="comment">//&#123;</span></span><br><span class="line"><span class="comment">//...</span></span><br><span class="line"><span class="comment">//&#125;</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>new source file</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224927209.png" alt="image-20210630224927209"></p>
+<ol start="5">
+<li><code>applications/filesystem.c</code></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;rtthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;dfs_fs.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;dfs_romfs.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_TAG <span class="string">&quot;app.filesystem&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_LVL DBG_INFO</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;rtdbg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">romfs_dirent</span> _<span class="title">romfs_root</span>[] =</span> &#123;</span><br><span class="line">    &#123;ROMFS_DIRENT_DIR, <span class="string">&quot;udisk&quot;</span>, RT_NULL, <span class="number">0</span>&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">romfs_dirent</span> <span class="title">romfs_root</span> =</span> &#123;</span><br><span class="line">    ROMFS_DIRENT_DIR, <span class="string">&quot;/&quot;</span>, (<span class="type">rt_uint8_t</span> *)_romfs_root, <span class="keyword">sizeof</span>(_romfs_root) / <span class="keyword">sizeof</span>(_romfs_root[<span class="number">0</span>])</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">mount_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (dfs_mount(RT_NULL, <span class="string">&quot;/&quot;</span>, <span class="string">&quot;rom&quot;</span>, <span class="number">0</span>, &amp;(romfs_root)) != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        LOG_E(<span class="string">&quot;rom mount to &#x27;/&#x27; failed!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> RT_ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> RT_EOK;</span><br><span class="line">&#125;</span><br><span class="line">INIT_APP_EXPORT(mount_init); </span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>drivers&#x2F;drv_common.c</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://club.rt-thread.org/ask/question/427531.html">STM32F407遇到USB读取U盘无法读取问题</a></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">HAL_Delay</span><span class="params">(__IO <span class="type">uint32_t</span> Delay)</span></span><br><span class="line">&#123;</span><br><span class="line">    rt_thread_mdelay(Delay);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="7">
+<li>drivers&#x2F;drv_usbh.c</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_TAG <span class="string">&quot;drv_usbh&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_LVL DBG_LOG</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;rtdbg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* add OTG_HS_IRQ */</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">OTG_HS_IRQHandler</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    rt_interrupt_enter();</span><br><span class="line">    HAL_HCD_IRQHandler(&amp;stm32_hhcd_fs);</span><br><span class="line">    rt_interrupt_leave();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* cubemx/Src/main.c &gt;&gt; static void MX_USB_OTG_HS_HCD_Init(void) */</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> BSP_USBD_TYPE_HS</span></span><br><span class="line"><span class="type">static</span> <span class="type">rt_err_t</span> <span class="title function_">stm32_hcd_init</span><span class="params">(<span class="type">rt_device_t</span> device)</span></span><br><span class="line">&#123;</span><br><span class="line">    HCD_HandleTypeDef *hhcd = (HCD_HandleTypeDef *)device-&gt;user_data;</span><br><span class="line">    hhcd-&gt;Instance = USB_OTG_HS;</span><br><span class="line">    hhcd-&gt;Init.Host_channels = <span class="number">12</span>;</span><br><span class="line">    hhcd-&gt;Init.speed = HCD_SPEED_FULL;</span><br><span class="line">    hhcd-&gt;Init.dma_enable = DISABLE;</span><br><span class="line">    hhcd-&gt;Init.phy_itface = USB_OTG_EMBEDDED_PHY;</span><br><span class="line">    hhcd-&gt;Init.Sof_enable = DISABLE;</span><br><span class="line">    hhcd-&gt;Init.low_power_enable = DISABLE;</span><br><span class="line">    hhcd-&gt;Init.vbus_sensing_enable = DISABLE;</span><br><span class="line">    hhcd-&gt;Init.use_external_vbus = DISABLE;</span><br><span class="line">    RT_ASSERT(HAL_HCD_Init(hhcd) == HAL_OK);</span><br><span class="line">    HAL_HCD_Start(hhcd);</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> USBH_USING_CONTROLLABLE_POWER</span></span><br><span class="line">    rt_pin_mode(USBH_POWER_PIN, PIN_MODE_OUTPUT);</span><br><span class="line">    rt_pin_write(USBH_POWER_PIN, PIN_LOW);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    <span class="keyword">return</span> RT_EOK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">rt_err_t</span> <span class="title function_">stm32_hcd_init</span><span class="params">(<span class="type">rt_device_t</span> device)</span></span><br><span class="line">&#123;</span><br><span class="line">    HCD_HandleTypeDef *hhcd = (HCD_HandleTypeDef *)device-&gt;user_data;</span><br><span class="line">    hhcd-&gt;Instance = USB_OTG_FS;</span><br><span class="line">    hhcd-&gt;Init.Host_channels = <span class="number">8</span>;</span><br><span class="line">    hhcd-&gt;Init.speed = HCD_SPEED_FULL;</span><br><span class="line">    hhcd-&gt;Init.dma_enable = DISABLE;</span><br><span class="line">    hhcd-&gt;Init.phy_itface = HCD_PHY_EMBEDDED;</span><br><span class="line">    hhcd-&gt;Init.Sof_enable = DISABLE;</span><br><span class="line">    RT_ASSERT(HAL_HCD_Init(hhcd) == HAL_OK);</span><br><span class="line">    HAL_HCD_Start(hhcd);</span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> USBH_USING_CONTROLLABLE_POWER</span></span><br><span class="line">    rt_pin_mode(USBH_POWER_PIN, PIN_MODE_OUTPUT);</span><br><span class="line">    rt_pin_write(USBH_POWER_PIN, PIN_LOW);</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line">    <span class="keyword">return</span> RT_EOK;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="RT-Thread-Settings"><a href="#RT-Thread-Settings" class="headerlink" title="RT-Thread Settings"></a>RT-Thread Settings</h2><hr>
+<ol>
+<li>Exclude from Build</li>
+</ol>
+<p><del>cubemx&#x2F;Src&#x2F;main.c</del><br><del>cubemx&#x2F;Src&#x2F;stm32f4xx_it.c</del>  </p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630224537429.png" alt="image-20210630224537429"></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225754496.png" alt="image-20210630225754496"></p>
+<ol start="2">
+<li>Components &gt;&gt; Device Drivers &gt;&gt; Using USB &gt;&gt; Using USB host &gt;&gt; Enable Udisk Drivers &gt;&gt; Udisk mount dir &gt;&gt; &#x2F;udisk</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225432224.png" alt="image-20210630225432224"></p>
+<ol start="3">
+<li>Components &gt;&gt; Device virtual file system &gt;&gt; Using device virtual file system &gt;&gt; Enable elm-chan fatfs  &#x2F;  Enable ReadOnlay file system on flash</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225517213.png" alt="image-20210630225517213"></p>
+<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><hr>
+<ol>
+<li>Build and Flash download</li>
+<li>Terminal</li>
+</ol>
+<p><kbd>Ctrl</kbd>+<kbd>Atl</kbd>+<kbd>Shift</kbd> +<kbd>T</kbd></p>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225624874.png" alt="image-20210630225624874"></p>
+<ol start="3">
+<li>Insert the u-disk(插入U盘)</li>
+</ol>
+<p><img src="/2021/07/01/Stm32F407-USB-OTG-HS/image-20210630225644852.png" alt="image-20210630225644852"></p>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

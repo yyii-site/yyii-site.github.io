@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Gitblit 安装使用 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E6%96%87%E4%BB%B6"><span class="toc-text">准备文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Java"><span class="toc-text">安装Java</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGitblit"><span class="toc-text">配置Gitblit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86GitBlit"><span class="toc-text">管理GitBlit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E5%90%AF%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">设置开启自启动</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Gitblit 安装使用
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2020-11-22 19:33:27</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Gitblit Windows git server 局域网" title="Gitblit Windows git server 局域网">Gitblit Windows git server 局域网</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a target="_blank" rel="noopener" href="https://gitblit.github.io/gitblit/">Gitblit</a> is an open-source, pure Java stack for managing, viewing, and serving Git repositories.<br>It’s designed primarily as a tool for small workgroups who want to host centralized repositories.</p>
+<p> Gitblit是一个在Java环境中运行的Git服务器。在这里记录一下搭建过程。</p>
+<h1 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h1><ul>
+<li>jdk-11.0.2_windows-x64_bin.zip<a target="_blank" rel="noopener" href="https://repo.huaweicloud.com/java/jdk/">华为源</a></li>
+<li>gitblit安装包<a target="_blank" rel="noopener" href="https://gitblit.github.io/gitblit/">Gitblit</a></li>
+</ul>
+<h1 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h1><p>请参考<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-environment-setup.html">菜鸟教程</a></p>
+<h1 id="配置Gitblit"><a href="#配置Gitblit" class="headerlink" title="配置Gitblit"></a>配置Gitblit</h1><ol>
+<li>下载的zip文件只要解压缩即可，不用安装。建议放到D:\Program Files\gitblit-xxx目录中（xxx指版本号）</li>
+<li>新建一个用于存放git服务器数据的文件夹，如D:\GitBlit_repository</li>
+<li>配置gitblit.properties 文件。  <ul>
+<li>在D:\Program Files\gitblit-xxx\data目录中将defaults.properties文件复制一份，改名为my.properties  </li>
+<li>修改gitblit.properties文件，然后将 <code>include = defaults.properties</code> 注释掉  </li>
+<li>添加一代码<code>include = my.properties</code>表示使用my.properties这个配置。</li>
+</ul>
+</li>
+<li>修改my.properties文件中的端口和服务器IP地址：  <ul>
+<li>修改git.repositoriesFolder &#x3D; D:&#x2F;Gitblit_repository（注意其中的D:\Gitblit_repository 中的”&quot;一定要用”&#x2F;“。）  </li>
+<li>修改server.httpPort &#x3D; 10101  </li>
+<li>修改server.httpBindInterface &#x3D; 192.168123.15（我自己的服务器IP地址为192.168.123.15）  </li>
+<li>修改server.httpsBindInterface &#x3D; localhost  </li>
+<li>最后修改server.certificateAlias &#x3D; localhost</li>
+</ul>
+</li>
+<li>运行Gitblit服务。在D:\Program Files\gitblit-xxx目录下运行gitblit.cmd命令。注意看命令行中的提示，检查程序是否运行正常。</li>
+<li>命令行中会有服务器ip和端口号请注意查看。</li>
+</ol>
+<h1 id="管理GitBlit"><a href="#管理GitBlit" class="headerlink" title="管理GitBlit"></a>管理GitBlit</h1><p>在浏览器地址栏中输入命令行中提示的服务器ip和端口号<br>如果成功加载，说明服务器搭建完毕。默认账号密码均为admin</p>
+<h1 id="设置开启自启动"><a href="#设置开启自启动" class="headerlink" title="设置开启自启动"></a>设置开启自启动</h1><p>设置以Windows Service方式启动Gitblit.  </p>
+<ol>
+<li>在Gitblit目录下，找到installService.cmd文件。鼠标右键使用记事本打开。  </li>
+<li>设置 CD 为程序目录 <code>SET CD=D:\Program Files\gitblit-xxx(xxx修改为你自己的目录)</code>  </li>
+<li>保存，关闭文件</li>
+<li>右键installService.cmd文件，选择以管理员的身份运行  </li>
+<li>点击开始菜单输入services.msc 打开Windows服务查找gitblit，如果未启动，请手动启动。注意确保为自动模式，这样每次windows启动后都自动启动此项服务。</li>
+</ol>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

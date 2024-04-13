@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        FR-CS80 FVD Modbus Communication - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BE%9B%E7%94%B5"><span class="toc-text">1. 供电</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%80%9A%E8%AE%AF%E6%8E%A5%E7%BA%BF"><span class="toc-text">2. 通讯接线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%8F%98%E9%A2%91%E5%99%A8%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-text">3. 变频器参数设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E4%B8%8A%E4%BD%8D%E6%9C%BA%E8%BD%AF%E4%BB%B6%EF%BC%88Modbus-Poll%EF%BC%89%E8%AE%BE%E7%BD%AE"><span class="toc-text">4. 上位机软件（Modbus Poll）设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-End"><span class="toc-text">5.End</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        FR-CS80 FVD Modbus Communication
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2022-04-03 00:14:20</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#MITSUBISHI 三菱 VFD 变频器 Modbus 通讯 RS485 RS422" title="MITSUBISHI 三菱 VFD 变频器 Modbus 通讯 RS485 RS422">MITSUBISHI 三菱 VFD 变频器 Modbus 通讯 RS485 RS422</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="1-供电"><a href="#1-供电" class="headerlink" title="1. 供电"></a>1. 供电</h2><p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220329235106376.png" alt="image-20220329235106376"></p>
+<h2 id="2-通讯接线"><a href="#2-通讯接线" class="headerlink" title="2. 通讯接线"></a>2. 通讯接线</h2><p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220329235152416.png" alt="image-20220329235152416"></p>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220329235832966.png" alt="image-20220329235832966"></p>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220330000913954.png" alt="image-20220330000913954"></p>
+<table>
+<thead>
+<tr>
+<th>USB-RS422</th>
+<th>T-568B</th>
+<th>VFD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>T+</td>
+<td>G&#x2F;   3</td>
+<td>RDA(R+)</td>
+</tr>
+<tr>
+<td>T-</td>
+<td>G    6</td>
+<td>RDB(R-)</td>
+</tr>
+<tr>
+<td>R+</td>
+<td>B&#x2F;   5</td>
+<td>SDA(T+)</td>
+</tr>
+<tr>
+<td>R-</td>
+<td>B    4</td>
+<td>SDB(T-)</td>
+</tr>
+</tbody></table>
+<h2 id="3-变频器参数设置"><a href="#3-变频器参数设置" class="headerlink" title="3. 变频器参数设置"></a>3. 变频器参数设置</h2><ul>
+<li>首先恢复出厂设置</li>
+</ul>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220330001346543.png" alt="image-20220330001346543"></p>
+<ul>
+<li>按照表格依次设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Pr.</th>
+<th>名称</th>
+<th>设定值</th>
+<th>内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>117</td>
+<td>PU 通讯站号</td>
+<td>1</td>
+<td>从机地址</td>
+</tr>
+<tr>
+<td>118</td>
+<td>PU 通讯速度</td>
+<td>192</td>
+<td>19200pbs</td>
+</tr>
+<tr>
+<td>120</td>
+<td>PU 通讯奇偶校验</td>
+<td>2</td>
+<td>偶数校验</td>
+</tr>
+<tr>
+<td>122</td>
+<td>PU 通讯校验时间间隔</td>
+<td>9999</td>
+<td>不进行通讯断线检测</td>
+</tr>
+<tr>
+<td>79</td>
+<td>运行模式选择</td>
+<td>0</td>
+<td>网络运行模式（可切换PU&#x2F;网络）</td>
+</tr>
+<tr>
+<td>340</td>
+<td>通讯启动模式选择</td>
+<td>10</td>
+<td>网络运行模式（可切换PU&#x2F;网络）</td>
+</tr>
+<tr>
+<td>342</td>
+<td>通讯 EEPROM 写入选择</td>
+<td>1</td>
+<td>PU接口写入参数仅限RAM（防止频繁写入EEPROM）</td>
+</tr>
+<tr>
+<td>549</td>
+<td>协议选择</td>
+<td>1</td>
+<td>MODBUS RTU 协议</td>
+</tr>
+</tbody></table>
+<p>说明：</p>
+<p>modbus通讯变频器必须工作在<strong>网络运行模式</strong>下（PU模式下数据可读取但无法写入）</p>
+<p>通讯调试阶段建议增加奇&#x2F;偶校验（测试中遇到USB-422转换模块在无校验情况下通讯失败的情况）</p>
+<ul>
+<li>重启变频器</li>
+</ul>
+<p>PU、EXT 闪烁：网络运行模式时闪烁</p>
+<h2 id="4-上位机软件（Modbus-Poll）设置"><a href="#4-上位机软件（Modbus-Poll）设置" class="headerlink" title="4. 上位机软件（Modbus Poll）设置"></a>4. 上位机软件（Modbus Poll）设置</h2><ul>
+<li>通讯接口（F3）</li>
+</ul>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220330003925711.png" alt="image-20220330003925711"></p>
+<ul>
+<li><p>寄存器读取（F8）</p>
+<p>40009</p>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220402212121666.png" alt="image-20220402212121666"></p>
+<p>多段寄存器读取 File New</p>
+<p>20201</p>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220402212313037.png" alt="image-20220402212313037"></p>
+</li>
+<li><p>寄存器写入</p>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220402212557637.png" alt="image-20220402212557637"></p>
+<p>正转：0x0002</p>
+<p>反转：0x0004</p>
+<p>软件支持按位改变</p>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220402212806410.png" alt="image-20220402212806410"></p>
+</li>
+<li><p>查看通讯log数据</p>
+<p><img src="/2022/04/03/FR-CS80-VFD-Modbus/image-20220402213119377.png" alt="image-20220402213119377"></p>
+</li>
+</ul>
+<h2 id="5-End"><a href="#5-End" class="headerlink" title="5.End"></a>5.End</h2>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

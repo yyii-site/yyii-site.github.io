@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Ubuntu-OpenCV-CPP-Without-IDE - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Building-packages"><span class="toc-text">Building packages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-OpenCV-from-Ubuntu-Repositories"><span class="toc-text">Install OpenCV from Ubuntu Repositories</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Install-CMake"><span class="toc-text">Install CMake</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-CPP-Projetct"><span class="toc-text">Create CPP Projetct</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Find-OpenCV-Config"><span class="toc-text">Find OpenCV Config</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-and-Test"><span class="toc-text">Build and Test</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Ubuntu-OpenCV-CPP-Without-IDE
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-04-13 20:55:30</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Ubuntu OpenCV CMake" title="Ubuntu OpenCV CMake">Ubuntu OpenCV CMake</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="Building-packages"><a href="#Building-packages" class="headerlink" title="Building packages"></a>Building packages</h2><ol>
+<li>update packages list</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Install building packages</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install build-essential</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-OpenCV-from-Ubuntu-Repositories"><a href="#Install-OpenCV-from-Ubuntu-Repositories" class="headerlink" title="Install OpenCV from Ubuntu Repositories"></a>Install OpenCV from Ubuntu Repositories</h2><p><a target="_blank" rel="noopener" href="https://phoenixnap.com/kb/installing-opencv-on-ubuntu">link</a></p>
+<ol>
+<li>Install OpenCV</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install libopencv-dev</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>Check the OpenCV version</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg -l libopencv-dev</span><br></pre></td></tr></table></figure>
+
+<h2 id="Install-CMake"><a href="#Install-CMake" class="headerlink" title="Install CMake"></a>Install CMake</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt -y install cmake</span><br><span class="line">cmake --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="Create-CPP-Projetct"><a href="#Create-CPP-Projetct" class="headerlink" title="Create CPP Projetct"></a>Create CPP Projetct</h2><p><a target="_blank" rel="noopener" href="https://docs.opencv.org/4.x/db/df5/tutorial_linux_gcc_cmake.html">link</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DisplayImage</span><br><span class="line">├── build</span><br><span class="line">│   └── </span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">├── cmake-modules</span><br><span class="line">│   └── OpenCVConfig.cmake</span><br><span class="line">├── img</span><br><span class="line">│   └── lenna.jpeg</span><br><span class="line">└── src</span><br><span class="line">    └── DisplayImage.cpp</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// DisplayImage.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;usage: DisplayImage.out &lt;Image_Path&gt;\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Mat image;</span><br><span class="line">    image = <span class="built_in">imread</span>(argv[<span class="number">1</span>], IMREAD_COLOR);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!image.data)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;No image data \n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">namedWindow</span>(<span class="string">&quot;Display Image&quot;</span>, WINDOW_AUTOSIZE);</span><br><span class="line">    <span class="built_in">imshow</span>(<span class="string">&quot;Display Image&quot;</span>, image);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">waitKey</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"># CMakeLists.txt</span><br><span class="line"></span><br><span class="line"># CMake 最低版本号要求</span><br><span class="line">cmake_minimum_required(VERSION 3.6)</span><br><span class="line"></span><br><span class="line"># 项目信息</span><br><span class="line">project(DisplayImage)</span><br><span class="line"></span><br><span class="line"># 将cmake-modules文件夹中的文件加入 CMAKE_MODULE_PATH</span><br><span class="line">list(APPEND CMAKE_MODULE_PATH &quot;$&#123;PROJECT_SOURCE_DIR&#125;/cmake-modules&quot;)</span><br><span class="line"></span><br><span class="line"># 查找并从外部项目加载设置</span><br><span class="line"># REQUIRED如果找不到软件包，该选项将停止处理并显示一条错误消息</span><br><span class="line">find_package(OpenCV REQUIRED)</span><br><span class="line"></span><br><span class="line"># 将给定目录添加到编译器用来搜索包含文件的目录中。相对路径被解释为相对于当前源目录</span><br><span class="line">include_directories($&#123;OpenCV_INCLUDE_DIRS&#125;)</span><br><span class="line"></span><br><span class="line"># 利用源码文件生成目标可执行程序</span><br><span class="line">add_executable(DisplayImage src/DisplayImage.cpp)</span><br><span class="line"></span><br><span class="line"># 添加链接库</span><br><span class="line">target_link_libraries(DisplayImage $&#123;OpenCV_LIBS&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Find-OpenCV-Config"><a href="#Find-OpenCV-Config" class="headerlink" title="Find OpenCV Config"></a>Find OpenCV Config</h2><p><a target="_blank" rel="noopener" href="https://wiki.hanzheteng.com/development/cmake/cmake-find_package">link</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo find / -name <span class="string">&quot;OpenCVConfig.cmake&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>copy to cmake-modules folder</p>
+<h2 id="Build-and-Test"><a href="#Build-and-Test" class="headerlink" title="Build and Test"></a>Build and Test</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br><span class="line">./DisplayImage ../img/lenna.jpeg</span><br></pre></td></tr></table></figure>
+
+<p>maybe need <code>chmod +x DisplayImage</code></p>
+<p><img src="/2024/04/13/Ubuntu-OpenCV-CPP-Without-IDE/Screenshot_test.png" alt="test"></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

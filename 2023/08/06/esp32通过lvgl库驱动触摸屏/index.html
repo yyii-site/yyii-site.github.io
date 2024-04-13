@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        esp32通过lvgl库驱动触摸屏 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TFT-eSPI-drive-LCD"><span class="toc-text">TFT_eSPI drive LCD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#my-self-test-project-need-offset"><span class="toc-text">my self test project, need offset.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lvgl"><span class="toc-text">lvgl</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#lvgl-touch"><span class="toc-text">lvgl+touch</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#lvgl-demo"><span class="toc-text">lvgl demo</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%8C%85%E6%9D%BF%E6%B5%8B%E8%AF%95"><span class="toc-text">面包板测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%87%AA%E5%B7%B1%E8%AE%BE%E8%AE%A1%E7%9A%84PCB%E6%9D%BF"><span class="toc-text">使用自己设计的PCB板</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        esp32通过lvgl库驱动触摸屏
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2023-08-06 23:11:32</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#ESP32 LVGL TOUCH TFT ST7789 CST816S" title="ESP32 LVGL TOUCH TFT ST7789 CST816S">ESP32 LVGL TOUCH TFT ST7789 CST816S</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>在ESP32开发板上使用LVGL框架开发LCD显示屏界面</p>
+<p><img src="/2023/08/06/esp32%E9%80%9A%E8%BF%87lvgl%E5%BA%93%E9%A9%B1%E5%8A%A8%E8%A7%A6%E6%91%B8%E5%B1%8F/run_demo.png" alt="run_demo"></p>
+<h2 id="TFT-eSPI-drive-LCD"><a href="#TFT-eSPI-drive-LCD" class="headerlink" title="TFT_eSPI drive LCD"></a>TFT_eSPI drive LCD</h2><p><a target="_blank" rel="noopener" href="https://github.com/Bodmer/TFT_eSPI/discussions/2555">https://github.com/Bodmer/TFT_eSPI/discussions/2555</a></p>
+<p>I have it working now. This wiki page was useful: <a target="_blank" rel="noopener" href="https://github.com/Bodmer/TFT_eSPI/wiki/Installing-on-PlatformIO">https://github.com/Bodmer/TFT_eSPI/wiki/Installing-on-PlatformIO</a></p>
+<p>That said, there are some missing parts that due to the state of the library will show up as a non-functioning screen. For my use case (an ILI9488 device), I needed to provide additional values. I believe some of these are necessary for all projects.</p>
+<p>Here is the bare minimum project using Visual Studio Code with PlatformIo and using the technique of platformio.ini file modification. No library file modification needed!</p>
+<p>platformio.ini:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[env:nodemcu-32s]</span><br><span class="line">platform = espressif32</span><br><span class="line">board = nodemcu-32s</span><br><span class="line">framework = arduino</span><br><span class="line">monitor_speed = 115200</span><br><span class="line">lib_deps = bodmer/TFT_eSPI@^2.5.23</span><br><span class="line">build_flags =</span><br><span class="line">-D USER_SETUP_LOADED</span><br><span class="line">-D ILI9488_DRIVER</span><br><span class="line">-D TFT_MISO=19</span><br><span class="line">-D TFT_MOSI=23</span><br><span class="line">-D TFT_SCLK=18</span><br><span class="line">-D TFT_CS=15</span><br><span class="line">-D TFT_DC=2</span><br><span class="line">-D TFT_RST=4</span><br><span class="line">-D LOAD_GLCD=1</span><br><span class="line">-D SMOOTH_FONT</span><br><span class="line">-D SPI_FREQUENCY=27000000</span><br></pre></td></tr></table></figure>
+
+<p>main.cpp:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Arduino.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;TFT_eSPI.h&gt;</span> <span class="comment">// Hardware-specific library</span></span></span><br><span class="line">TFT_eSPI tft = <span class="built_in">TFT_eSPI</span>(); <span class="comment">// Invoke custom library</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">Serial.<span class="built_in">begin</span>(<span class="number">115200</span>); <span class="comment">// For debug</span></span><br><span class="line">tft.<span class="built_in">init</span>();</span><br><span class="line"></span><br><span class="line">tft.<span class="built_in">setRotation</span>(<span class="number">1</span>);</span><br><span class="line">tft.<span class="built_in">fillScreen</span>(TFT_GREEN);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="comment">// put your main code here, to run repeatedly:</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Note that I had to include USER_SETUP_LOADED as well as SMOOTH_FONT.</p>
+<p>There are some minor errors in the wiki article. It projects like we need to have an &#x3D;1 but I found it works just like the include system and is not necessary.</p>
+<h3 id="my-self-test-project-need-offset"><a href="#my-self-test-project-need-offset" class="headerlink" title="my self test project, need offset."></a>my self test project, need offset.</h3><p>platformio.ini:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[env:wesp32]</span><br><span class="line">platform = espressif32</span><br><span class="line">board = wesp32</span><br><span class="line">framework = arduino</span><br><span class="line">monitor_speed = <span class="number">115200</span></span><br><span class="line">upload_speed = <span class="number">230400</span></span><br><span class="line">board_build.partitions = default_16MB.csv</span><br><span class="line">board_upload.flash_size = <span class="number">16</span>MB</span><br><span class="line">lib_deps = </span><br><span class="line">	bodmer/TFT_eSPI@^<span class="number">2.5</span><span class="number">.30</span></span><br><span class="line">    lvgl/lvgl@^<span class="number">8.3</span><span class="number">.7</span></span><br><span class="line">build_flags = </span><br><span class="line">	-D USER_SETUP_LOADED</span><br><span class="line">	-D ST7789_DRIVER</span><br><span class="line">	-D CGRAM_OFFSET</span><br><span class="line">	-D TFT_MOSI=<span class="number">23</span></span><br><span class="line">	-D TFT_SCLK=<span class="number">18</span></span><br><span class="line">	-D TFT_DC=<span class="number">2</span></span><br><span class="line">	-D TFT_RST=<span class="number">4</span></span><br><span class="line">	-D LOAD_GLCD=<span class="number">1</span></span><br><span class="line">	-D SMOOTH_FONT</span><br><span class="line">	-D SPI_FREQUENCY=<span class="number">55000000</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="lvgl"><a href="#lvgl" class="headerlink" title="lvgl"></a>lvgl</h2><p>main.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Using LVGL with Arduino requires some extra steps:</span></span><br><span class="line"><span class="comment"> *Be sure to read the docs here: https://docs.lvgl.io/master/get-started/platforms/arduino.html  */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lvgl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;TFT_eSPI.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*To use the built-in examples and demos of LVGL uncomment the includes below respectively.</span></span><br><span class="line"><span class="comment"> *You also need to copy `lvgl/examples` to `lvgl/src/examples`. Similarly for the demos `lvgl/demos` to `lvgl/src/demos`.</span></span><br><span class="line"><span class="comment"> Note that the `lv_examples` library is for LVGL v7 and you shouldn&#x27;t install it for this version (since LVGL v8)</span></span><br><span class="line"><span class="comment"> as the examples and demos are now part of the main LVGL library. */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*Change to your screen resolution*/</span></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">uint16_t</span> screenWidth  = <span class="number">240</span>;</span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">uint16_t</span> screenHeight = <span class="number">280</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">lv_disp_draw_buf_t</span> draw_buf;</span><br><span class="line"><span class="type">static</span> <span class="type">lv_color_t</span> buf[ screenWidth * <span class="number">10</span> ];</span><br><span class="line"></span><br><span class="line">TFT_eSPI tft = <span class="built_in">TFT_eSPI</span>(screenWidth, screenHeight); <span class="comment">/* TFT instance */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">if</span> LV_USE_LOG != 0</span></span><br><span class="line"><span class="comment">/* Serial debugging */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">my_print</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * buf)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Serial.<span class="built_in">printf</span>(buf);</span><br><span class="line">    Serial.<span class="built_in">flush</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Display flushing */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">my_disp_flush</span><span class="params">( <span class="type">lv_disp_drv_t</span> *disp, <span class="type">const</span> <span class="type">lv_area_t</span> *area, <span class="type">lv_color_t</span> *color_p )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">uint32_t</span> w = ( area-&gt;x2 - area-&gt;x1 + <span class="number">1</span> );</span><br><span class="line">    <span class="type">uint32_t</span> h = ( area-&gt;y2 - area-&gt;y1 + <span class="number">1</span> );</span><br><span class="line"></span><br><span class="line">    tft.<span class="built_in">startWrite</span>();</span><br><span class="line">    tft.<span class="built_in">setAddrWindow</span>( area-&gt;x1, area-&gt;y1, w, h );</span><br><span class="line">    tft.<span class="built_in">pushColors</span>( ( <span class="type">uint16_t</span> * )&amp;color_p-&gt;full, w * h, <span class="literal">true</span> );</span><br><span class="line">    tft.<span class="built_in">endWrite</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">lv_disp_flush_ready</span>( disp );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Serial.<span class="built_in">begin</span>( <span class="number">115200</span> ); <span class="comment">/* prepare for possible serial debug */</span></span><br><span class="line"></span><br><span class="line">    String LVGL_Arduino = <span class="string">&quot;Hello Arduino! &quot;</span>;</span><br><span class="line">    LVGL_Arduino += <span class="built_in">String</span>(<span class="string">&#x27;V&#x27;</span>) + <span class="built_in">lv_version_major</span>() + <span class="string">&quot;.&quot;</span> + <span class="built_in">lv_version_minor</span>() + <span class="string">&quot;.&quot;</span> + <span class="built_in">lv_version_patch</span>();</span><br><span class="line"></span><br><span class="line">    Serial.<span class="built_in">println</span>( LVGL_Arduino );</span><br><span class="line">    Serial.<span class="built_in">println</span>( <span class="string">&quot;I am LVGL_Arduino&quot;</span> );</span><br><span class="line"></span><br><span class="line">    <span class="built_in">lv_init</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">if</span> LV_USE_LOG != 0</span></span><br><span class="line">    <span class="built_in">lv_log_register_print_cb</span>( my_print ); <span class="comment">/* register print function for debugging */</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    tft.<span class="built_in">begin</span>();          <span class="comment">/* TFT init */</span></span><br><span class="line">    tft.<span class="built_in">setRotation</span>( <span class="number">4</span> ); <span class="comment">/* 2:top fpc 4:bottom fpc */</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">lv_disp_draw_buf_init</span>( &amp;draw_buf, buf, <span class="literal">NULL</span>, screenWidth * <span class="number">10</span> );</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Initialize the display*/</span></span><br><span class="line">    <span class="type">static</span> <span class="type">lv_disp_drv_t</span> disp_drv;</span><br><span class="line">    <span class="built_in">lv_disp_drv_init</span>( &amp;disp_drv );</span><br><span class="line">    <span class="comment">/*Change the following line to your display resolution*/</span></span><br><span class="line">    disp_drv.hor_res = screenWidth;</span><br><span class="line">    disp_drv.ver_res = screenHeight;</span><br><span class="line">    disp_drv.flush_cb = my_disp_flush;</span><br><span class="line">    disp_drv.draw_buf = &amp;draw_buf;</span><br><span class="line">    <span class="built_in">lv_disp_drv_register</span>( &amp;disp_drv );</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Create simple label */</span></span><br><span class="line">    <span class="type">lv_obj_t</span> *label_top = <span class="built_in">lv_label_create</span>( <span class="built_in">lv_scr_act</span>() );</span><br><span class="line">    <span class="built_in">lv_label_set_text</span>( label_top, LVGL_Arduino.<span class="built_in">c_str</span>() );</span><br><span class="line">    <span class="built_in">lv_obj_align</span>( label_top, LV_ALIGN_TOP_LEFT, <span class="number">0</span>, <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">    <span class="type">lv_obj_t</span> *label = <span class="built_in">lv_label_create</span>( <span class="built_in">lv_scr_act</span>() );</span><br><span class="line">    <span class="built_in">lv_label_set_text</span>( label, LVGL_Arduino.<span class="built_in">c_str</span>() );</span><br><span class="line">    <span class="built_in">lv_obj_align</span>( label, LV_ALIGN_CENTER, <span class="number">0</span>, <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">    <span class="type">lv_obj_t</span> *label_bottom = <span class="built_in">lv_label_create</span>( <span class="built_in">lv_scr_act</span>() );</span><br><span class="line">    <span class="built_in">lv_label_set_text</span>( label_bottom, LVGL_Arduino.<span class="built_in">c_str</span>() );</span><br><span class="line">    <span class="built_in">lv_obj_align</span>( label_bottom, LV_ALIGN_BOTTOM_RIGHT, <span class="number">0</span>, <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">    Serial.<span class="built_in">println</span>( <span class="string">&quot;Setup done&quot;</span> );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">lv_timer_handler</span>(); <span class="comment">/* let the GUI do its work */</span></span><br><span class="line">    <span class="built_in">delay</span>( <span class="number">5</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="lvgl-touch"><a href="#lvgl-touch" class="headerlink" title="lvgl+touch"></a>lvgl+touch</h2><p>platformio.ini:</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[env:wesp32]</span><br><span class="line">platform = espressif32</span><br><span class="line">board = wesp32</span><br><span class="line">framework = arduino</span><br><span class="line">monitor_speed = <span class="number">115200</span></span><br><span class="line">upload_speed = <span class="number">230400</span></span><br><span class="line">board_build.partitions = default_16MB.csv</span><br><span class="line">board_upload.flash_size = <span class="number">16</span>MB</span><br><span class="line">lib_deps = </span><br><span class="line">	bodmer/TFT_eSPI@^<span class="number">2.5</span><span class="number">.30</span></span><br><span class="line">    fbiego/CST816S@^<span class="number">1.1</span><span class="number">.0</span></span><br><span class="line">    lvgl/lvgl@^<span class="number">8.3</span><span class="number">.7</span></span><br><span class="line">build_flags = </span><br><span class="line">	-D USER_SETUP_LOADED</span><br><span class="line">	-D ST7789_DRIVER</span><br><span class="line">	-D CGRAM_OFFSET</span><br><span class="line">	-D TFT_MOSI=<span class="number">23</span></span><br><span class="line">	-D TFT_SCLK=<span class="number">18</span></span><br><span class="line">	-D TFT_DC=<span class="number">2</span></span><br><span class="line">	-D TFT_RST=<span class="number">4</span></span><br><span class="line">	-D LOAD_GLCD=<span class="number">1</span></span><br><span class="line">	-D SMOOTH_FONT</span><br><span class="line">	-D SPI_FREQUENCY=<span class="number">55000000</span></span><br></pre></td></tr></table></figure>
+
+<p>main.cpp</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*Using LVGL with Arduino requires some extra steps:</span></span><br><span class="line"><span class="comment"> *Be sure to read the docs here: https://docs.lvgl.io/master/get-started/platforms/arduino.html  */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;lvgl.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;TFT_eSPI.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;CST816S.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*To use the built-in examples and demos of LVGL uncomment the includes below respectively.</span></span><br><span class="line"><span class="comment"> *You also need to copy `lvgl/examples` to `lvgl/src/examples`. Similarly for the demos `lvgl/demos` to `lvgl/src/demos`.</span></span><br><span class="line"><span class="comment"> Note that the `lv_examples` library is for LVGL v7 and you shouldn&#x27;t install it for this version (since LVGL v8)</span></span><br><span class="line"><span class="comment"> as the examples and demos are now part of the main LVGL library. */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*Change to your screen resolution*/</span></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">uint16_t</span> screenWidth  = <span class="number">240</span>;</span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">uint16_t</span> screenHeight = <span class="number">280</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">lv_disp_draw_buf_t</span> draw_buf;</span><br><span class="line"><span class="type">static</span> <span class="type">lv_color_t</span> buf[ screenWidth * <span class="number">10</span> ];</span><br><span class="line"></span><br><span class="line">TFT_eSPI tft = <span class="built_in">TFT_eSPI</span>(screenWidth, screenHeight); <span class="comment">/* TFT instance */</span></span><br><span class="line"></span><br><span class="line"><span class="function">CST816S <span class="title">touch</span><span class="params">(<span class="number">15</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">34</span>)</span></span>;	<span class="comment">// sda, scl, rst, irq</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">if</span> LV_USE_LOG != 0</span></span><br><span class="line"><span class="comment">/* Serial debugging */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">my_print</span><span class="params">(<span class="type">const</span> <span class="type">char</span> * buf)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Serial.<span class="built_in">printf</span>(buf);</span><br><span class="line">    Serial.<span class="built_in">flush</span>();</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* Display flushing */</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">my_disp_flush</span><span class="params">( <span class="type">lv_disp_drv_t</span> *disp, <span class="type">const</span> <span class="type">lv_area_t</span> *area, <span class="type">lv_color_t</span> *color_p )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">uint32_t</span> w = ( area-&gt;x2 - area-&gt;x1 + <span class="number">1</span> );</span><br><span class="line">    <span class="type">uint32_t</span> h = ( area-&gt;y2 - area-&gt;y1 + <span class="number">1</span> );</span><br><span class="line"></span><br><span class="line">    tft.<span class="built_in">startWrite</span>();</span><br><span class="line">    tft.<span class="built_in">setAddrWindow</span>( area-&gt;x1, area-&gt;y1, w, h );</span><br><span class="line">    tft.<span class="built_in">pushColors</span>( ( <span class="type">uint16_t</span> * )&amp;color_p-&gt;full, w * h, <span class="literal">true</span> );</span><br><span class="line">    tft.<span class="built_in">endWrite</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">lv_disp_flush_ready</span>( disp );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*Read the touchpad*/</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">my_touchpad_read</span><span class="params">(<span class="type">lv_indev_drv_t</span> * indev_driver, <span class="type">lv_indev_data_t</span> * data )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">bool</span> touched = touch.<span class="built_in">available</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>( !touched )</span><br><span class="line">    &#123;</span><br><span class="line">        data-&gt;state = LV_INDEV_STATE_REL;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        data-&gt;state = LV_INDEV_STATE_PR;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*Set the coordinates*/</span></span><br><span class="line">        data-&gt;point.x = touch.data.x;</span><br><span class="line">        data-&gt;point.y = touch.data.y;</span><br><span class="line"></span><br><span class="line">        Serial.<span class="built_in">print</span>( <span class="string">&quot;Data x &quot;</span> );</span><br><span class="line">        Serial.<span class="built_in">println</span>( touch.data.x );</span><br><span class="line"></span><br><span class="line">        Serial.<span class="built_in">print</span>( <span class="string">&quot;Data y &quot;</span> );</span><br><span class="line">        Serial.<span class="built_in">println</span>( touch.data.y );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">setup</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Serial.<span class="built_in">begin</span>( <span class="number">115200</span> ); <span class="comment">/* prepare for possible serial debug */</span></span><br><span class="line"></span><br><span class="line">    String LVGL_Arduino = <span class="string">&quot;Hello Arduino! &quot;</span>;</span><br><span class="line">    LVGL_Arduino += <span class="built_in">String</span>(<span class="string">&#x27;V&#x27;</span>) + <span class="built_in">lv_version_major</span>() + <span class="string">&quot;.&quot;</span> + <span class="built_in">lv_version_minor</span>() + <span class="string">&quot;.&quot;</span> + <span class="built_in">lv_version_patch</span>();</span><br><span class="line"></span><br><span class="line">    Serial.<span class="built_in">println</span>( LVGL_Arduino );</span><br><span class="line">    Serial.<span class="built_in">println</span>( <span class="string">&quot;I am LVGL_Arduino&quot;</span> );</span><br><span class="line"></span><br><span class="line">    <span class="built_in">lv_init</span>();</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">if</span> LV_USE_LOG != 0</span></span><br><span class="line">    <span class="built_in">lv_log_register_print_cb</span>( my_print ); <span class="comment">/* register print function for debugging */</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">    tft.<span class="built_in">begin</span>();          <span class="comment">/* TFT init */</span></span><br><span class="line">    tft.<span class="built_in">setRotation</span>( <span class="number">2</span> ); <span class="comment">/* 2:top fpc 4:bottom fpc */</span></span><br><span class="line"></span><br><span class="line">    touch.<span class="built_in">begin</span>();</span><br><span class="line">    Serial.<span class="built_in">print</span>(touch.data.version);</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">print</span>(touch.data.versionInfo[<span class="number">0</span>]);</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;-&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">print</span>(touch.data.versionInfo[<span class="number">1</span>]);</span><br><span class="line">    Serial.<span class="built_in">print</span>(<span class="string">&quot;-&quot;</span>);</span><br><span class="line">    Serial.<span class="built_in">println</span>(touch.data.versionInfo[<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">lv_disp_draw_buf_init</span>( &amp;draw_buf, buf, <span class="literal">NULL</span>, screenWidth * <span class="number">10</span> );</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Initialize the display*/</span></span><br><span class="line">    <span class="type">static</span> <span class="type">lv_disp_drv_t</span> disp_drv;</span><br><span class="line">    <span class="built_in">lv_disp_drv_init</span>( &amp;disp_drv );</span><br><span class="line">    <span class="comment">/*Change the following line to your display resolution*/</span></span><br><span class="line">    disp_drv.hor_res = screenWidth;</span><br><span class="line">    disp_drv.ver_res = screenHeight;</span><br><span class="line">    disp_drv.flush_cb = my_disp_flush;</span><br><span class="line">    disp_drv.draw_buf = &amp;draw_buf;</span><br><span class="line">    <span class="built_in">lv_disp_drv_register</span>( &amp;disp_drv );</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*Initialize the (dummy) input device driver*/</span></span><br><span class="line">    <span class="type">static</span> <span class="type">lv_indev_drv_t</span> indev_drv;</span><br><span class="line">    <span class="built_in">lv_indev_drv_init</span>( &amp;indev_drv );</span><br><span class="line">    indev_drv.type = LV_INDEV_TYPE_POINTER;</span><br><span class="line">    indev_drv.read_cb = my_touchpad_read;</span><br><span class="line">    <span class="built_in">lv_indev_drv_register</span>( &amp;indev_drv );</span><br><span class="line"></span><br><span class="line">    <span class="comment">/* Create simple label */</span></span><br><span class="line">    <span class="type">lv_obj_t</span> *label_top = <span class="built_in">lv_label_create</span>( <span class="built_in">lv_scr_act</span>() );</span><br><span class="line">    <span class="built_in">lv_label_set_text</span>( label_top, LVGL_Arduino.<span class="built_in">c_str</span>() );</span><br><span class="line">    <span class="built_in">lv_obj_align</span>( label_top, LV_ALIGN_TOP_LEFT, <span class="number">0</span>, <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">    <span class="type">lv_obj_t</span> *label = <span class="built_in">lv_label_create</span>( <span class="built_in">lv_scr_act</span>() );</span><br><span class="line">    <span class="built_in">lv_label_set_text</span>( label, LVGL_Arduino.<span class="built_in">c_str</span>() );</span><br><span class="line">    <span class="built_in">lv_obj_align</span>( label, LV_ALIGN_CENTER, <span class="number">0</span>, <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">    <span class="type">lv_obj_t</span> *label_bottom = <span class="built_in">lv_label_create</span>( <span class="built_in">lv_scr_act</span>() );</span><br><span class="line">    <span class="built_in">lv_label_set_text</span>( label_bottom, LVGL_Arduino.<span class="built_in">c_str</span>() );</span><br><span class="line">    <span class="built_in">lv_obj_align</span>( label_bottom, LV_ALIGN_BOTTOM_RIGHT, <span class="number">0</span>, <span class="number">0</span> );</span><br><span class="line"></span><br><span class="line">    Serial.<span class="built_in">println</span>( <span class="string">&quot;Setup done&quot;</span> );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">loop</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">lv_timer_handler</span>(); <span class="comment">/* let the GUI do its work */</span></span><br><span class="line">    <span class="built_in">delay</span>( <span class="number">5</span> );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="lvgl-demo"><a href="#lvgl-demo" class="headerlink" title="lvgl demo"></a>lvgl demo</h1><p>使用官方demos流程：</p>
+<ul>
+<li>lv_conf.h 中 <code>#define LV_USE_DEMO_WIDGETS 1</code></li>
+<li>将lvgl库中的demos移动到src文件夹。不然会出现<code>undefined reference to &#39;lv_demo_benchmark&#39; </code>（例如lv_demo_benchmark） 这是由于lv_demo_benchmark.c未被编译导致的 把demos文件夹移动到lvgl的src目录下就行了，这样就会参与到编译中了</li>
+<li>包含头文件，例如在main.c文件中 <code>#include &quot;demos/lv_demos.h&quot;</code></li>
+<li>初始化等参考官方例程，setup中调用demo中的函数即可。 <code>lv_demo_widgets();</code></li>
+</ul>
+<h2 id="面包板测试"><a href="#面包板测试" class="headerlink" title="面包板测试"></a>面包板测试</h2><p>注意核对FPC座的线序(1脚的位置)</p>
+<table>
+<thead>
+<tr>
+<th>ESP32</th>
+<th>FPC</th>
+<th>Function</th>
+<th>Other</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GND</td>
+<td>1</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>2</td>
+<td>LED_K</td>
+<td>可通过PWM调整亮度</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>3</td>
+<td>VDD</td>
+<td>供电</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>4</td>
+<td>VDD</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>5</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>6</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+<td>D&#x2F;C</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>8</td>
+<td>CS</td>
+<td>默认拉低一直有效</td>
+</tr>
+<tr>
+<td>18</td>
+<td>9</td>
+<td>SCL</td>
+<td>SPI_SCL</td>
+</tr>
+<tr>
+<td>23</td>
+<td>10</td>
+<td>SDA</td>
+<td>SPI_MOSI</td>
+</tr>
+<tr>
+<td>32</td>
+<td>11</td>
+<td>REST</td>
+<td>LCD_RST</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>12</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>13</td>
+<td>TP_SCL</td>
+<td>I2C0_SCL</td>
+</tr>
+<tr>
+<td>15</td>
+<td>14</td>
+<td>TP_SDA</td>
+<td>I2C0_SDA</td>
+</tr>
+<tr>
+<td>5</td>
+<td>15</td>
+<td>TP_RST</td>
+<td>Touch_RST</td>
+</tr>
+<tr>
+<td>34</td>
+<td>16</td>
+<td>TP_INT</td>
+<td>Touch_INT</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>17</td>
+<td>VDD</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>18</td>
+<td>GND</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="使用自己设计的PCB板"><a href="#使用自己设计的PCB板" class="headerlink" title="使用自己设计的PCB板"></a>使用自己设计的PCB板</h2><p>Controler_ESP32_V0.1（PFC座方向反了）</p>
+<table>
+<thead>
+<tr>
+<th>ESP32</th>
+<th>FPC</th>
+<th>Function</th>
+<th>Other</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GND</td>
+<td>1</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>2</td>
+<td>LED_K</td>
+<td>可通过PWM调整亮度</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>3</td>
+<td>VDD</td>
+<td>供电</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>4</td>
+<td>VDD</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>5</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>6</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>7</td>
+<td>D&#x2F;C</td>
+<td></td>
+</tr>
+<tr>
+<td>32</td>
+<td>8</td>
+<td>CS</td>
+<td></td>
+</tr>
+<tr>
+<td>18</td>
+<td>9</td>
+<td>SCL</td>
+<td>SPI_SCL</td>
+</tr>
+<tr>
+<td>23</td>
+<td>10</td>
+<td>SDA</td>
+<td>SPI_MOSI</td>
+</tr>
+<tr>
+<td>PCA9535 IO10</td>
+<td>11</td>
+<td>REST</td>
+<td>IO扩展芯片 I2C0控制</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>12</td>
+<td>GND</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>13</td>
+<td>TP_SCL</td>
+<td>I2C0_SCL</td>
+</tr>
+<tr>
+<td>15</td>
+<td>14</td>
+<td>TP_SDA</td>
+<td>I2C0_SDA</td>
+</tr>
+<tr>
+<td>PCA9535 IO11</td>
+<td>15</td>
+<td>TP_RST</td>
+<td>IO扩展芯片 I2C0控制</td>
+</tr>
+<tr>
+<td>34</td>
+<td>16</td>
+<td>TP_INT</td>
+<td>Touch_INT</td>
+</tr>
+<tr>
+<td>3V3</td>
+<td>17</td>
+<td>VDD</td>
+<td></td>
+</tr>
+<tr>
+<td>GND</td>
+<td>18</td>
+<td>GND</td>
+<td></td>
+</tr>
+</tbody></table>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

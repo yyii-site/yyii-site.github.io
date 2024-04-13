@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Pycharm+Anaconda+QtDesigner开发完整配置攻略 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85-1"><span class="toc-text">下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEpypi%E6%BA%90"><span class="toc-text">设置pypi源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-text">安装软件包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bpython%E7%89%88%E6%9C%AC"><span class="toc-text">查看python版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#conda-%E6%B7%BB%E5%8A%A0%E4%B8%AD%E7%A7%91%E5%A4%A7%E6%BA%90"><span class="toc-text">conda 添加中科大源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PyCharm-Qt-Designer-PyUIC%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B"><span class="toc-text">PyCharm+Qt Designer+PyUIC安装配置教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pycharm-Setting"><span class="toc-text">pycharm Setting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PyCharm-QTDesigner-PyUIC%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-text">PyCharm+QTDesigner+PyUIC使用教程</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Pycharm+Anaconda+QtDesigner开发完整配置攻略
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-02-12 22:38:31</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#PyQt 开发环境 PyCharm Anaconda Qt Designer" title="PyQt 开发环境 PyCharm Anaconda Qt Designer">PyQt 开发环境 PyCharm Anaconda Qt Designer</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>pycharm</p>
+<h2 id="下载安装-1"><a href="#下载安装-1" class="headerlink" title="下载安装"></a>下载安装</h2><p><a target="_blank" rel="noopener" href="https://repo.anaconda.com/archive/Anaconda3-2021.05-Windows-x86_64.exe">anaconda</a></p>
+<p>anaconda mirror</p>
+<h2 id="设置pypi源"><a href="#设置pypi源" class="headerlink" title="设置pypi源"></a>设置pypi源</h2><p>pycharm project</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装软件包"><a href="#安装软件包" class="headerlink" title="安装软件包"></a>安装软件包</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="查看python版本"><a href="#查看python版本" class="headerlink" title="查看python版本"></a>查看python版本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\替换为用户名&gt;pip -V</span><br><span class="line">pip 21.0.1 from E:\ProgramData\Anaconda3\lib\site-packages\pip (python 3.8)</span><br></pre></td></tr></table></figure>
+
+<h2 id="conda-添加中科大源"><a href="#conda-添加中科大源" class="headerlink" title="conda 添加中科大源"></a>conda 添加中科大源</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/R18830287035/article/details/90633942">https://blog.csdn.net/R18830287035/article/details/90633942</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\替换为用户名&gt;</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\替换为用户名&gt;</span><br><span class="line">conda config --show channels</span><br><span class="line">channels:</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/menpo/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/bioconda/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/msys2/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/cloud/conda-forge/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">  - https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">  - defaults</span><br></pre></td></tr></table></figure>
+
+<h2 id="PyCharm-Qt-Designer-PyUIC安装配置教程"><a href="#PyCharm-Qt-Designer-PyUIC安装配置教程" class="headerlink" title="PyCharm+Qt Designer+PyUIC安装配置教程"></a>PyCharm+Qt Designer+PyUIC安装配置教程</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lsdb/p/9121903.html">https://www.cnblogs.com/lsdb/p/9121903.html</a></p>
+<h2 id="pycharm-Setting"><a href="#pycharm-Setting" class="headerlink" title="pycharm Setting"></a>pycharm Setting</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Tools - External Tools</span><br><span class="line">  Qt-QtDesigner </span><br><span class="line">    Name: QtDesigner</span><br><span class="line">    Group: Qt</span><br><span class="line">    Program: E:\ProgramData\Anaconda3\envs\py37ccd\Lib\site-packages\PySide2\designer.exe</span><br><span class="line">    Working dir: $FileDir$</span><br><span class="line">  Qt-PyUIC</span><br><span class="line">    Name: PyUIC</span><br><span class="line">    Group: Qt</span><br><span class="line">    Program: E:\ProgramData\Anaconda3\envs\py37ccd\python.exe</span><br><span class="line">    Arguments: -m PyQt5.uic.pyuic $FileName$ -o $FileNameWithoutExtension$.py</span><br><span class="line">    Working dir: $FileDir$</span><br></pre></td></tr></table></figure>
+
+<h2 id="PyCharm-QTDesigner-PyUIC使用教程"><a href="#PyCharm-QTDesigner-PyUIC使用教程" class="headerlink" title="PyCharm+QTDesigner+PyUIC使用教程"></a>PyCharm+QTDesigner+PyUIC使用教程</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/lsdb/p/9122425.html">https://www.cnblogs.com/lsdb/p/9122425.html</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

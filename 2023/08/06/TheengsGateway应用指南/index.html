@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        TheengsGateway应用指南 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Advanced-users-Build-and-install"><span class="toc-text">Advanced users - Build and install</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        TheengsGateway应用指南
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2023-08-06 22:37:04</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#IOT Theengs Gateway Python" title="IOT Theengs Gateway Python">IOT Theengs Gateway Python</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="Advanced-users-Build-and-install"><a href="#Advanced-users-Build-and-install" class="headerlink" title="Advanced users - Build and install"></a>Advanced users - Build and install</h2><ol>
+<li>参考<a target="_blank" rel="noopener" href="https://gateway.theengs.io/install/install.html#install-theengs-gateway-as-a-docker">https://gateway.theengs.io/install/install.html#install-theengs-gateway-as-a-docker</a></li>
+<li>若使用自己修改的TheengsDecoder，注意在setup.py文件中修改依赖包的版本。</li>
+<li>setup.py修改version版本号，例如<code>version=&quot;1.1.0&quot;</code></li>
+<li><code>__main__.py</code>调试项目，提示import失败，需将<code>from . import main</code>改为<code>from TheengsGateway import main</code></li>
+</ol>
+<p>增加对串口的支持</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">    <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">serial_wr_loop</span>(<span class="params">self</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">read_from_serial</span>(<span class="params">reader</span>):</span><br><span class="line">            count = <span class="number">0</span></span><br><span class="line">            self.running = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">                data = <span class="keyword">await</span> reader.read(<span class="number">1000</span>)</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                logger.info(</span><br><span class="line">                    <span class="string">&quot;Received at `%s` from Serial: `%s`&quot;</span>,</span><br><span class="line">                    count,</span><br><span class="line">                    data,</span><br><span class="line">                )</span><br><span class="line"></span><br><span class="line">                data_json = &#123;&#125;</span><br><span class="line">                <span class="keyword">if</span> <span class="string">&#x27;None&#x27;</span> <span class="keyword">in</span> gw.serial_device:</span><br><span class="line">                    logger.error(<span class="string">&quot;gw.serial_device is None, please check&quot;</span>)</span><br><span class="line">                    self.stopped = <span class="literal">True</span></span><br><span class="line">                <span class="keyword">elif</span> <span class="string">&#x27;YE600X&#x27;</span> <span class="keyword">in</span> gw.serial_device:</span><br><span class="line">                    <span class="comment"># YE600X 设备调试 使用串口助手以十六进制方式发送测试数据 1e 5f 00 41 00 4b 00 e1 07 07 0c 08 0a 19 40 00 00 04 00</span></span><br><span class="line">                    <span class="keyword">try</span>:</span><br><span class="line">                        data_str = <span class="built_in">bytes</span>.decode(data, encoding=<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">                        <span class="keyword">if</span> data_str.find(<span class="string">&quot;CONNECTED&quot;</span>) &gt;= <span class="number">0</span>:</span><br><span class="line">                            self.serial_mac = <span class="built_in">bytes</span>.decode(data[data_str.find(<span class="string">&quot;,&quot;</span>)+<span class="number">1</span>:], encoding=<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">                            self.serial_connect_status = <span class="string">&quot;online&quot;</span></span><br><span class="line">                            logger.info(<span class="string">&quot;serial device connected, mac: %s&quot;</span>, self.serial_mac)</span><br><span class="line">                        <span class="keyword">if</span> data_str.find(<span class="string">&quot;DISCONN&quot;</span>) &gt;= <span class="number">0</span>:</span><br><span class="line">                            self.serial_mac = <span class="built_in">bytes</span>.decode(data[data_str.find(<span class="string">&quot;,&quot;</span>)+<span class="number">1</span>:], encoding=<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">                            self.serial_connect_status = <span class="string">&quot;offline&quot;</span></span><br><span class="line">                            logger.info(<span class="string">&quot;serial device disconnected, mac: %s&quot;</span>, self.serial_mac)</span><br><span class="line">                    <span class="keyword">except</span>:</span><br><span class="line">                        logger.info(<span class="string">&quot;serial read ascii data&quot;</span>)</span><br><span class="line">                    data_json[<span class="string">&quot;name&quot;</span>] = <span class="string">&quot;YE600X&quot;</span></span><br><span class="line">                    data_json[<span class="string">&quot;mac&quot;</span>] = self.serial_mac</span><br><span class="line">                    data_json[<span class="string">&quot;connect_status&quot;</span>] = self.serial_connect_status</span><br><span class="line">                    data_json[<span class="string">&quot;manufacturerdata&quot;</span>] = <span class="string">&#x27;&#x27;</span>.join([<span class="string">&#x27;%02X&#x27;</span> % b <span class="keyword">for</span> b <span class="keyword">in</span> data])</span><br><span class="line">                <span class="keyword">elif</span> <span class="string">&#x27;sps&#x27;</span> <span class="keyword">in</span> gw.serial_device:</span><br><span class="line">                    <span class="comment"># sps 设备调试 使用串口助手以十六进制方式发送测试数据 af 09 7C 18 01 f9 9c 44 08</span></span><br><span class="line">                    data_json[<span class="string">&quot;manufacturerdata&quot;</span>] = <span class="string">&#x27;&#x27;</span>.join([<span class="string">&#x27;%02X&#x27;</span> % b <span class="keyword">for</span> b <span class="keyword">in</span> data])</span><br><span class="line">                    data_json[<span class="string">&quot;id&quot;</span>] = <span class="string">&quot;88:33:22:FF:44:77&quot;</span></span><br><span class="line">                    data_json[<span class="string">&quot;name&quot;</span>] = <span class="string">&quot;sps&quot;</span></span><br><span class="line">                    data_json[<span class="string">&quot;rssi&quot;</span>] = -<span class="number">15</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    logger.error(<span class="string">&quot;gw.serial_device is not defined, please check&quot;</span>)</span><br><span class="line">                    self.stopped = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">                decoded_json = decodeBLE(json.dumps(data_json))  <span class="comment"># 将python对象编码成Json字符串</span></span><br><span class="line">                <span class="keyword">if</span> decoded_json <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                    logger.info(<span class="string">&quot;serial decodeBLE return None&quot;</span>)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    msg = decoded_json</span><br><span class="line">                    gw.publish(</span><br><span class="line">                        msg,</span><br><span class="line">                        gw.presence_topic,</span><br><span class="line">                    )</span><br><span class="line">            logger.error(<span class="string">&quot;serial read loop stopped&quot;</span>)</span><br><span class="line">            self.running = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">write_to_serial</span>(<span class="params">writer</span>):</span><br><span class="line">            self.running = <span class="literal">True</span></span><br><span class="line">            <span class="keyword">while</span> <span class="keyword">not</span> self.stopped:</span><br><span class="line">                writer.write(<span class="string">b&#x27;off\n&#x27;</span>)</span><br><span class="line">                <span class="keyword">await</span> writer.drain()</span><br><span class="line">                <span class="keyword">await</span> asyncio.sleep(<span class="number">2</span>)</span><br><span class="line">            logger.error(<span class="string">&quot;serial write loop stopped&quot;</span>)</span><br><span class="line">            self.running = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            reader, writer = <span class="keyword">await</span> serial_asyncio.open_serial_connection(url=gw.serial_port, baudrate=<span class="number">115200</span>)</span><br><span class="line">            task_1 = asyncio.create_task(read_from_serial(reader))</span><br><span class="line">            task_2 = asyncio.create_task(write_to_serial(writer))</span><br><span class="line">            <span class="keyword">await</span> task_1</span><br><span class="line">            <span class="keyword">await</span> task_2</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            self.running = <span class="literal">False</span></span><br><span class="line">            self.stopped = <span class="literal">True</span></span><br><span class="line">            logger.error(<span class="string">&quot;serial %s port open failed, please check&quot;</span>, gw.serial_port)</span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run</span>(<span class="params">arg: <span class="built_in">str</span></span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="comment"># 修改</span></span><br><span class="line">    thread = Thread(target=loop.run_forever, daemon=<span class="literal">True</span>)</span><br><span class="line">    thread.start()</span><br><span class="line">    asyncio.run_coroutine_threadsafe(gw.serial_wr_loop(), loop)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>() -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="comment"># 增加串口端口号和目标设备类型的选项</span></span><br><span class="line">    parser.add_argument(</span><br><span class="line">        <span class="string">&quot;-sp&quot;</span>, <span class="string">&quot;--serial_port&quot;</span>, dest=<span class="string">&quot;serial_port&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&quot;Serial port&quot;</span></span><br><span class="line">    )</span><br><span class="line">    parser.add_argument(</span><br><span class="line">        <span class="string">&quot;-si&quot;</span>, <span class="string">&quot;--serial_device_id&quot;</span>, dest=<span class="string">&quot;serial_device&quot;</span>, <span class="built_in">type</span>=<span class="built_in">str</span>, <span class="built_in">help</span>=<span class="string">&quot;Serial device id, need check &lt;TheengsDecoder/src/devices/list&gt;&quot;</span></span><br><span class="line">    )</span><br><span class="line">    <span class="comment"># 将 serial_port  serial_device 加入配置文件的读写，并传递给 Gateway</span></span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

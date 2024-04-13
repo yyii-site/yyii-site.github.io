@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        局域网内Raspberry上报IP地址脚本编写及部署 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85python%E5%8C%85"><span class="toc-text">安装python包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E8%84%9A%E6%9C%AC%E5%A4%8D%E5%88%B6%E5%88%B0%E6%8C%87%E5%AE%9A%E7%9A%84%E7%9B%AE%E5%BD%95"><span class="toc-text">将脚本复制到指定的目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1"><span class="toc-text">新建系统服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        局域网内Raspberry上报IP地址脚本编写及部署
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2023-08-06 23:03:14</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Raspberry IP UDP Python Shell" title="Raspberry IP UDP Python Shell">Raspberry IP UDP Python Shell</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="安装python包"><a href="#安装python包" class="headerlink" title="安装python包"></a>安装python包</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple netifaces</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="将脚本复制到指定的目录"><a href="#将脚本复制到指定的目录" class="headerlink" title="将脚本复制到指定的目录"></a>将脚本复制到指定的目录</h2><p>&#x2F;usr&#x2F;local&#x2F;bin&#x2F;send_ipaddr_broadcast.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> netifaces</span><br><span class="line"><span class="keyword">import</span> signal</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">send_broadcast_message</span>(<span class="params">sock</span>):</span><br><span class="line">    <span class="comment"># 获取树莓派的IP地址</span></span><br><span class="line">    interfaces = netifaces.interfaces()</span><br><span class="line">    <span class="keyword">for</span> iface <span class="keyword">in</span> interfaces:</span><br><span class="line">        addrs = netifaces.ifaddresses(iface)</span><br><span class="line">        <span class="keyword">if</span> netifaces.AF_INET <span class="keyword">in</span> addrs:</span><br><span class="line">            ip = addrs[netifaces.AF_INET][<span class="number">0</span>][<span class="string">&#x27;addr&#x27;</span>]</span><br><span class="line">            <span class="keyword">if</span> ip.find(<span class="string">&#x27;127.0.0.1&#x27;</span>) &gt;= <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 发送UDP广播消息</span></span><br><span class="line">            broadcast_ip = <span class="string">&#x27;255.255.255.255&#x27;</span>  <span class="comment"># 广播地址</span></span><br><span class="line">            port = <span class="number">7893</span>  <span class="comment"># 自定义端口号</span></span><br><span class="line"></span><br><span class="line">            message = <span class="string">&quot;Raspberry IP address is &#123;&#125;&quot;</span>.<span class="built_in">format</span>(ip)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                sock.sendto(message.encode(), (broadcast_ip, port))</span><br><span class="line">            <span class="keyword">except</span> socket.error <span class="keyword">as</span> e:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;Failed to send broadcast message:&quot;</span>, <span class="built_in">str</span>(e))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sigterm_handler</span>(<span class="params">signal, frame</span>):</span><br><span class="line">    <span class="comment"># 执行清理操作，例如关闭套接字等</span></span><br><span class="line">    <span class="keyword">if</span> sock:</span><br><span class="line">        sock.close()</span><br><span class="line">    sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建非阻塞式套接字</span></span><br><span class="line">sock = <span class="literal">None</span></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)</span><br><span class="line">    sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, <span class="number">1</span>)</span><br><span class="line">    sock.setblocking(<span class="number">0</span>)  <span class="comment"># 设置为非阻塞式套接字</span></span><br><span class="line"><span class="keyword">except</span> socket.error <span class="keyword">as</span> e:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Failed to create socket:&quot;</span>, <span class="built_in">str</span>(e))</span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注册SIGTERM信号处理函数</span></span><br><span class="line">signal.signal(signal.SIGTERM, sigterm_handler)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置等待时间间隔</span></span><br><span class="line">wait_interval = <span class="number">5</span>  <span class="comment"># 5秒</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环发送UDP广播消息</span></span><br><span class="line">start_time = time.time()</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        current_time = time.time()</span><br><span class="line">        <span class="keyword">if</span> current_time - start_time &gt;= wait_interval:</span><br><span class="line">            send_broadcast_message(sock)</span><br><span class="line">            start_time = current_time</span><br><span class="line">        time.sleep(<span class="number">1</span>)  <span class="comment"># 休眠1秒，降低CPU使用率</span></span><br><span class="line">    <span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">        <span class="comment"># 如果收到键盘中断信号，退出循环</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭套接字</span></span><br><span class="line"><span class="keyword">if</span> sock:</span><br><span class="line">    sock.close()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="新建系统服务"><a href="#新建系统服务" class="headerlink" title="新建系统服务"></a>新建系统服务</h2><ul>
+<li>将send_ipaddr_broadcast.py复制到&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Send UDP Broadcast Service</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/local/bin/send_ipaddr_broadcast.py</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>开启服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl start send_ipaddr_broadcast.service</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开机自启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl <span class="built_in">enable</span> send_ipaddr_broadcast.service</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ul>
+<li><p>打开网络调试助手</p>
+</li>
+<li><p>选择UDP模式</p>
+</li>
+<li><p>选择合适的本地主机地址（非127.0.0.1）</p>
+</li>
+<li><p>输入本地主机端口7893</p>
+</li>
+<li><p>点击开启按钮</p>
+</li>
+<li><p>接收设置选择：ASCII模式</p>
+</li>
+</ul>
+<p><img src="/2023/08/06/%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85Raspberry%E4%B8%8A%E6%8A%A5IP%E5%9C%B0%E5%9D%80%E8%84%9A%E6%9C%AC%E7%BC%96%E5%86%99%E5%8F%8A%E9%83%A8%E7%BD%B2/test.png" alt="test"></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

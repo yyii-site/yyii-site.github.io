@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Stm32F407-ADC-DMA - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Stm32F407-ADC-DMA"><span class="toc-text">Stm32F407_ADC_DMA</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rt-Thrad-Studio"><span class="toc-text">Rt-Thrad Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CubeMX-Settings"><span class="toc-text">CubeMX Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-Test"><span class="toc-text">Build &amp;&amp; Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End"><span class="toc-text">End</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Stm32F407-ADC-DMA
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-11-12 23:40:27</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#stm32 ADC DMA rt-thread studio" title="stm32 ADC DMA rt-thread studio">stm32 ADC DMA rt-thread studio</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Stm32F407-ADC-DMA"><a href="#Stm32F407-ADC-DMA" class="headerlink" title="Stm32F407_ADC_DMA"></a>Stm32F407_ADC_DMA</h1><h2 id="Rt-Thrad-Studio"><a href="#Rt-Thrad-Studio" class="headerlink" title="Rt-Thrad Studio"></a>Rt-Thrad Studio</h2><hr>
+<p><img src="/2021/11/12/Stm32F407-ADC-DMA/image-20211112222940162.png" alt="image-20211112222940162"></p>
+<h2 id="CubeMX-Settings"><a href="#CubeMX-Settings" class="headerlink" title="CubeMX Settings"></a>CubeMX Settings</h2><hr>
+<ol>
+<li>System Core &gt;&gt; RCC &gt;&gt; HSE &gt;&gt; Crystal(外部晶振)</li>
+<li>System Core &gt;&gt; SYS &gt;&gt; Debug(选择调试接口)</li>
+<li>Connectivity &gt;&gt; USART3 &gt;&gt; Asynchronous(用于finsh命令行)</li>
+<li>Analog &gt;&gt; ADC1 &gt;&gt;</li>
+</ol>
+<p>Parameter Settings</p>
+<p><img src="/2021/11/12/Stm32F407-ADC-DMA/image-20211112224235969.png" alt="image-20211112224235969"></p>
+<p><img src="/2021/11/12/Stm32F407-ADC-DMA/image-20211112224811725.png" alt="image-20211112224811725"></p>
+<ol start="5">
+<li>Analog &gt;&gt; ADC1 &gt;&gt; DMA Settings</li>
+</ol>
+<p><img src="/2021/11/12/Stm32F407-ADC-DMA/image-20211112233043884.png" alt="image-20211112233043884"></p>
+<ol start="6">
+<li>Clock Configuration(配置时钟)  HCLK &gt;&gt; 168 &gt;&gt; Enter</li>
+</ol>
+<p><img src="/2021/11/12/Stm32F407-ADC-DMA/image-20211111212633234.png" alt="image-20211111212633234"></p>
+<ol start="7">
+<li>GENERATE COED (default seting)</li>
+</ol>
+<p><img src="/2021/11/12/Stm32F407-ADC-DMA/image-20211112225130880.png" alt="image-20211112225130880"></p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><hr>
+<ol>
+<li>applications&#x2F;main.c</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;rtthread.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_TAG <span class="string">&quot;main&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> DBG_LVL DBG_LOG</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;rtdbg.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="type">void</span> <span class="title function_">usr_board_init</span><span class="params">(<span class="type">void</span>)</span>;</span><br><span class="line"><span class="keyword">extern</span> <span class="type">uint16_t</span> <span class="title function_">read_adc_value</span><span class="params">(<span class="type">uint8_t</span> channel)</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> count = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    usr_board_init();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (count++)</span><br><span class="line">    &#123;</span><br><span class="line">        LOG_D(<span class="string">&quot;Hello RT-Thread!&quot;</span>);</span><br><span class="line">        rt_kprintf(<span class="string">&quot;PA3_adc = %d   &quot;</span>, read_adc_value(<span class="number">0</span>));</span><br><span class="line">        rt_kprintf(<span class="string">&quot;PA4_adc = %d   &quot;</span>, read_adc_value(<span class="number">1</span>));</span><br><span class="line">        rt_kprintf(<span class="string">&quot;PA5_adc = %d   &quot;</span>, read_adc_value(<span class="number">2</span>));</span><br><span class="line">        rt_kprintf(<span class="string">&quot;PA6_adc = %d   &quot;</span>, read_adc_value(<span class="number">3</span>));</span><br><span class="line">        rt_kprintf(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        rt_thread_mdelay(<span class="number">1000</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> RT_EOK;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>cubemx&#x2F;Src&#x2F;main.c</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* USER CODE BEGIN 0 */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ADC_CHANNEL_SUM         4</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ADC_BUFF_LOOP           30</span></span><br><span class="line"><span class="type">uint16_t</span> adc_dma_value[ADC_CHANNEL_SUM * ADC_BUFF_LOOP];</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">usr_board_init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    MX_DMA_Init();</span><br><span class="line">    MX_ADC1_Init();</span><br><span class="line">    HAL_ADC_Start_DMA(&amp;hadc1, (<span class="type">uint32_t</span>*)&amp;adc_dma_value, ADC_CHANNEL_SUM * ADC_BUFF_LOOP);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="type">uint16_t</span> <span class="title function_">read_adc_value</span><span class="params">(<span class="type">uint8_t</span> channel)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (channel &lt; ADC_CHANNEL_SUM) &#123;</span><br><span class="line">        <span class="keyword">return</span> adc_dma_value[channel];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* USER CODE END 0 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * Enable DMA controller clock</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line"><span class="type">static</span> <span class="type">void</span> <span class="title function_">MX_DMA_Init</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* DMA controller clock enable */</span></span><br><span class="line">  __HAL_RCC_DMA2_CLK_ENABLE();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* DMA interrupt init */</span></span><br><span class="line">  <span class="comment">/* DMA2_Stream0_IRQn interrupt configuration */</span></span><br><span class="line">  <span class="comment">//HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);</span></span><br><span class="line">  <span class="comment">//HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Build-Test"><a href="#Build-Test" class="headerlink" title="Build &amp;&amp; Test"></a>Build &amp;&amp; Test</h2><p>PA3_adc</p>
+<p><img src="/2021/11/12/Stm32F407-ADC-DMA/image-20211112233634255.png" alt="image-20211112233634255"></p>
+<hr>
+<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

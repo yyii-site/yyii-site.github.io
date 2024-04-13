@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Archlinux下rCore 实验环境配置 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">Rust 开发环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qemu-%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%AE%89%E8%A3%85"><span class="toc-text">Qemu 模拟器安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB-%E8%B0%83%E8%AF%95%E6%94%AF%E6%8C%81"><span class="toc-text">GDB 调试支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C-rCore-Tutorial-v3"><span class="toc-text">运行 rCore-Tutorial-v3</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Archlinux下rCore 实验环境配置
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2021-03-21 11:55:21</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#rCore Rust Qemu GDB Archlinux" title="rCore Rust Qemu GDB Archlinux">rCore Rust Qemu GDB Archlinux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>Archlinux下rCore 实验环境配置</p>
+<p>原文：<a target="_blank" rel="noopener" href="https://rcore-os.github.io/rCore-Tutorial-Book-v3/chapter0/5setup-devel-env.html#rust">rCore-Tutorial-Book 第三版 实验环境配置</a></p>
+<ul>
+<li>系统环境配置（使用Archlinux）</li>
+<li>Rust开发环境配置</li>
+<li>Qemu模拟器安装</li>
+<li>GDB 调试支持</li>
+</ul>
+<h2 id="Rust-开发环境配置"><a href="#Rust-开发环境配置" class="headerlink" title="Rust 开发环境配置"></a>Rust 开发环境配置</h2><p>首先安装Rust包管理器cargo和Rust版本管理器rustup</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S cargo</span><br><span class="line">sudo pacman -S rustup</span><br></pre></td></tr></table></figure>
+
+<p>修改Rust Crates源 <a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/help/crates.io-index.html">ustc</a>，在 <code>$HOME/.cargo/config</code> 中添加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[source.crates-io]</span><br><span class="line">replace-with = <span class="string">&#x27;ustc&#x27;</span></span><br><span class="line"></span><br><span class="line">[source.ustc]</span><br><span class="line">registry = <span class="string">&quot;git://mirrors.ustc.edu.cn/crates.io-index&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>可通过如下命令安装rustc的nightly版本（rCore要求用rustc的nightly版本），并把该版本设置为rustc的缺省版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rustup install nightly</span><br><span class="line">rustup default nightly</span><br></pre></td></tr></table></figure>
+
+<p>接下来安装一些Rust相关的软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rustup target add riscv64gc-unknown-none-elf</span><br><span class="line">cargo install cargo-binutils</span><br><span class="line">rustup component add llvm-tools-preview</span><br><span class="line">rustup component add rust-src</span><br></pre></td></tr></table></figure>
+
+<h2 id="Qemu-模拟器安装"><a href="#Qemu-模拟器安装" class="headerlink" title="Qemu 模拟器安装"></a>Qemu 模拟器安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qemu-emulators-full</span><br></pre></td></tr></table></figure>
+
+<p>随后即可在当前终端 <code>source ~/.bashrc</code> 更新系统路径，或者直接重启一个新的终端。此时我们可以确认 Qemu 的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-riscv64 --version</span><br><span class="line">qemu-riscv64 --version</span><br></pre></td></tr></table></figure>
+
+<h2 id="GDB-调试支持"><a href="#GDB-调试支持" class="headerlink" title="GDB 调试支持"></a>GDB 调试支持</h2><p>在 <code>os</code> 目录下 <code>make debug</code> 可以调试我们的内核，这需要安装终端复用工具 <code>tmux</code> ，还需要基于 riscv64 平台的 gdb 调试器 <code>riscv64-unknown-elf-gdb</code> 。该调试器包含在 riscv64 gcc 工具链中。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S riscv64-unknown-elf-gdb</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行-rCore-Tutorial-v3"><a href="#运行-rCore-Tutorial-v3" class="headerlink" title="运行 rCore-Tutorial-v3"></a>运行 rCore-Tutorial-v3</h2><p>如果是在 Qemu 平台上运行，只需在<code>os</code>目录下 <code>make run</code> 即可。在内核加载完毕之后，可以看到目前可以用的 应用程序。 <code>usertests</code> 打包了其中的很大一部分，所以我们可以运行它，只需输入在终端中输入它的名字即可。运行后，可以先按下 <code>Ctrl+A</code> ，再按下 <code>X</code> 来退出 Qemu。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
