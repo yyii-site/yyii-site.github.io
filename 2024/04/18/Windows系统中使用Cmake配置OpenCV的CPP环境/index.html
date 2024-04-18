@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Windows系统中使用CMake配置OpenCV的CPP环境 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows%E7%B3%BB%E7%BB%9F%E4%B8%AD%E4%BD%BF%E7%94%A8Cmake%E9%85%8D%E7%BD%AEOpenCV%E7%9A%84C-%E7%8E%AF%E5%A2%83"><span class="toc-text">Windows系统中使用Cmake配置OpenCV的C++环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%B9%B6%E8%A7%A3%E5%8E%8B-opencv"><span class="toc-text">下载并解压 opencv</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%B9%B6%E5%AE%89%E8%A3%85cmake"><span class="toc-text">下载并安装cmake</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%BE%91%E7%B3%BB%E7%BB%9F%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">编辑系统环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%E5%8F%8A%E5%86%85%E9%83%A8%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-text">新建文件夹及内部的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Terminal-%E4%B8%AD%E7%BC%96%E8%AF%91"><span class="toc-text">Terminal 中编译</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Windows系统中使用CMake配置OpenCV的CPP环境
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-04-18 20:27:32</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Windows CMake OpenCV C++" title="Windows CMake OpenCV C++">Windows CMake OpenCV C++</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h1 id="Windows系统中使用Cmake配置OpenCV的C-环境"><a href="#Windows系统中使用Cmake配置OpenCV的C-环境" class="headerlink" title="Windows系统中使用Cmake配置OpenCV的C++环境"></a>Windows系统中使用Cmake配置OpenCV的C++环境</h1><p>参考<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=CnXUTG9XYGI">Link</a></p>
+<h2 id="下载并解压-opencv"><a href="#下载并解压-opencv" class="headerlink" title="下载并解压 opencv"></a>下载并解压 <a target="_blank" rel="noopener" href="https://opencv.org/releases/">opencv</a></h2><p>选择Windows，不要选择Sources</p>
+<h2 id="下载并安装cmake"><a href="#下载并安装cmake" class="headerlink" title="下载并安装cmake"></a>下载并安装cmake</h2><p>省略…</p>
+<h2 id="编辑系统环境变量"><a href="#编辑系统环境变量" class="headerlink" title="编辑系统环境变量"></a>编辑系统环境变量</h2><p>在Path 增加以下三项(根据安装位置修改路径)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Program Files\CMake\bin</span><br><span class="line">D:\opencv\build\x64\vc15\bin</span><br><span class="line">D:\opencv\build\x64\vc15\lib</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建文件夹及内部的文件"><a href="#新建文件夹及内部的文件" class="headerlink" title="新建文件夹及内部的文件"></a>新建文件夹及内部的文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">HelloOpenCV</span><br><span class="line">└─src</span><br><span class="line">    └─main.cpp</span><br><span class="line">CMakeLists.txt</span><br><span class="line">1.jpg</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::string imagePath = <span class="string">&quot;1.jpg&quot;</span>;</span><br><span class="line">    cv::Mat image = cv::<span class="built_in">imread</span>(imagePath, cv::IMREAD_COLOR);</span><br><span class="line">    cv::<span class="built_in">imshow</span>(<span class="string">&quot;Display window&quot;</span>, image);</span><br><span class="line">    cv::<span class="built_in">waitKey</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>根据安装位置修改 <code>OpenCV_DIR</code> 的值</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># CMakeLists.txt</span></span><br><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.0</span>)</span><br><span class="line"><span class="keyword">project</span>(HelloOpenCV)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(OpenCV_DIR <span class="string">&quot;D:/opencv/build/x64/vc15/lib&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">find_package</span>(OpenCV REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;OpenCV_INCLUDE_DIRS&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">add_executable</span>(HelloOpenCV src/main.cpp)</span><br><span class="line"></span><br><span class="line"><span class="keyword">target_link_libraries</span>(HelloOpenCV <span class="variable">$&#123;OpenCV_LIBS&#125;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Terminal-中编译"><a href="#Terminal-中编译" class="headerlink" title="Terminal 中编译"></a>Terminal 中编译</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir build</span><br><span class="line">cmake <span class="literal">-B</span> .\build\</span><br></pre></td></tr></table></figure>
+
+<p>Debug</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake <span class="literal">--build</span> .\build\</span><br><span class="line">.\build\Debug\HelloOpenCV.exe</span><br></pre></td></tr></table></figure>
+
+<p>Release</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cmake <span class="literal">--build</span> .\build\ <span class="literal">--config</span> Release</span><br><span class="line">.\build\Release\HelloOpenCV.exe</span><br></pre></td></tr></table></figure>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
