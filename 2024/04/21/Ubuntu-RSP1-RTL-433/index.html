@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Ubuntu-RSP1-RTL_433 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-Linux-kernel-driver"><span class="toc-text">3.1.1. Linux kernel driver</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-Soapy-SDR"><span class="toc-text">3.1.2. Soapy SDR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-3-rtl-433"><span class="toc-text">3.1.3. rtl_433</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Ubuntu-RSP1-RTL_433
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-04-21 22:07:47</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#SDR RSP1 MSI2500 MSI001 SoapySDR RTL_433 Ubuntu 23.10" title="SDR RSP1 MSI2500 MSI001 SoapySDR RTL_433 Ubuntu 23.10">SDR RSP1 MSI2500 MSI001 SoapySDR RTL_433 Ubuntu 23.10</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a target="_blank" rel="noopener" href="https://revspace.nl/Msi2500SDR">Link !!!</a></p>
+<h3 id="3-1-1-Linux-kernel-driver"><a href="#3-1-1-Linux-kernel-driver" class="headerlink" title="3.1.1. Linux kernel driver"></a>3.1.1. Linux kernel driver</h3><p>Not sure what the Linux kernel driver is actually any good for anyway. </p>
+<p>remove the modules manually</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -r msi2500 msi001</span><br></pre></td></tr></table></figure>
+
+<p>create a file &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist-msi.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist msi001</span><br><span class="line">blacklist msi2500</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-1-2-Soapy-SDR"><a href="#3-1-2-Soapy-SDR" class="headerlink" title="3.1.2. Soapy SDR"></a>3.1.2. Soapy SDR</h3><p>install the soapy ‘miri’ driver:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install soapysdr-module-mirisdr</span><br></pre></td></tr></table></figure>
+
+<p>try to find it with SoapySDRUtil</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SoapySDRUtil --find</span><br></pre></td></tr></table></figure>
+
+<p>result (for example): </p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Found device 1</span><br><span class="line">  driver = miri</span><br><span class="line">  label = Mirics MSi2500 default (e.g. VTX3D card)</span><br><span class="line">  miri = 0</span><br></pre></td></tr></table></figure>
+
+<p>try to open with SoapySDRUtil</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SoapySDRUtil  --probe=<span class="string">&quot;driver=miri&quot;</span></span><br></pre></td></tr></table></figure>
+<p> or<br> <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SoapySDRUtil  --probe=<span class="string">&quot;driver=soapyMiri&quot;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-1-3-rtl-433"><a href="#3-1-3-rtl-433" class="headerlink" title="3.1.3. rtl_433"></a>3.1.3. rtl_433</h3><p><a target="_blank" rel="noopener" href="https://github.com/merbanan/rtl_433">link</a></p>
+<p>install</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install rtl-433</span><br></pre></td></tr></table></figure>
+
+<p>run</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rtl_433 -d <span class="string">&quot;&quot;</span></span><br></pre></td></tr></table></figure>
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
