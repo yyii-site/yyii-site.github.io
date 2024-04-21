@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        PyBind11简明教程 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E4%B8%8E-PyBind11-%E5%85%B1%E4%BA%AB-C-%E7%B1%BB"><span class="toc-text">1、与 PyBind11 共享 C++ 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%BB%8E-Python-%E8%B0%83%E7%94%A8-C-%E5%BA%93"><span class="toc-text">2、从 Python 调用 C++ 库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="toc-text">3、结束语</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        PyBind11简明教程
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-04-21 21:40:59</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#python cpp PyBind11" title="python cpp PyBind11">python cpp PyBind11</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>原文链接: <a target="_blank" rel="noopener" href="https://www.matecdev.com/posts/cpp-call-from-python.html">How to Call C++ from Python</a></p>
+<p>翻译整理: <a target="_blank" rel="noopener" href="http://www.bimant.com/blog/pybind11-crash-tutorial/">BimAnt</a></p>
+<p>从 Python 调用 C++ 基本上有两种方法：使用 PyBind11 C++ 库生成 Python 模块，或使用 cytpes Python 包访问已编译的共享库。 使用 PyBind11 我们可以更轻松地共享许多数据类型，而使用 ctypes 是一种低级 C 风格的解决方案。</p>
+<p>就我而言，我希望能够利用 C++ 的性能和可移植性，但我不想放弃解释语言的交互性以进行快速探索和调试。</p>
+<p>幸运的是，从 Python 调用 C++ 并不像乍看起来那么困难。 这样，我们就可以在开发 C++ 代码的同时掌握 Python 的一些交互性。</p>
+<p>就我而言，我想使用 Python 来：</p>
+<ul>
+<li>将一些问题参数传递给C++</li>
+<li>调用 C++ 代码来运行计算密集型例程</li>
+<li>检索最终结果以及一些用于调试的中间计算。</li>
+<li>以交互方式探索结果，并生成图表和报告。</li>
+</ul>
+<p>使用 ctypes 的问题是共享许多数据类型需要大量的低级解决方法。 例如，虽然 ctypes 不支持复数等基本内容，但 PyBind11 使 Numpy 能够与 Eigen 完全互操作，并且需要最少的代码。</p>
+<p>不过，我也发现了 PyBind11 的一个小问题。 事实证明，重新编译 C++ 代码并尝试重新加载 PyBind 生成的 Python 模块后，什么也没发生。 重新加载已编译模块的唯一方法是重新启动我的 Python 会话。 无论如何，这不是什么大问题，因为 Python 的启动时间可以忽略不计。 也许，这个步骤可以在 IDE 级别自动化。</p>
+<p>因此，现在的问题是如何充分利用 PyBind11。</p>
+<h2 id="1、与-PyBind11-共享-C-类"><a href="#1、与-PyBind11-共享-C-类" class="headerlink" title="1、与 PyBind11 共享 C++ 类"></a>1、与 PyBind11 共享 C++ 类</h2><p>PyBind11 的官方文档非常好，我能够毫无问题地开始使用它。 然而，我想分享这个库的超级快速入门指南，以及我打算如何使用它。</p>
+<p>Pybind11 是一个仅包含头文件的库，你可以通过以下方式获取它：</p>
+<p><code>pip install pybind11</code></p>
+<p>虽然没有必要将所有 C++ 代码构造为类，但如果你有一个要在 C++ 和 Python 之间共享的类，Pybind11 将使事情变得非常容易。 实际上，我更像是一个struct向量类型的人，我总是想在给定的项目中引入最少数量的类。</p>
+<p>然而，在这种情况下，我发现使用外观设计模式（参见 wiki）可以同时带来非常简单的 Python&#x2F;C++ 互操作性和良好的 API。</p>
+<p>所以，我设计了一个简单的类。 它基本上包含：</p>
+<ul>
+<li>读取问题参数的构造函数。</li>
+<li>执行计算的 run() 函数。</li>
+<li>一些 Eigen 数组作为公共变量来存储结果。</li>
+</ul>
+<p>这是我的最小示例：</p>
+<figure class="highlight h"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mylib.h</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Eigen/Dense&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"></span><br><span class="line">using Eigen::Matrix, Eigen::Dynamic;</span><br><span class="line"><span class="keyword">typedef</span> Matrix&lt;<span class="built_in">std</span>::<span class="type">complex</span>&lt;<span class="type">double</span>&gt;, Eigen::Dynamic, Eigen::Dynamic&gt; myMatrix;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> N;</span><br><span class="line">    <span class="type">double</span> a;</span><br><span class="line">    <span class="type">double</span> b;</span><br><span class="line"></span><br><span class="line">public:</span><br><span class="line"></span><br><span class="line">    Eigen::VectorXd v_data;</span><br><span class="line">    Eigen::VectorXd v_gamma;</span><br><span class="line"></span><br><span class="line">    MyClass()&#123;&#125;</span><br><span class="line">    MyClass( <span class="type">double</span> a_in, <span class="type">double</span> b_in, <span class="type">int</span> N_in) </span><br><span class="line">    &#123;</span><br><span class="line">        N = N_in;</span><br><span class="line">        a = a_in;</span><br><span class="line">        b = b_in;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">void</span> <span class="title function_">run</span><span class="params">()</span> </span><br><span class="line">    &#123; </span><br><span class="line">        v_data = Eigen::VectorXd::LinSpaced(N, a, b); </span><br><span class="line"></span><br><span class="line">        <span class="keyword">auto</span> gammafunc = [](<span class="type">double</span> it) &#123; <span class="keyword">return</span> <span class="built_in">std</span>::tgamma(it); &#125;;</span><br><span class="line">        v_gamma = v_data.unaryExpr(gammafunc);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>为了共享这个类，我们需要添加一些 C++ 代码。 我倾向于在一个单独的文件中执行此操作，其中包含创建 python 包装器所需的所有内容：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// pywrap.cpp</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pybind11/pybind11.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pybind11/eigen.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mylib.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> py = pybind11;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> byref = py::return_value_policy::reference_internal;</span><br><span class="line"></span><br><span class="line"><span class="built_in">PYBIND11_MODULE</span>(MyLib, m) &#123;</span><br><span class="line">    m.<span class="built_in">doc</span>() = <span class="string">&quot;optional module docstring&quot;</span>;</span><br><span class="line"></span><br><span class="line">    py::<span class="built_in">class_</span>&lt;MyClass&gt;(m, <span class="string">&quot;MyClass&quot;</span>)</span><br><span class="line">    .<span class="built_in">def</span>(py::<span class="built_in">init</span>&lt;<span class="type">double</span>, <span class="type">double</span>, <span class="type">int</span>&gt;())  </span><br><span class="line">    .<span class="built_in">def</span>(<span class="string">&quot;run&quot;</span>, &amp;MyClass::run, py::<span class="built_in">call_guard</span>&lt;py::gil_scoped_release&gt;())</span><br><span class="line">    .<span class="built_in">def_readonly</span>(<span class="string">&quot;v_data&quot;</span>, &amp;MyClass::v_data, byref)</span><br><span class="line">    .<span class="built_in">def_readonly</span>(<span class="string">&quot;v_gamma&quot;</span>, &amp;MyClass::v_gamma, byref)</span><br><span class="line">    ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有几点需要强调：</p>
+<ul>
+<li>类构造函数签名由 .def(py::init&lt;int, double, double&gt;())  指定</li>
+<li>对于 run() 函数，我们要求释放 GIL（全局解释器锁），这将阻止我们的函数使用多个线程。</li>
+<li>最后，可以使用以下 CMakeLists.txt 文件进行编译：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.10)</span><br><span class="line"></span><br><span class="line">project(MyLib)</span><br><span class="line">set(CMAKE_CXX_STANDARD 20)</span><br><span class="line">set(PYBIND11_PYTHON_VERSION 3.6)</span><br><span class="line">set(CMAKE_CXX_FLAGS &quot;-Wall -Wextra -fPIC&quot;)</span><br><span class="line"></span><br><span class="line">find_package(pybind11 REQUIRED)</span><br><span class="line">find_package(Eigen3 REQUIRED)</span><br><span class="line"></span><br><span class="line">pybind11_add_module($&#123;PROJECT_NAME&#125; pywrap.cpp)</span><br><span class="line"></span><br><span class="line">target_compile_definitions($&#123;PROJECT_NAME&#125; PRIVATE VERSION_INFO=$&#123;EXAMPLE_VERSION_INFO&#125;)</span><br><span class="line">target_include_directories($&#123;PROJECT_NAME&#125; PRIVATE $&#123;PYBIND11_INCLUDE_DIRS&#125;)</span><br><span class="line">target_link_libraries($&#123;PROJECT_NAME&#125; PRIVATE Eigen3::Eigen)</span><br></pre></td></tr></table></figure>
+<p>现在已准备好了。 如果你使用 VS Code，配置 CMake 扩展后，只需按 F7 即可编译 C++ 库。</p>
+<h2 id="2、从-Python-调用-C-库"><a href="#2、从-Python-调用-C-库" class="headerlink" title="2、从 Python 调用 C++ 库"></a>2、从 Python 调用 C++ 库</h2><p>这个过程非常简单，并且应该开箱即用。 然而，有一些步骤可以优化交互式工作流程，这些步骤稍微棘手，但也值得实施。</p>
+<p>例如，如果正在执行 Python 环境并且编译的库进入构建目录，可以执行以下操作：</p>
+<p>import sys<br>sys.path.append(“build&#x2F;“)<br>from MyLib import MyClass</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>Simulation &#x3D; MyClass(-4,4,1000)<br>Simulation.run()</p>
+<p>plt.plot(Simulation.v_data, Simulation.v_gamma, <br>“–”, linewidth &#x3D; 3, color&#x3D;(1,0,0,0.6),label&#x3D;”Function Value”)<br>plt.ylim(-10,10)<br>plt.xlabel(“x”)<br>plt.ylabel(“($f(x) &#x3D; \gamma(x)$)”)<br>plt.title(“(Gamma Function: $\gamma(z) &#x3D; \int_0^\infty x^{z-1} e^{-x} dx$)”,fontsize &#x3D; 18);<br>plt.show()</p>
+<p>结果如下：</p>
+<p><img src="/2024/04/21/PyBind11%E7%AE%80%E6%98%8E%E6%95%99%E7%A8%8B/image-137.png" alt="Gamma"></p>
+<p>请注意，特征向量会自动转换为 Python 数组。</p>
+<p>修改 myLib.hpp 后，只需在 pywrap.cpp 中为我们要公开的每个新函数或变量添加一行代码。</p>
+<p>不幸的是，这不会导致完全交互式的工作流程。 当你在更改后重新编译 C++ 代码时，Python 端不会发生任何事情。 即使尝试使用 importtools 重新加载 Python 模块：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import importlib</span><br><span class="line">importlib.reload(MyLib)</span><br></pre></td></tr></table></figure>
+
+<p>什么都没发生。 原因是编译后的代码无法在Python中重新加载。</p>
+<p>因此，使用 PyBind11 时，每次重新编译 C++ 代码时都需要重新启动 Python 会话，这对于开发目的来说有点烦人。 然而，这是一个很小的代价，因为 Python 的启动时间可以忽略不计，并且可能有一种方法可以使用一些 IDE 热键或其他工具来自动化该过程。</p>
+<h2 id="3、结束语"><a href="#3、结束语" class="headerlink" title="3、结束语"></a>3、结束语</h2><p>好了，这就是可以轻松地从 Python 调用 C++ 库的方法。教程的示例代码可以从github获取。</p>
+<p>特别是，这个两步过程可以产生非常交互式的开发工作流程。 尽管我们有一个编辑-编译-运行工作流程，但我们在最后添加了一个解释器，所以现在我们的工作流程看起来像编辑-编译-运行-探索。</p>
+<p>将来，我计划将两个功能合并到此工作流程中：</p>
+<ul>
+<li>第一个是 C++20 模块，它应该可以加快大型 C++ 项目的编译时间。 不幸的是，CMake 仍然与模块不兼容（请参阅此问题以获取更新），并且显然必须依赖像 Ninja-Build 这样的构建系统才能立即使用此功能。</li>
+<li>另一件事是修复重新编译 C++ 代码后（手动）重新启动 Python 会话的需要。 为此，我希望也许可以在 VSCode 级别对此采取一些措施。 到目前为止，VS Code 中的最佳选项似乎是终止 Python 会话，然后使用 Shift+Enter 执行 Python 代码，如果尚未打开会话，则会创建一个新会话。</li>
+</ul>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
