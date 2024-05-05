@@ -1,0 +1,162 @@
+<p>国内版克隆版RSP1在RTL-433和GNU Radio中的使用</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="windows"><a href="#windows" class="headerlink" title="windows:"></a>windows:</h3><p>使用 <a href="https://www.sdrplay.com/softwarehome/">SDRuno</a> 软件安装简单易上手.  (建议关闭或卸载流氓杀毒软件)</p>
+<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu:"></a>Ubuntu:</h3><p>无法使用 SDRconnec. </p>
+<p>按照 <a href="https://revspace.nl/Msi2500SDR">Rev Space</a> 教程，可将其识别为miri，且能正常采样。</p>
+<p>使用方式一： <a href="https://github.com/merbanan/rtl_433">rtl_433</a></p>
+<p>使用方式二： <a href="https://www.gnuradio.org/">GNU Radio</a></p>
+<h2 id="Hardware-硬件"><a href="#Hardware-硬件" class="headerlink" title="Hardware 硬件"></a>Hardware 硬件</h2><p>BG7YZF 黄淮创客空间</p>
+<p>a chinese clone of the SDRPlay RSP1.</p>
+<p><img src="/taobao.jpg" alt="taobao"></p>
+<p><img src="/Screenshot_rsp1.jpg" alt="screenshot_rsp1"></p>
+<p>MS001+MSI2500</p>
+<p>10k~2GHz ADC:12bit Bandwidth:10MHz TCXO:0.5ppm</p>
+<p><img src="/msi001_msi2500.jpg" alt="msi001_msi2500"></p>
+<h2 id="API-驱动"><a href="#API-驱动" class="headerlink" title="API 驱动"></a>API 驱动</h2><p>SoapySDR 是另一个开源的SDR硬件抽象层，旨在提供一种通用的API和中间件，用于与不同的SDR硬件设备进行交互。它提供了一个统一的接口，使应用程序能够以一致的方式访问和控制各种SDR设备。SoapySDR 支持多种平台和操作系统，并提供了C++、Python和其他编程语言的绑定。</p>
+<h3 id="禁用和卸载内核驱动"><a href="#禁用和卸载内核驱动" class="headerlink" title="禁用和卸载内核驱动"></a>禁用和卸载内核驱动</h3><p>remove the modules manually</p>
+<pre><code class="sh">sudo modprobe -r msi2500 msi001
+</code></pre>
+<p>create a file &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist-msi.conf</p>
+<pre><code>blacklist msi001
+blacklist msi2500
+</code></pre>
+<h3 id="安装SoapySDR"><a href="#安装SoapySDR" class="headerlink" title="安装SoapySDR"></a>安装SoapySDR</h3><pre><code class="sh">sudo apt install soapysdr-module-mirisdr
+</code></pre>
+<h3 id="查找设备"><a href="#查找设备" class="headerlink" title="查找设备"></a>查找设备</h3><p>将设备连接到USB接口</p>
+<pre><code class="sh"> SoapySDRUtil --find
+</code></pre>
+<p>回显 result(for example)</p>
+<pre><code class="sh">######################################################
+##     Soapy SDR -- the SDR abstraction library     ##
+######################################################
+
+[INFO] [UHD] linux; GNU C++ version 13.1.0; Boost_107400; UHD_4.4.0.0+ds1-4
+Found device 0
+  default_input = True
+  default_output = True
+  device_id = 0
+  driver = audio
+  label = Built-in Audio
+
+Found device 1
+  driver = miri
+  label = Mirics MSi2500 default (e.g. VTX3D card)
+  miri = 0
+</code></pre>
+<p>Print detailed information  打开并打印测试信息</p>
+<pre><code class="sh">SoapySDRUtil  --probe=&quot;driver=miri&quot;
+</code></pre>
+<p>回显 result(for example)</p>
+<pre><code class="sh">######################################################
+##     Soapy SDR -- the SDR abstraction library     ##
+######################################################
+
+Probe device driver=miri
+Using device #0: Mirics MSi2500 default (e.g. VTX3D card)
+
+----------------------------------------------------
+-- Device identification
+----------------------------------------------------
+  driver=miri
+  hardware=miri
+
+----------------------------------------------------
+-- Peripheral summary
+----------------------------------------------------
+  Channels: 1 Rx, 0 Tx
+  Timestamps: NO
+
+----------------------------------------------------
+-- RX Channel 0
+----------------------------------------------------
+  Full-duplex: NO
+  Supports AGC: NO
+  Stream formats: CF32
+  Native format: CF32 [full-scale=1]
+  Antennas: RX
+  Full gain range: [-1, 49, 1] dB
+    LNA gain range: [-1, 49, 1] dB
+  Full freq range: [0.15, 30], [64, 108], [162, 240], [470, 960], [1450, 1675] MHz
+    RF freq range: [0.15, 30], [64, 108], [162, 240], [470, 960], [1450, 1675] MHz
+    CORR freq range:  MHz
+  Tune args:
+     * LO Offset - Tune the LO with an offset and compensate with the baseband CORDIC.
+       [key=OFFSET, units=Hz, default=0.0, type=float]
+     * CORR - Specify a specific value for this component or IGNORE to skip tuning it.
+       [key=CORR, units=Hz, default=DEFAULT, type=float, options=(DEFAULT, IGNORE)]
+  Sample rates: 8 MSps
+
+_mirisdr_alloc_async_buffers
+Lost samples!
+82 01 00 00 00 10 00 00 fb fd bc b4 0e f6 fd fe 
+Lost samples!
+Lost samples!
+OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+</code></pre>
+<h2 id="rtl-433"><a href="#rtl-433" class="headerlink" title="rtl_433"></a>rtl_433</h2><p>rtl_433 是一个开源的软件项目，用于接收和解码使用软件定义无线电（SDR）接收器（如RTL-SDR）捕获的无线电信号。</p>
+<p>rtl_433 项目的目标是支持解码多种不同的无线电设备和协议，包括气象传感器、汽车遥控器、无线温度传感器等。它提供了一个命令行工具，可以直接与RTL-SDR设备进行交互，并将捕获的无线电信号解码为可读的文本输出。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><pre><code class="sh">sudo apt install rtl-433
+</code></pre>
+<h3 id="查看设备信息"><a href="#查看设备信息" class="headerlink" title="查看设备信息"></a>查看设备信息</h3><pre><code class="sh">rtl_433 -d driver=miri -v
+</code></pre>
+<h3 id="解码测试"><a href="#解码测试" class="headerlink" title="解码测试"></a>解码测试</h3><pre><code class="sh">rtl_433 -d &quot;miri&quot;
+</code></pre>
+<p>回显 result(for example)</p>
+<pre><code class="sh">rtl_433 -d &quot;miri&quot;
+rtl_433 version 22.11 (2022-11-19) inputs file rtl_tcp RTL-SDR SoapySDR
+Use -h for usage help and see https://triq.org/ for documentation.
+Trying conf file at &quot;rtl_433.conf&quot;...
+Trying conf file at &quot;/home/yourname/.config/rtl_433/rtl_433.conf&quot;...
+Trying conf file at &quot;/usr/local/etc/rtl_433/rtl_433.conf&quot;...
+Trying conf file at &quot;/etc/rtl_433/rtl_433.conf&quot;...
+Registered 191 out of 223 device decoding protocols [ 1-4 8 11-12 15-17 19-23 25-26 29-36 38-60 63 67-71 73-100 102-105 108-116 119 121 124-128 130-149 151-161 163-168 170-175 177-197 199 201-215 217-223 ]
+[INFO] [UHD] linux; GNU C++ version 13.1.0; Boost_107400; UHD_4.4.0.0+ds1-4
+[INFO] Using format CS16.
+Sample rate set to 250000 S/s.
+Tuner set to automatic gain.
+Tuner gain set to Auto.
+Tuned to 433.920MHz.
+RtAudio pulse: _NOT_ running realtime scheduling
+baseband_demod_FM_cs16: low pass filter for 250000 Hz at cutoff 25000 Hz, 40.0 us
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+time      : 2024-05-05 14:15:39
+model     : Acurite-986  id        : 4096
+channel   : 1R           Battery   : 1             temperature: 1.000000 F   status    : 4             Integrity : CRC
+</code></pre>
+<h2 id="libmirisdr-5"><a href="#libmirisdr-5" class="headerlink" title="libmirisdr-5"></a>libmirisdr-5</h2><p>GNU Radio未能通过SoapySDR打开设备，故使用libmirisdr</p>
+<p>libmirisdr 提供了与 Mirics SDR 接收器进行交互的底层驱动程序和API。它允许开发人员通过编程语言（如C&#x2F;C++）访问和控制 Mirics SDR 接收器的功能。</p>
+<p><a href="https://github.com/ericek111/libmirisdr-5">libmirisdr-5</a><br>forked from f4exb&#x2F;libmirisdr-4</p>
+<pre><code class="sh">git clone git@github.com:ericek111/libmirisdr-5.git
+</code></pre>
+<p>build and install</p>
+<pre><code class="sh">cd libmirisdr-5
+mkdir build
+cd build
+cmake ..
+make -j4
+sudo make install
+sudo ldconfig
+</code></pre>
+<h2 id="gr-osmosdr"><a href="#gr-osmosdr" class="headerlink" title="gr-osmosdr"></a>gr-osmosdr</h2><p>gr-osmosdr 是一个与 GNU Radio 软件无线电平台相关的开源项目，用于与各种软件定义无线电（SDR）硬件设备进行交互。</p>
+<p>使用 gr-osmosdr，你可以将不同厂商的SDR硬件设备（如RTL-SDR、HackRF、LimeSDR等）与GNU Radio进行集成。它提供了一组模块和函数，用于配置和控制SDR硬件设备的参数，如频率、增益、采样率等。通过这些功能，你可以将SDR硬件设备接收到的无线电信号导入到GNU Radio的流程图中进行进一步的信号处理和分析。</p>
+<p><a href="https://osmocom.org/projects/gr-osmosdr/wiki/GrOsmoSDR">gr-osmosdr</a></p>
+<pre><code class="sh">git clone https://git.osmocom.org/sdr/gr-osmosdr.git
+</code></pre>
+<p>build and install</p>
+<pre><code class="sh">cd libmirisdr-5
+mkdir build
+cd build
+cmake ..
+make -j4
+sudo make install
+sudo ldconfig
+</code></pre>
+<h2 id="GNU-Radio"><a href="#GNU-Radio" class="headerlink" title="GNU Radio"></a>GNU Radio</h2><p>GNU Radio 是一个流程图驱动的开源软件工具包，用于构建软件无线电系统和信号处理应用程序。gr-osmosdr 是 GNU Radio 的一个模块，它提供了与各种SDR硬件设备进行通信的功能。</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><pre><code class="sh">sudo apt install gnuradio
+</code></pre>
+<p>open gnuradio</p>
+<h3 id="流图1"><a href="#流图1" class="headerlink" title="流图1"></a>流图1</h3><p>功能：从sdr读取数据，并现实到界面。如下：</p>
+<p><img src="/gnu_project1_grc.png" alt="gnu_project1_grc"></p>
+<p>Execute the flow graph</p>
+<p><img src="/gnu_project1_run.png" alt="gnu_project1_run"></p>
+<h3 id="流图2"><a href="#流图2" class="headerlink" title="流图2"></a>流图2</h3><p>功能：从sdr读取数据，使用FM解码，最后从声卡播放。如下：</p>
+<p><img src="/fm.png" alt="fm"></p>

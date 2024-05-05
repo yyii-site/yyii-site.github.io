@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        Ubuntu-RSP1-GNURadio - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#windows"><span class="toc-text">windows:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ubuntu"><span class="toc-text">Ubuntu:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hardware-%E7%A1%AC%E4%BB%B6"><span class="toc-text">Hardware 硬件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#API-%E9%A9%B1%E5%8A%A8"><span class="toc-text">API 驱动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A6%81%E7%94%A8%E5%92%8C%E5%8D%B8%E8%BD%BD%E5%86%85%E6%A0%B8%E9%A9%B1%E5%8A%A8"><span class="toc-text">禁用和卸载内核驱动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85SoapySDR"><span class="toc-text">安装SoapySDR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E6%89%BE%E8%AE%BE%E5%A4%87"><span class="toc-text">查找设备</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#rtl-433"><span class="toc-text">rtl_433</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E8%AE%BE%E5%A4%87%E4%BF%A1%E6%81%AF"><span class="toc-text">查看设备信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E6%B5%8B%E8%AF%95"><span class="toc-text">解码测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#libmirisdr-5"><span class="toc-text">libmirisdr-5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gr-osmosdr"><span class="toc-text">gr-osmosdr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GNU-Radio"><span class="toc-text">GNU Radio</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-1"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%9B%BE1"><span class="toc-text">流图1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%81%E5%9B%BE2"><span class="toc-text">流图2</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        Ubuntu-RSP1-GNURadio
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-05-05 15:14:43</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#SDR MSI2500 MSI001 RSP1 SoapySDR libmirisdr gr-osmosdr GNURadio Ubuntu" title="SDR MSI2500 MSI001 RSP1 SoapySDR libmirisdr gr-osmosdr GNURadio Ubuntu">SDR MSI2500 MSI001 RSP1 SoapySDR libmirisdr gr-osmosdr GNURadio Ubuntu</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>国内版克隆版RSP1在RTL-433和GNU Radio中的使用</p>
+<h3 id="windows"><a href="#windows" class="headerlink" title="windows:"></a>windows:</h3><p>使用 <a target="_blank" rel="noopener" href="https://www.sdrplay.com/softwarehome/">SDRuno</a> 软件安装简单易上手.  (建议关闭或卸载流氓杀毒软件)</p>
+<h3 id="Ubuntu"><a href="#Ubuntu" class="headerlink" title="Ubuntu:"></a>Ubuntu:</h3><p>无法使用 SDRconnec. </p>
+<p>按照 <a target="_blank" rel="noopener" href="https://revspace.nl/Msi2500SDR">Rev Space</a> 教程，可将其识别为miri，且能正常采样。</p>
+<p>使用方式一： <a target="_blank" rel="noopener" href="https://github.com/merbanan/rtl_433">rtl_433</a></p>
+<p>使用方式二： <a target="_blank" rel="noopener" href="https://www.gnuradio.org/">GNU Radio</a></p>
+<p>对于ubuntu下整个系统框架我是这样理解的：</p>
+<p><img src="/2024/05/05/Ubuntu-RSP1-GNURadio/Ubuntu_RSP1.png" alt="Ubuntu_RSP1"></p>
+<h2 id="Hardware-硬件"><a href="#Hardware-硬件" class="headerlink" title="Hardware 硬件"></a>Hardware 硬件</h2><p>BG7YZF 黄淮创客空间</p>
+<p>a chinese clone of the SDRPlay RSP1.</p>
+<p><img src="/2024/05/05/Ubuntu-RSP1-GNURadio/taobao.jpg" alt="taobao"></p>
+<p><img src="/2024/05/05/Ubuntu-RSP1-GNURadio/Screenshot_rsp1.jpg" alt="screenshot_rsp1"></p>
+<p>MS001+MSI2500</p>
+<p>10k~2GHz ADC:12bit Bandwidth:10MHz TCXO:0.5ppm</p>
+<p><img src="/2024/05/05/Ubuntu-RSP1-GNURadio/msi001_msi2500.jpg" alt="msi001_msi2500"></p>
+<h2 id="API-驱动"><a href="#API-驱动" class="headerlink" title="API 驱动"></a>API 驱动</h2><p>SoapySDR 是另一个开源的SDR硬件抽象层，旨在提供一种通用的API和中间件，用于与不同的SDR硬件设备进行交互。它提供了一个统一的接口，使应用程序能够以一致的方式访问和控制各种SDR设备。SoapySDR 支持多种平台和操作系统，并提供了C++、Python和其他编程语言的绑定。</p>
+<h3 id="禁用和卸载内核驱动"><a href="#禁用和卸载内核驱动" class="headerlink" title="禁用和卸载内核驱动"></a>禁用和卸载内核驱动</h3><p>remove the modules manually</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo modprobe -r msi2500 msi001</span><br></pre></td></tr></table></figure>
+
+<p>create a file &#x2F;etc&#x2F;modprobe.d&#x2F;blacklist-msi.conf</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">blacklist msi001</span><br><span class="line">blacklist msi2500</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装SoapySDR"><a href="#安装SoapySDR" class="headerlink" title="安装SoapySDR"></a>安装SoapySDR</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install soapysdr-module-mirisdr</span><br></pre></td></tr></table></figure>
+
+<h3 id="查找设备"><a href="#查找设备" class="headerlink" title="查找设备"></a>查找设备</h3><p>将设备连接到USB接口</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SoapySDRUtil --find</span><br></pre></td></tr></table></figure>
+
+<p>回显 result(for example)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">######################################################</span></span><br><span class="line"><span class="comment">##     Soapy SDR -- the SDR abstraction library     ##</span></span><br><span class="line"><span class="comment">######################################################</span></span><br><span class="line"></span><br><span class="line">[INFO] [UHD] linux; GNU C++ version 13.1.0; Boost_107400; UHD_4.4.0.0+ds1-4</span><br><span class="line">Found device 0</span><br><span class="line">  default_input = True</span><br><span class="line">  default_output = True</span><br><span class="line">  device_id = 0</span><br><span class="line">  driver = audio</span><br><span class="line">  label = Built-<span class="keyword">in</span> Audio</span><br><span class="line"></span><br><span class="line">Found device 1</span><br><span class="line">  driver = miri</span><br><span class="line">  label = Mirics MSi2500 default (e.g. VTX3D card)</span><br><span class="line">  miri = 0</span><br></pre></td></tr></table></figure>
+
+<p>Print detailed information  打开并打印测试信息</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SoapySDRUtil  --probe=<span class="string">&quot;driver=miri&quot;</span></span><br></pre></td></tr></table></figure>
+<p>回显 result(for example)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">######################################################</span></span><br><span class="line"><span class="comment">##     Soapy SDR -- the SDR abstraction library     ##</span></span><br><span class="line"><span class="comment">######################################################</span></span><br><span class="line"></span><br><span class="line">Probe device driver=miri</span><br><span class="line">Using device <span class="comment">#0: Mirics MSi2500 default (e.g. VTX3D card)</span></span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line">-- Device identification</span><br><span class="line">----------------------------------------------------</span><br><span class="line">  driver=miri</span><br><span class="line">  hardware=miri</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line">-- Peripheral summary</span><br><span class="line">----------------------------------------------------</span><br><span class="line">  Channels: 1 Rx, 0 Tx</span><br><span class="line">  Timestamps: NO</span><br><span class="line"></span><br><span class="line">----------------------------------------------------</span><br><span class="line">-- RX Channel 0</span><br><span class="line">----------------------------------------------------</span><br><span class="line">  Full-duplex: NO</span><br><span class="line">  Supports AGC: NO</span><br><span class="line">  Stream formats: CF32</span><br><span class="line">  Native format: CF32 [full-scale=1]</span><br><span class="line">  Antennas: RX</span><br><span class="line">  Full gain range: [-1, 49, 1] dB</span><br><span class="line">    LNA gain range: [-1, 49, 1] dB</span><br><span class="line">  Full freq range: [0.15, 30], [64, 108], [162, 240], [470, 960], [1450, 1675] MHz</span><br><span class="line">    RF freq range: [0.15, 30], [64, 108], [162, 240], [470, 960], [1450, 1675] MHz</span><br><span class="line">    CORR freq range:  MHz</span><br><span class="line">  Tune args:</span><br><span class="line">     * LO Offset - Tune the LO with an offset and compensate with the baseband CORDIC.</span><br><span class="line">       [key=OFFSET, units=Hz, default=0.0, <span class="built_in">type</span>=<span class="built_in">float</span>]</span><br><span class="line">     * CORR - Specify a specific value <span class="keyword">for</span> this component or IGNORE to skip tuning it.</span><br><span class="line">       [key=CORR, units=Hz, default=DEFAULT, <span class="built_in">type</span>=<span class="built_in">float</span>, options=(DEFAULT, IGNORE)]</span><br><span class="line">  Sample rates: 8 MSps</span><br><span class="line"></span><br><span class="line">_mirisdr_alloc_async_buffers</span><br><span class="line">Lost samples!</span><br><span class="line">82 01 00 00 00 10 00 00 fb fd bc b4 0e f6 fd fe </span><br><span class="line">Lost samples!</span><br><span class="line">Lost samples!</span><br><span class="line">OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO</span><br></pre></td></tr></table></figure>
+
+<h2 id="rtl-433"><a href="#rtl-433" class="headerlink" title="rtl_433"></a>rtl_433</h2><p>rtl_433 是一个开源的软件项目，用于接收和解码使用软件定义无线电（SDR）接收器（如RTL-SDR）捕获的无线电信号。</p>
+<p>rtl_433 项目的目标是支持解码多种不同的无线电设备和协议，包括气象传感器、汽车遥控器、无线温度传感器等。它提供了一个命令行工具，可以直接与RTL-SDR设备进行交互，并将捕获的无线电信号解码为可读的文本输出。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install rtl-433</span><br></pre></td></tr></table></figure>
+
+<h3 id="查看设备信息"><a href="#查看设备信息" class="headerlink" title="查看设备信息"></a>查看设备信息</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rtl_433 -d driver=miri -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="解码测试"><a href="#解码测试" class="headerlink" title="解码测试"></a>解码测试</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rtl_433 -d <span class="string">&quot;miri&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>回显 result(for example)</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">rtl_433 -d <span class="string">&quot;miri&quot;</span></span><br><span class="line">rtl_433 version 22.11 (2022-11-19) inputs file rtl_tcp RTL-SDR SoapySDR</span><br><span class="line">Use -h <span class="keyword">for</span> usage <span class="built_in">help</span> and see https://triq.org/ <span class="keyword">for</span> documentation.</span><br><span class="line">Trying conf file at <span class="string">&quot;rtl_433.conf&quot;</span>...</span><br><span class="line">Trying conf file at <span class="string">&quot;/home/yourname/.config/rtl_433/rtl_433.conf&quot;</span>...</span><br><span class="line">Trying conf file at <span class="string">&quot;/usr/local/etc/rtl_433/rtl_433.conf&quot;</span>...</span><br><span class="line">Trying conf file at <span class="string">&quot;/etc/rtl_433/rtl_433.conf&quot;</span>...</span><br><span class="line">Registered 191 out of 223 device decoding protocols [ 1-4 8 11-12 15-17 19-23 25-26 29-36 38-60 63 67-71 73-100 102-105 108-116 119 121 124-128 130-149 151-161 163-168 170-175 177-197 199 201-215 217-223 ]</span><br><span class="line">[INFO] [UHD] linux; GNU C++ version 13.1.0; Boost_107400; UHD_4.4.0.0+ds1-4</span><br><span class="line">[INFO] Using format CS16.</span><br><span class="line">Sample rate <span class="built_in">set</span> to 250000 S/s.</span><br><span class="line">Tuner <span class="built_in">set</span> to automatic gain.</span><br><span class="line">Tuner gain <span class="built_in">set</span> to Auto.</span><br><span class="line">Tuned to 433.920MHz.</span><br><span class="line">RtAudio pulse: _NOT_ running realtime scheduling</span><br><span class="line">baseband_demod_FM_cs16: low pass filter <span class="keyword">for</span> 250000 Hz at cutoff 25000 Hz, 40.0 us</span><br><span class="line">_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ </span><br><span class="line">time      : 2024-05-05 14:15:39</span><br><span class="line">model     : Acurite-986  <span class="built_in">id</span>        : 4096</span><br><span class="line">channel   : 1R           Battery   : 1             temperature: 1.000000 F   status    : 4             Integrity : CRC</span><br></pre></td></tr></table></figure>
+
+<h2 id="libmirisdr-5"><a href="#libmirisdr-5" class="headerlink" title="libmirisdr-5"></a>libmirisdr-5</h2><p>GNU Radio未能通过SoapySDR打开设备，故使用<a target="_blank" rel="noopener" href="https://github.com/ericek111/libmirisdr-5">libmirisdr-5</a>(forked from f4exb&#x2F;libmirisdr-4)</p>
+<p>libmirisdr 提供了与 Mirics SDR 接收器进行交互的底层驱动程序和API。它允许开发人员通过编程语言（如C&#x2F;C++）访问和控制 Mirics SDR 接收器的功能。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> git@github.com:ericek111/libmirisdr-5.git</span><br></pre></td></tr></table></figure>
+
+<p>build and install</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> libmirisdr-5</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+
+<h2 id="gr-osmosdr"><a href="#gr-osmosdr" class="headerlink" title="gr-osmosdr"></a>gr-osmosdr</h2><p>gr-osmosdr 是一个与 GNU Radio 软件无线电平台相关的开源项目，用于与各种软件定义无线电（SDR）硬件设备进行交互。</p>
+<p>使用 gr-osmosdr，你可以将不同厂商的SDR硬件设备（如RTL-SDR、HackRF、LimeSDR等）与GNU Radio进行集成。它提供了一组模块和函数，用于配置和控制SDR硬件设备的参数，如频率、增益、采样率等。通过这些功能，你可以将SDR硬件设备接收到的无线电信号导入到GNU Radio的流程图中进行进一步的信号处理和分析。</p>
+<p><a target="_blank" rel="noopener" href="https://osmocom.org/projects/gr-osmosdr/wiki/GrOsmoSDR">gr-osmosdr</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://git.osmocom.org/sdr/gr-osmosdr.git</span><br></pre></td></tr></table></figure>
+
+<p>build and install</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> libmirisdr-5</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="GNU-Radio"><a href="#GNU-Radio" class="headerlink" title="GNU Radio"></a>GNU Radio</h2><p>GNU Radio 是一个流程图驱动的开源软件工具包，用于构建软件无线电系统和信号处理应用程序。gr-osmosdr 是 GNU Radio 的一个模块，它提供了与各种SDR硬件设备进行通信的功能。</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gnuradio</span><br></pre></td></tr></table></figure>
+
+<p>open gnuradio</p>
+<h3 id="流图1"><a href="#流图1" class="headerlink" title="流图1"></a>流图1</h3><p>功能：从sdr读取数据，并现实到界面。如下：</p>
+<p><img src="/2024/05/05/Ubuntu-RSP1-GNURadio/gnu_project1_grc.png" alt="gnu_project1_grc"></p>
+<p>Execute the flow graph</p>
+<p><img src="/2024/05/05/Ubuntu-RSP1-GNURadio/gnu_project1_run.png" alt="gnu_project1_run"></p>
+<h3 id="流图2"><a href="#流图2" class="headerlink" title="流图2"></a>流图2</h3><p><a target="_blank" rel="noopener" href="https://youtu.be/m0GGBFBWFfU?si=YlprAk2gu6FbXyD9">YouTube</a></p>
+<p>功能：从sdr读取数据，使用FM解码，最后从声卡播放。如下：</p>
+<p><img src="/2024/05/05/Ubuntu-RSP1-GNURadio/fm.png" alt="fm"></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
