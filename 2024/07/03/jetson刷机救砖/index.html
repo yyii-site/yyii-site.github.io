@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        jetson刷机救砖 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%83%A7%E5%BD%95EMMC%E5%BC%95%E5%AF%BC"><span class="toc-text">1.烧录EMMC引导</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%83%A7%E5%BD%95%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F"><span class="toc-text">2.烧录系统镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-SD%E5%8D%A1%E6%89%A9%E5%AE%B9"><span class="toc-text">3.SD卡扩容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-SSH%E8%BF%9C%E7%A8%8B%E7%99%BB%E5%BD%95"><span class="toc-text">4.SSH远程登录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-VNC%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2"><span class="toc-text">5.VNC远程桌面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Jtop%E7%9A%84%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-text">6.Jtop的安装和使用</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        jetson刷机救砖
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-07-03 22:11:07</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Jetson" title="Jetson">Jetson</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="1-烧录EMMC引导"><a href="#1-烧录EMMC引导" class="headerlink" title="1.烧录EMMC引导"></a>1.烧录EMMC引导</h2><p>如果开机不显示Nvidia的绿色图片，说明引导固件损坏。虽然sd卡或U盘中有系统，但硬件并不知道要去何处加载。现象为开机指示绿灯亮，但HDMI无显示，USB接口无供电（鼠标不亮）。通过TTL串口可以看到机器不停的重启。</p>
+<p><a target="_blank" rel="noopener" href="https://www.yahboom.com/public/upload/upload-html/1710831903/JetsonNano%E7%83%A7%E5%BD%95%E7%B3%BB%E7%BB%9F.html">亚博教程</a> 中的刷机的指令我在jetson nano上尝试失败。</p>
+<p><a target="_blank" rel="noopener" href="https://docs.nvidia.com/sdk-manager/system-requirements/index.html">NVIDIA SDK Manager</a> 打开链接查看刷写jetson需要的宿主机系统要求，如 Jetson nano 需要 Ubuntu 1804.</p>
+<p>下载 <a target="_blank" rel="noopener" href="http://docs.nvidia.com/sdk-manager/download-run-sdkm/index.html">SDK Manager</a> 此软件可下载需要刷机的工具和软件包。</p>
+<p>建议使用物理机，虚拟机Oracle VM VirtualBox出现将USB分配给虚拟机，但通过界面写入的时候会出现USB短线的问题。</p>
+<p>也可以在界面刷写失败后尝试使用命令行的方式，需要在SDK Manager下载软件包中执行，可参考上面的亚博教程。</p>
+<p><a target="_blank" rel="noopener" href="https://forums.developer.nvidia.com/t/recover-bootloader-in-nano-4g-b01/277975/4">https://forums.developer.nvidia.com/t/recover-bootloader-in-nano-4g-b01/277975/4</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ./flash.sh jetson-nano-qspi mmcblk1p1</span><br></pre></td></tr></table></figure>
+
+<p>将跳线帽连接到FC REC和GND引脚， 接入电源，最后和插入microUSB数据线。</p>
+<p>上电开机后会自动进入REC刷机模式。 </p>
+<p>使用Ubuntu刷机</p>
+<h2 id="2-烧录系统镜像"><a href="#2-烧录系统镜像" class="headerlink" title="2.烧录系统镜像"></a>2.烧录系统镜像</h2><p>下载<a target="_blank" rel="noopener" href="https://developer.nvidia.com/embedded/downloads#?tx=$product,jetson_nano">img系统镜像</a> ，选择链接中的 SD Card Image。</p>
+<p>烧录过程参考上一小节的亚博教程</p>
+<h2 id="3-SD卡扩容"><a href="#3-SD卡扩容" class="headerlink" title="3.SD卡扩容"></a>3.SD卡扩容</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gparted</span><br></pre></td></tr></table></figure>
+
+<p>在图形界面环境下操作。</p>
+<h2 id="4-SSH远程登录"><a href="#4-SSH远程登录" class="headerlink" title="4.SSH远程登录"></a>4.SSH远程登录</h2><p><a target="_blank" rel="noopener" href="https://linuxize.com/post/how-to-enable-ssh-on-ubuntu-18-04">参考链接</a></p>
+<h2 id="5-VNC远程桌面"><a href="#5-VNC远程桌面" class="headerlink" title="5.VNC远程桌面"></a>5.VNC远程桌面</h2><p><a target="_blank" rel="noopener" href="https://www.yahboom.com/build.html?id=6189&cid=586">亚博智能</a></p>
+<h2 id="6-Jtop的安装和使用"><a href="#6-Jtop的安装和使用" class="headerlink" title="6.Jtop的安装和使用"></a>6.Jtop的安装和使用</h2><p><a target="_blank" rel="noopener" href="https://jetsonhacks.com/2023/02/07/jtop-the-ultimate-tool-for-monitoring-nvidia-jetson-devices">参考</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

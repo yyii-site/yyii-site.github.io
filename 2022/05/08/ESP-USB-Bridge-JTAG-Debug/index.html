@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ESP-USB-Bridge-Jtag-Debug"><span class="toc-text">ESP-USB-Bridge Jtag Debug</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Create-Project"><span class="toc-text">Create Project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Setup"><span class="toc-text">Setup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flash-And-Debug"><span class="toc-text">Flash And Debug</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End"><span class="toc-text">End</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Create-Project"><span class="toc-text">1.Create Project</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Setup"><span class="toc-text">2.Setup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Flash-And-Debug"><span class="toc-text">3.Flash And Debug</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#esp32 OpenOCD Jtag debug vscode 调试" title="esp32 OpenOCD Jtag debug vscode 调试">esp32 OpenOCD Jtag debug vscode 调试</a>
+        <a class="tag" href="/tags/#ESP32" title="ESP32">ESP32</a>
         <span>/</span>
         
         
@@ -142,65 +142,31 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="ESP-USB-Bridge-Jtag-Debug"><a href="#ESP-USB-Bridge-Jtag-Debug" class="headerlink" title="ESP-USB-Bridge Jtag Debug"></a>ESP-USB-Bridge Jtag Debug</h1><h2 id="Create-Project"><a href="#Create-Project" class="headerlink" title="Create Project"></a>Create Project</h2><ol>
-<li><p>Open VSCode</p>
-</li>
-<li><p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></p>
-</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ESP-IDF: Show Examples Projects</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><p>hello_world</p>
+        <h2 id="1-Create-Project"><a href="#1-Create-Project" class="headerlink" title="1.Create Project"></a>1.Create Project</h2><p>Open VSCode</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>    <code>ESP-IDF: Show Examples Projects</code>  <code>hello_world</code></p>
 <p><strong>Create project using example hello_world</strong></p>
-</li>
-</ol>
-<h2 id="Setup"><a href="#Setup" class="headerlink" title="Setup"></a>Setup</h2><ol>
-<li><p>Select port to use (COMx)</p>
-</li>
-<li><p>set device targete</p>
-</li>
-<li><p>Build project</p>
-</li>
-<li><p>Select flash method (JTAG)</p>
-</li>
-</ol>
+<h2 id="2-Setup"><a href="#2-Setup" class="headerlink" title="2.Setup"></a>2.Setup</h2><p>Select port to use (COMx)</p>
+<p>set device targete</p>
+<p>Build project</p>
+<p>Select flash method (JTAG)</p>
 <p><img src="/2022/05/08/ESP-USB-Bridge-JTAG-Debug/image-20220508171334927.png" alt="image-20220508171334927"></p>
 <p><img src="/2022/05/08/ESP-USB-Bridge-JTAG-Debug/image-20220508171702904.png" alt="image-20220508171702904"></p>
-<ol start="5">
-<li>.vscode&#x2F;settings.json</li>
-</ol>
-<p><strong>COMx</strong></p>
+<p>edit file: <code>.vscode/settings.json</code>  (注意修改<strong>COMx</strong>)</p>
 <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;C_Cpp.intelliSenseEngine&quot;</span><span class="punctuation">:</span> <span class="string">&quot;Tag Parser&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;idf.portWin&quot;</span><span class="punctuation">:</span> <span class="string">&quot;COMx&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;idf.openOcdConfigs&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;interface/esp_usb_bridge.cfg&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="string">&quot;target/esp32.cfg&quot;</span></span><br><span class="line">  <span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;idf.flashType&quot;</span><span class="punctuation">:</span> <span class="string">&quot;JTAG&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
 
-
-<ol start="6">
-<li><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ESP-IDF: OpenOCD Manager</span><br></pre></td></tr></table></figure>
-
-<p>start openocd</p>
+<p><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>  <code>ESP-IDF: OpenOCD Manager</code>  <code>start openocd</code></p>
 <p><img src="/2022/05/08/ESP-USB-Bridge-JTAG-Debug/image-20220508173310006.png" alt="image-20220508173310006"></p>
-<ol start="7">
-<li><a target="_blank" rel="noopener" href="https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/DEBUGGING.md">.vscode&#x2F;settings.json</a></li>
-</ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/DEBUGGING.md">.vscode&#x2F;settings.json</a></p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;version&quot;</span>: <span class="string">&quot;0.2.0&quot;</span>,</span><br><span class="line">  <span class="string">&quot;configurations&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;name&quot;</span>: <span class="string">&quot;GDB&quot;</span>,</span><br><span class="line">      <span class="string">&quot;type&quot;</span>: <span class="string">&quot;cppdbg&quot;</span>,</span><br><span class="line">      <span class="string">&quot;request&quot;</span>: <span class="string">&quot;launch&quot;</span>,</span><br><span class="line">      <span class="string">&quot;MIMode&quot;</span>: <span class="string">&quot;gdb&quot;</span>,</span><br><span class="line">      <span class="string">&quot;miDebuggerPath&quot;</span>: <span class="string">&quot;$&#123;command:espIdf.getXtensaGdb&#125;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;/build/$&#123;command:espIdf.getProjectName&#125;.elf&quot;</span>,</span><br><span class="line">      <span class="string">&quot;windows&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;program&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;\\build\\$&#123;command:espIdf.getProjectName&#125;.elf&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="string">&quot;cwd&quot;</span>: <span class="string">&quot;$&#123;workspaceFolder&#125;&quot;</span>,</span><br><span class="line">      <span class="string">&quot;environment&quot;</span>: [&#123; <span class="string">&quot;name&quot;</span>: <span class="string">&quot;PATH&quot;</span>, <span class="string">&quot;value&quot;</span>: <span class="string">&quot;$&#123;config:idf.customExtraPaths&#125;&quot;</span> &#125;],</span><br><span class="line">      <span class="string">&quot;setupCommands&quot;</span>: [</span><br><span class="line">        &#123; <span class="string">&quot;text&quot;</span>: <span class="string">&quot;target remote :3333&quot;</span> &#125;,</span><br><span class="line">        &#123; <span class="string">&quot;text&quot;</span>: <span class="string">&quot;set remote hardware-watchpoint-limit 2&quot;</span>&#125;,</span><br><span class="line">        &#123; <span class="string">&quot;text&quot;</span>: <span class="string">&quot;mon reset halt&quot;</span> &#125;,</span><br><span class="line">        &#123; <span class="string">&quot;text&quot;</span>: <span class="string">&quot;thb app_main&quot;</span> &#125;,</span><br><span class="line">        &#123; <span class="string">&quot;text&quot;</span>: <span class="string">&quot;flushregs&quot;</span> &#125;</span><br><span class="line">      ],</span><br><span class="line">      <span class="string">&quot;externalConsole&quot;</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="string">&quot;logging&quot;</span>: &#123;</span><br><span class="line">        <span class="string">&quot;engineLogging&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="Flash-And-Debug"><a href="#Flash-And-Debug" class="headerlink" title="Flash And Debug"></a>Flash And Debug</h2><ol>
-<li>flash</li>
-</ol>
+<h2 id="3-Flash-And-Debug"><a href="#3-Flash-And-Debug" class="headerlink" title="3.Flash And Debug"></a>3.Flash And Debug</h2><p>flash</p>
 <p><img src="/2022/05/08/ESP-USB-Bridge-JTAG-Debug/image-20220508174242796.png" alt="image-20220508174242796"></p>
-<ol start="2">
-<li><p><kbd>F5</kbd>  </p>
-<p><em>Try more times</em></p>
-</li>
-</ol>
+<p><kbd>F5</kbd>  </p>
+<p>   <em>Try more times</em></p>
 <p><img src="/2022/05/08/ESP-USB-Bridge-JTAG-Debug/image-20220508174435026.png" alt="image-20220508174435026"></p>
-<ol start="3">
-<li>Other</li>
-</ol>
+<p>Other</p>
 <p>  <a target="_blank" rel="noopener" href="https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/debugging.md">https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/tutorial/debugging.md</a></p>
-<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
+
         
         <br />
         <div id="comment-container">

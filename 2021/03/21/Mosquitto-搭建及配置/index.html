@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Mosquitto-%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE"><span class="toc-text">Mosquitto 搭建及配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">1. 下载安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E9%85%8D%E7%BD%AE"><span class="toc-text">2. 配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1-%E4%B8%BB%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6mosquitto-conf"><span class="toc-text">2.1 主配置文件mosquitto.conf</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2-%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AEpwfile"><span class="toc-text">2.2 认证配置pwfile</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3-%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AEaclfile"><span class="toc-text">2.3 权限配置aclfile</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%90%AF%E5%8A%A8"><span class="toc-text">3. 启动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%B5%8B%E8%AF%95"><span class="toc-text">4. 测试</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-text">链接</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85"><span class="toc-text">2.下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AE"><span class="toc-text">3.配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1%E4%B8%BB%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6mosquitto-conf"><span class="toc-text">3.1主配置文件mosquitto.conf</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2%E8%AE%A4%E8%AF%81%E9%85%8D%E7%BD%AEpwfile"><span class="toc-text">3.2认证配置pwfile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AEaclfile"><span class="toc-text">3.3权限配置aclfile</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%90%AF%E5%8A%A8"><span class="toc-text">4.启动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E6%B5%8B%E8%AF%95"><span class="toc-text">4.1测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5"><span class="toc-text">5.参考链接</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#mqtt server" title="mqtt server">mqtt server</a>
+        <a class="tag" href="/tags/#IoT" title="IoT">IoT</a>
         <span>/</span>
         
         
@@ -142,9 +142,9 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="Mosquitto-搭建及配置"><a href="#Mosquitto-搭建及配置" class="headerlink" title="Mosquitto 搭建及配置"></a>Mosquitto 搭建及配置</h1><p>Eclipse Mosquitto是一个开源消息代理，实现了MQTT协议版本3.1和3.1.1。Mosquitto轻量，适用于低功耗单板计算机到完整服务器的所有设备。Mosquitto项目还提供了用于实现MQTT客户端的C库以及非常受欢迎的mosquitto_pub和mosquitto_sub命令行MQTT客户端。</p>
+        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p>Eclipse Mosquitto是一个开源消息代理，实现了MQTT协议版本3.1和3.1.1。Mosquitto轻量，适用于低功耗单板计算机到完整服务器的所有设备。Mosquitto项目还提供了用于实现MQTT客户端的C库以及非常受欢迎的mosquitto_pub和mosquitto_sub命令行MQTT客户端。</p>
 <p>其他服务器代理实现:<a target="_blank" rel="noopener" href="https://github.com/mqtt/mqtt.github.io/wiki/servers">https://github.com/mqtt/mqtt.github.io/wiki/servers</a><br> 各操作系统安装指引:<a target="_blank" rel="noopener" href="https://mosquitto.org/download/">https://mosquitto.org/download/</a></p>
-<h4 id="1-下载安装"><a href="#1-下载安装" class="headerlink" title="1. 下载安装"></a>1. 下载安装</h4><p>以Ubuntu为例</p>
+<h2 id="2-下载安装"><a href="#2-下载安装" class="headerlink" title="2.下载安装"></a>2.下载安装</h2><p>以Ubuntu为例</p>
 <ul>
 <li>更新源</li>
 </ul>
@@ -160,9 +160,9 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mosquitto-clients</span><br></pre></td></tr></table></figure>
 
-<h4 id="2-配置"><a href="#2-配置" class="headerlink" title="2. 配置"></a>2. 配置</h4><h5 id="2-1-主配置文件mosquitto-conf"><a href="#2-1-主配置文件mosquitto-conf" class="headerlink" title="2.1 主配置文件mosquitto.conf"></a>2.1 主配置文件mosquitto.conf</h5><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">id_file</span> /var/run/mosquitto.pid</span><br><span class="line"></span><br><span class="line"><span class="comment"># 消息持久存储</span></span><br><span class="line">persistence <span class="literal">true</span></span><br><span class="line">persistence_location /var/lib/mosquitto/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 日志文件</span></span><br><span class="line">log_dest file /var/log/mosquitto/mosquitto.log</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他配置</span></span><br><span class="line">include_dir /etc/mosquitto/conf.d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 认证配置</span></span><br><span class="line">password_file /etc/mosquitto/pwfile</span><br><span class="line"><span class="comment"># 权限配置</span></span><br><span class="line">acl_file /etc/mosquitto/aclfile</span><br></pre></td></tr></table></figure>
+<h2 id="3-配置"><a href="#3-配置" class="headerlink" title="3.配置"></a>3.配置</h2><h3 id="3-1主配置文件mosquitto-conf"><a href="#3-1主配置文件mosquitto-conf" class="headerlink" title="3.1主配置文件mosquitto.conf"></a>3.1主配置文件mosquitto.conf</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">id_file</span> /var/run/mosquitto.pid</span><br><span class="line"></span><br><span class="line"><span class="comment"># 消息持久存储</span></span><br><span class="line">persistence <span class="literal">true</span></span><br><span class="line">persistence_location /var/lib/mosquitto/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 日志文件</span></span><br><span class="line">log_dest file /var/log/mosquitto/mosquitto.log</span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他配置</span></span><br><span class="line">include_dir /etc/mosquitto/conf.d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁止匿名访问</span></span><br><span class="line">allow_anonymous <span class="literal">false</span></span><br><span class="line"><span class="comment"># 认证配置</span></span><br><span class="line">password_file /etc/mosquitto/pwfile</span><br><span class="line"><span class="comment"># 权限配置</span></span><br><span class="line">acl_file /etc/mosquitto/aclfile</span><br></pre></td></tr></table></figure>
 
-<h5 id="2-2-认证配置pwfile"><a href="#2-2-认证配置pwfile" class="headerlink" title="2.2 认证配置pwfile"></a>2.2 认证配置pwfile</h5><ul>
+<h3 id="3-2认证配置pwfile"><a href="#3-2认证配置pwfile" class="headerlink" title="3.2认证配置pwfile"></a>3.2认证配置pwfile</h3><ul>
 <li>创建密码存储文件</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">touch</span> /etc/mosquitto/pwfile</span><br></pre></td></tr></table></figure>
@@ -172,7 +172,7 @@
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_passwd /etc/mosquitto/pwfile 用户名</span><br></pre></td></tr></table></figure>
 
-<h5 id="2-3-权限配置aclfile"><a href="#2-3-权限配置aclfile" class="headerlink" title="2.3 权限配置aclfile"></a>2.3 权限配置aclfile</h5><ul>
+<h3 id="3-3权限配置aclfile"><a href="#3-3权限配置aclfile" class="headerlink" title="3.3权限配置aclfile"></a>3.3权限配置aclfile</h3><ul>
 <li>打开文件</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/mosquitto/aclfile</span><br></pre></td></tr></table></figure>
@@ -182,10 +182,10 @@
 </ul>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 李雷只能发布以test为前缀的主题,订阅以$SYS开头的主题即系统主题</span></span><br><span class="line"><span class="attribute">user</span> lilei</span><br><span class="line">topic write test/<span class="comment">#</span></span><br><span class="line">topic read <span class="variable">$SYS</span>/<span class="comment">#</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 韩梅梅只能订阅以test为前缀的主题</span></span><br><span class="line">user hanmeimei</span><br><span class="line">topic read test/<span class="comment">#</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="3-启动"><a href="#3-启动" class="headerlink" title="3. 启动"></a>3. 启动</h4><p>-c：指定特定配置文件启动<br>-d：后台运行</p>
+<h2 id="4-启动"><a href="#4-启动" class="headerlink" title="4.启动"></a>4.启动</h2><p>-c：指定特定配置文件启动<br>-d：后台运行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto -c /etc/mosquitto/mosquitto.conf -d</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-测试"><a href="#4-测试" class="headerlink" title="4. 测试"></a>4. 测试</h4><p>发布使用mosquitto_pub命令，订阅使用mosquitto_sub命令。常用参数介绍：</p>
+<h3 id="4-1测试"><a href="#4-1测试" class="headerlink" title="4.1测试"></a>4.1测试</h3><p>发布使用mosquitto_pub命令，订阅使用mosquitto_sub命令。常用参数介绍：</p>
 <table>
 <thead>
 <tr>
@@ -227,7 +227,7 @@
 <p>发布</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mosquitto_pub -h localhost -t <span class="string">&quot;test/abc&quot;</span> -u lilei -P 123456 -i <span class="string">&quot;client3&quot;</span> -m <span class="string">&quot;How are you?&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h5 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h5><ul>
+<h2 id="5-参考链接"><a href="#5-参考链接" class="headerlink" title="5.参考链接"></a>5.参考链接</h2><ul>
 <li>项目网站：<a target="_blank" rel="noopener" href="https://www.eclipse.org/paho">https://www.eclipse.org/paho</a></li>
 <li>Eclipse项目信息：<a target="_blank" rel="noopener" href="https://projects.eclipse.org/projects/iot.paho">https://projects.eclipse.org/projects/iot.paho</a></li>
 <li>GitHub：<a target="_blank" rel="noopener" href="https://github.com/eclipse/paho.mqtt.java">https://github.com/eclipse/paho.mqtt.java</a></li>

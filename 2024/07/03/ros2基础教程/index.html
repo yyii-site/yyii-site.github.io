@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        ros2基础教程 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-text">1.基础知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E5%B7%A5%E4%BD%9C%E7%A9%BA%E9%97%B4"><span class="toc-text">1.1工作空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E5%8A%9F%E8%83%BD%E5%8C%85"><span class="toc-text">1.2功能包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3%E8%8A%82%E7%82%B9"><span class="toc-text">1.3节点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE"><span class="toc-text">2.激光雷达</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E5%8F%91%E5%B8%83%E9%9B%B7%E8%BE%BE%E6%89%AB%E6%8F%8F%E6%95%B0%E6%8D%AE"><span class="toc-text">2.1发布雷达扫描数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E8%AE%A2%E9%98%85%E9%9B%B7%E8%BE%BE%E6%95%B0%E6%8D%AE%E5%B9%B6%E5%88%A4%E6%96%AD%E6%9C%80%E5%B0%8F%E8%B7%9D%E7%A6%BB"><span class="toc-text">2.2订阅雷达数据并判断最小距离</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        ros2基础教程
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-07-03 22:50:30</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#ROS2" title="ROS2">ROS2</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="1-基础知识"><a href="#1-基础知识" class="headerlink" title="1.基础知识"></a>1.基础知识</h2><h3 id="1-1工作空间"><a href="#1-1工作空间" class="headerlink" title="1.1工作空间"></a>1.1工作空间</h3><ul>
+<li><p>创建工作空间</p>
+<p>一个存放项目开发相关文件的文件夹，也是开发过程中存放所有资料的大本营。</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选择一个存储的目录，也可以放在根目录</span></span><br><span class="line"><span class="built_in">cd</span> ~/yahboomcar_ros2_ws</span><br><span class="line"><span class="comment"># 创建工作的空间</span></span><br><span class="line"><span class="built_in">mkdir</span> -p yahboomcar_ws/src</span><br><span class="line"><span class="built_in">cd</span> yahboomcar_ws</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colcon build</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置环境变量</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 仅在当前终端生效</span></span><br><span class="line"><span class="built_in">source</span> install/setup.bash   </span><br><span class="line"><span class="comment"># 所有终端均生效</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;source ~/yahboomcar_ros2_ws/yahboomcar_ws/install/setup.bash&quot;</span> &gt;&gt; ~/.bashrc    </span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-2功能包"><a href="#1-2功能包" class="headerlink" title="1.2功能包"></a>1.2功能包</h3><p> 把不同功能的代码划分到不同的功能包中，尽量降低他们之间的耦合关系 </p>
+<ul>
+<li>创建c++功能包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/yahboomcar_ros2_ws/yahboomcar_ws/src</span><br><span class="line"><span class="comment"># 创建C++功能包</span></span><br><span class="line">ros2 pkg create pkg_helloworld_cpp --build-type ament_cmake --dependencies rclcpp --node-name helloworld  </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>创建python功能包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/yahboomcar_ros2_ws/yahboomcar_ws/src</span><br><span class="line">ros2 pkg create pkg_helloworld_py --build-type ament_python --dependencies rclpy --node-name helloworld</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>目录结构</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">WorkSpace --- 自定义的工作空间。</span><br><span class="line">    |--- build：存储中间文件的目录，该目录下会为每一个功能包创建一个单独子目录。</span><br><span class="line">    |--- install：安装目录，该目录下会为每一个功能包创建一个单独子目录。</span><br><span class="line">    |--- <span class="built_in">log</span>：日志目录，用于存储日志文件。</span><br><span class="line">    |--- src：用于存储功能包源码的目录。</span><br><span class="line">        |-- C++功能包</span><br><span class="line">            |-- package.xml：包信息，比如:包名、版本、作者、依赖项。</span><br><span class="line">            |-- CMakeLists.txt：配置编译规则，比如源文件、依赖项、目标文件。</span><br><span class="line">            |-- src：C++源文件目录。</span><br><span class="line">            |-- include：头文件目录。</span><br><span class="line">            |-- msg：消息接口文件目录。</span><br><span class="line">            |-- srv：服务接口文件目录。</span><br><span class="line">            |-- action：动作接口文件目录。</span><br><span class="line">        |-- Python功能包</span><br><span class="line">            |-- package.xml：包信息，比如:包名、版本、作者、依赖项。</span><br><span class="line">            |-- setup.py：与C++功能包的CMakeLists.txt类似。</span><br><span class="line">            |-- setup.cfg：功能包基本配置文件。</span><br><span class="line">            |-- resource：资源目录。</span><br><span class="line">            |-- <span class="built_in">test</span>：存储测试相关文件。</span><br><span class="line">            |-- 功能包同名目录：Python源文件目录。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>其他文件</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">|-- C++或Python功能包</span><br><span class="line">    |-- launch：存储launch文件。</span><br><span class="line">    |-- rviz：存储rviz2配置相关文件。</span><br><span class="line">    |-- urdf：存储机器人建模文件。</span><br><span class="line">    |-- params：存储参数文件。</span><br><span class="line">    |-- world：存储仿真环境相关文件。</span><br><span class="line">    |-- map：存储导航所需地图文件。</span><br><span class="line">    |-- ......</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="1-3节点"><a href="#1-3节点" class="headerlink" title="1.3节点"></a>1.3节点</h3><p> 每个节点都对应某一单一的功能模块  (例如：雷达驱动节点可能负责发布雷达消息，摄像头驱动节点可能负责发布图像消息) </p>
+<p> 一个完整的机器人系统可能由许多协同工作的节点组成，ROS2中的单个可执行文件(C++程序或Python程序)可以包含一个或多个节点。 </p>
+<p> 在通信时，不论采用何种方式，通信对象的构建都依赖于节点(Node) </p>
+<p><code>pkg_helloworld_py/helloworld.py</code> 来编写节点功能</p>
+<p>setup.py 定义口入点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">entry_points = &#123;</span><br><span class="line">	<span class="string">&#x27;console_scripts&#x27;</span>:[</span><br><span class="line">        <span class="comment"># 入口函数名</span></span><br><span class="line">        <span class="string">&#x27;helloworld = pkg_helloworld_py.helloworld:main&#x27;</span></span><br><span class="line">        <span class="comment"># 可执行文件名      功能包名称      编写节点功能的python文件名称</span></span><br><span class="line">    ],</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>只编译特定功能包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/yahboomcar_ros2_ws/yahboomcar_ws</span><br><span class="line">colcon build --packages-select pkg_helloworld_py</span><br><span class="line"><span class="built_in">source</span> install/setup.bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动单个节点</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ros2 run pkg_helloworld_py helloworld</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>启动多个节点</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 示例为其他项目</span></span><br><span class="line">ros2 launch rplidar_ros rplidar_s2_lanuch.py</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-激光雷达"><a href="#2-激光雷达" class="headerlink" title="2.激光雷达"></a>2.激光雷达</h2><h3 id="2-1发布雷达扫描数据"><a href="#2-1发布雷达扫描数据" class="headerlink" title="2.1发布雷达扫描数据"></a>2.1发布雷达扫描数据</h3><ul>
+<li><p>进入工作空间 <code>cd ~/ros2_ws/src</code></p>
+</li>
+<li><p>拉取项目代码</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b ros2 https://github.com/Slamtec/rplidar_ros.git</span><br></pre></td></tr></table></figure>
+
+<p>接下来的操作可以查看项目中的README.md文件。注意运行测试时需要增加串口端口设置 ：<code>serial_port:=/dev/rplidar</code></p>
+<ul>
+<li>不带界面</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ros2 run rplidar_ros rplidar_node serial_port:=/dev/rplidar</span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ros2 launch rplidar_ros rplidar_s2_launch.py serial_port:=/dev/rplidar</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>带界面</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ros2 launch rplidar_ros view_rplidar_s2_launch.py serial_port:=/dev/rplidar</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-2订阅雷达数据并判断最小距离"><a href="#2-2订阅雷达数据并判断最小距离" class="headerlink" title="2.2订阅雷达数据并判断最小距离"></a>2.2订阅雷达数据并判断最小距离</h3><ul>
+<li>创建python功能包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/ros2_ws/src</span><br><span class="line">ros2 pkg create rplidar_warning --build-type ament_python --dependencies rclpy --node-name rplidar_warning</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>修改文件内容实现订阅及最小距离判断功能</li>
+</ul>
+<p>~&#x2F;ros2_ws&#x2F;src&#x2F;rplidar_warning&#x2F;rplidar_warning&#x2F;rplidar_warning.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> rclpy</span><br><span class="line"><span class="keyword">from</span> rclpy.node <span class="keyword">import</span> Node</span><br><span class="line"><span class="keyword">from</span> sensor_msgs.msg <span class="keyword">import</span> LaserScan</span><br><span class="line"><span class="keyword">from</span> std_msgs.msg <span class="keyword">import</span> Bool</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">RAD2DEG = <span class="number">180</span> / math.pi</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">laserWarning</span>(<span class="title class_ inherited__">Node</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self,name</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(name)</span><br><span class="line"></span><br><span class="line">        self.Buzzer_state = <span class="literal">False</span></span><br><span class="line">        self.laserAngle = <span class="number">70</span></span><br><span class="line">        self.ResponseDist = <span class="number">0.5</span></span><br><span class="line">        self.pub_Buzzer = self.create_publisher(Bool, <span class="string">&#x27;/Buzzer&#x27;</span>, <span class="number">1</span>)</span><br><span class="line">        self.sub_laser = self.create_subscription(LaserScan, <span class="string">&#x27;/scan&#x27;</span>, self.laserCallback, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">laserCallback</span>(<span class="params">self, scan_data</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="built_in">isinstance</span>(scan_data, LaserScan): <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 记录激光扫描并发布最近物体的位置（或指向某点）</span></span><br><span class="line">        <span class="comment"># Record the laser scan and publish the position of the nearest object (or point to a point)</span></span><br><span class="line">        ranges = np.array(scan_data.ranges)</span><br><span class="line">        <span class="comment"># 创建距离列表，将检测范围内的有效距离放入列表中</span></span><br><span class="line">        <span class="comment"># create distance list, put the effective distance within the detection range into the list</span></span><br><span class="line">        minDistList = []</span><br><span class="line">        <span class="comment"># 创建序列号，将有效距离对应的ID放入列表中</span></span><br><span class="line">        <span class="comment"># Create a serial number and place the ID corresponding to the valid distance in the list</span></span><br><span class="line">        minDistIDList = []</span><br><span class="line">        <span class="comment"># 按距离排序以检查从较近的点到较远的点是否是真实的东西</span></span><br><span class="line">        <span class="comment"># if we already have a last scan to compare to:</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ranges)):</span><br><span class="line">            angle = (scan_data.angle_min + scan_data.angle_increment * i) * RAD2DEG</span><br><span class="line">            <span class="comment"># if angle &gt; 90: print &quot;i: &#123;&#125;,angle: &#123;&#125;,dist: &#123;&#125;&quot;.format(i, angle, scan_data.ranges[i])</span></span><br><span class="line">            <span class="comment"># 通过清除不需要的扇区的数据来保留有效的数据</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">abs</span>(angle) &gt; (<span class="number">180</span> - self.laserAngle):</span><br><span class="line">                minDistList.append(ranges[i])</span><br><span class="line">                minDistIDList.append(angle)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(minDistList) == <span class="number">0</span>: <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 找到最小距离</span></span><br><span class="line">        <span class="comment"># Find the minimum distance</span></span><br><span class="line">        minDist = <span class="built_in">min</span>(minDistList)</span><br><span class="line">        <span class="comment"># 找到最小距离对应的ID</span></span><br><span class="line">        <span class="comment"># Find the ID corresponding to the minimum distance</span></span><br><span class="line">        minDistID = minDistIDList[minDistList.index(minDist)]</span><br><span class="line">        self.get_logger().info(<span class="string">f&quot;find minimum <span class="subst">&#123;minDist&#125;</span> <span class="subst">&#123;minDistID&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> minDist &lt;= self.ResponseDist:</span><br><span class="line">            <span class="keyword">if</span> self.Buzzer_state == <span class="literal">False</span>:</span><br><span class="line">                b = Bool()</span><br><span class="line">                b.data = <span class="literal">True</span></span><br><span class="line">                self.pub_Buzzer.publish(b)</span><br><span class="line">                self.Buzzer_state = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> self.Buzzer_state == <span class="literal">True</span>:</span><br><span class="line">                self.pub_Buzzer.publish(Bool())</span><br><span class="line">                self.Buzzer_state = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dynamic_reconfigure_callback</span>(<span class="params">self, config, level</span>):</span><br><span class="line">        self.laserAngle = config[<span class="string">&#x27;laserAngle&#x27;</span>]</span><br><span class="line">        self.ResponseDist = config[<span class="string">&#x27;ResponseDist&#x27;</span>]</span><br><span class="line">        <span class="keyword">return</span> config</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    rclpy.init()</span><br><span class="line">    tracker = laserWarning(<span class="string">&quot;laser_Warning&quot;</span>)</span><br><span class="line">    rclpy.spin(tracker)</span><br><span class="line">    tracker.destroy_node()</span><br><span class="line">    rclpy.shutdown()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>删除 build install log 文件夹</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf build install <span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译所有功能包</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colcon build</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>编译选中的功能包(选择使用)</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colcon build --packages-select pkg_helloworld_py</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>开启两个终端，并且都更新一次环境变量</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> install/setup.bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>终端1发布雷达数据</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ros2 launch rplidar_ros view_rplidar_s2_launch.py serial_port:=/dev/rplidar</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>终端2订阅雷达数据</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ros2 run rplidar_warning rplidar_warning</span><br></pre></td></tr></table></figure>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

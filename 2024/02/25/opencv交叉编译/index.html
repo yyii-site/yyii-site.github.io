@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#opencv%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91"><span class="toc-text">opencv交叉编译</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8cmake-gui%E7%94%9F%E6%88%90Makefile"><span class="toc-text">使用cmake-gui生成Makefile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E4%BE%8B%E7%A8%8B"><span class="toc-text">编译例程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93%E8%B7%AF%E5%BE%84"><span class="toc-text">设置动态库路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C"><span class="toc-text">运行</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%8E%AF%E5%A2%83"><span class="toc-text">2.环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8cmake-gui%E7%94%9F%E6%88%90Makefile"><span class="toc-text">3.使用cmake-gui生成Makefile</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%BC%96%E8%AF%91"><span class="toc-text">4.编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%BC%96%E8%AF%91%E4%BE%8B%E7%A8%8B"><span class="toc-text">5.编译例程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E8%AE%BE%E7%BD%AE%E5%8A%A8%E6%80%81%E5%BA%93%E8%B7%AF%E5%BE%84"><span class="toc-text">6.设置动态库路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E8%BF%90%E8%A1%8C"><span class="toc-text">7.运行</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#Ubuntu x86 交叉编译 aarm64 OpenCV 3.4.5" title="Ubuntu x86 交叉编译 aarm64 OpenCV 3.4.5">Ubuntu x86 交叉编译 aarm64 OpenCV 3.4.5</a>
+        <a class="tag" href="/tags/#OpenCV" title="OpenCV">OpenCV</a>
         <span>/</span>
         
         
@@ -142,8 +142,9 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="opencv交叉编译"><a href="#opencv交叉编译" class="headerlink" title="opencv交叉编译"></a>opencv交叉编译</h1><p><a target="_blank" rel="noopener" href="https://www.codenong.com/cs105274123/">参考</a></p>
-<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Ubuntu 18.04 aarm64    OpenCV3.4.5  目标arm64</p>
+        <h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p>Ubuntu x86 交叉编译 aarm64 OpenCV 3.4.5</p>
+<p><a target="_blank" rel="noopener" href="https://www.codenong.com/cs105274123/">参考</a></p>
+<h2 id="2-环境"><a href="#2-环境" class="headerlink" title="2.环境"></a>2.环境</h2><p>Ubuntu 18.04 aarm64    OpenCV3.4.5  目标arm64</p>
 <p>源码</p>
 <p> OpenCV源码下载地址: <a target="_blank" rel="noopener" href="https://opencv.org/releases/">https://opencv.org/releases/</a> </p>
 <p>安装交叉编译器</p>
@@ -153,25 +154,25 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install cmake cmake-gui</span><br></pre></td></tr></table></figure>
 
 <p>解压OpenCV</p>
-<h2 id="使用cmake-gui生成Makefile"><a href="#使用cmake-gui生成Makefile" class="headerlink" title="使用cmake-gui生成Makefile"></a>使用cmake-gui生成Makefile</h2><p><img src="/2024/02/25/opencv%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/20200402174348844.png" alt="img"> </p>
+<h2 id="3-使用cmake-gui生成Makefile"><a href="#3-使用cmake-gui生成Makefile" class="headerlink" title="3.使用cmake-gui生成Makefile"></a>3.使用cmake-gui生成Makefile</h2><p><img src="/2024/02/25/opencv%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/20200402174348844.png" alt="img"> </p>
 <p><img src="/2024/02/25/opencv%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/20200402174507776.png" alt="img"> </p>
 <p><img src="/2024/02/25/opencv%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/20200402174708819.png" alt="img"> </p>
 <p><img src="/2024/02/25/opencv%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/20200402174747432.png" alt="img"> </p>
 <p><img src="/2024/02/25/opencv%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/20200402175311654.png" alt="img"> </p>
 <p>查看是否生成Makefile文件</p>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+<h2 id="4-编译"><a href="#4-编译" class="headerlink" title="4.编译"></a>4.编译</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
 
 <p>用file指令查看编译出的可执行文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file bin/opencv_version</span><br></pre></td></tr></table></figure>
 
 <p>将文件加install中生成的文件移动到aarm64文件夹，方面查找和使用。</p>
-<h2 id="编译例程"><a href="#编译例程" class="headerlink" title="编译例程"></a>编译例程</h2><p> 在这个opencv-3.4.5&#x2F;samples&#x2F;cpp&#x2F;example_cmake目录里官方已经给出了一个example可以拿来测试下，使用编译器编译，编译时加上OpenCV相关的库和头文件。 </p>
+<h2 id="5-编译例程"><a href="#5-编译例程" class="headerlink" title="5.编译例程"></a>5.编译例程</h2><p> 在这个opencv-3.4.5&#x2F;samples&#x2F;cpp&#x2F;example_cmake目录里官方已经给出了一个example可以拿来测试下，使用编译器编译，编译时加上OpenCV相关的库和头文件。 </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">g++ example.cpp -o aarm64 -I /home/yi/opencv/aarm64/include/ -L /home/yi/opencv/aarm64/lib/ -lopencv_calib3d -lopencv_objdetect -lopencv_core -lopencv_photo -lopencv_dnn -lopencv_shape -lopencv_features2d  -lopencv_stitching -lopencv_flann -lopencv_superres -lopencv_highgui -lopencv_videoio -lopencv_imgcodecs  -lopencv_video -lopencv_imgproc -lopencv_videostab -lopencv_ml</span><br></pre></td></tr></table></figure>
 
 <p>库、头文件和可执行文件移动到目标板（若cmake-gui选择编译平台为gnu，即可在本地测试无需拷贝文件）</p>
-<h2 id="设置动态库路径"><a href="#设置动态库路径" class="headerlink" title="设置动态库路径"></a>设置动态库路径</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/home/yi/opencv/aarm64/lib/:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
+<h2 id="6-设置动态库路径"><a href="#6-设置动态库路径" class="headerlink" title="6.设置动态库路径"></a>6.设置动态库路径</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/home/yi/opencv/aarm64/lib/:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./aarm64</span><br></pre></td></tr></table></figure>
+<h2 id="7-运行"><a href="#7-运行" class="headerlink" title="7.运行"></a>7.运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./aarm64</span><br></pre></td></tr></table></figure>
 
 <p>软件运行界面</p>
 <p><img src="/2024/02/25/opencv%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91/1668051815828.png" alt="1668051815828"></p>

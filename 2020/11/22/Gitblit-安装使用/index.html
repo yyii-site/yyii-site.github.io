@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E6%96%87%E4%BB%B6"><span class="toc-text">准备文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Java"><span class="toc-text">安装Java</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGitblit"><span class="toc-text">配置Gitblit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86GitBlit"><span class="toc-text">管理GitBlit</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E5%BC%80%E5%90%AF%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">设置开启自启动</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%87%86%E5%A4%87%E6%96%87%E4%BB%B6"><span class="toc-text">1.准备文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85Java"><span class="toc-text">2.安装Java</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E9%85%8D%E7%BD%AEGitblit"><span class="toc-text">3.配置Gitblit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%AE%A1%E7%90%86GitBlit"><span class="toc-text">4.管理GitBlit</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%AE%BE%E7%BD%AE%E5%BC%80%E5%90%AF%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-text">5.设置开启自启动</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#Gitblit Windows git server 局域网" title="Gitblit Windows git server 局域网">Gitblit Windows git server 局域网</a>
+        <a class="tag" href="/tags/#Gitblit" title="Gitblit">Gitblit</a>
         <span>/</span>
         
         
@@ -142,14 +142,14 @@
 </span>
     </div>
     <div class="post-content ">
-        <p><a target="_blank" rel="noopener" href="https://gitblit.github.io/gitblit/">Gitblit</a> is an open-source, pure Java stack for managing, viewing, and serving Git repositories.<br>It’s designed primarily as a tool for small workgroups who want to host centralized repositories.</p>
-<p> Gitblit是一个在Java环境中运行的Git服务器。在这里记录一下搭建过程。</p>
-<h1 id="准备文件"><a href="#准备文件" class="headerlink" title="准备文件"></a>准备文件</h1><ul>
+        <p>Gitblit是一个在Java环境中运行的Git服务器。在这里记录一下在Windows上搭建Gitblit服务的过程。</p>
+<p><a target="_blank" rel="noopener" href="https://gitblit.github.io/gitblit/">Gitblit</a> is an open-source, pure Java stack for managing, viewing, and serving Git repositories.<br>It’s designed primarily as a tool for small workgroups who want to host centralized repositories.</p>
+<h2 id="1-准备文件"><a href="#1-准备文件" class="headerlink" title="1.准备文件"></a>1.准备文件</h2><ul>
 <li>jdk-11.0.2_windows-x64_bin.zip<a target="_blank" rel="noopener" href="https://repo.huaweicloud.com/java/jdk/">华为源</a></li>
 <li>gitblit安装包<a target="_blank" rel="noopener" href="https://gitblit.github.io/gitblit/">Gitblit</a></li>
 </ul>
-<h1 id="安装Java"><a href="#安装Java" class="headerlink" title="安装Java"></a>安装Java</h1><p>请参考<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-environment-setup.html">菜鸟教程</a></p>
-<h1 id="配置Gitblit"><a href="#配置Gitblit" class="headerlink" title="配置Gitblit"></a>配置Gitblit</h1><ol>
+<h2 id="2-安装Java"><a href="#2-安装Java" class="headerlink" title="2.安装Java"></a>2.安装Java</h2><p>请参考<a target="_blank" rel="noopener" href="https://www.runoob.com/java/java-environment-setup.html">菜鸟教程</a></p>
+<h2 id="3-配置Gitblit"><a href="#3-配置Gitblit" class="headerlink" title="3.配置Gitblit"></a>3.配置Gitblit</h2><ol>
 <li>下载的zip文件只要解压缩即可，不用安装。建议放到D:\Program Files\gitblit-xxx目录中（xxx指版本号）</li>
 <li>新建一个用于存放git服务器数据的文件夹，如D:\GitBlit_repository</li>
 <li>配置gitblit.properties 文件。  <ul>
@@ -169,8 +169,9 @@
 <li>运行Gitblit服务。在D:\Program Files\gitblit-xxx目录下运行gitblit.cmd命令。注意看命令行中的提示，检查程序是否运行正常。</li>
 <li>命令行中会有服务器ip和端口号请注意查看。</li>
 </ol>
-<h1 id="管理GitBlit"><a href="#管理GitBlit" class="headerlink" title="管理GitBlit"></a>管理GitBlit</h1><p>在浏览器地址栏中输入命令行中提示的服务器ip和端口号<br>如果成功加载，说明服务器搭建完毕。默认账号密码均为admin</p>
-<h1 id="设置开启自启动"><a href="#设置开启自启动" class="headerlink" title="设置开启自启动"></a>设置开启自启动</h1><p>设置以Windows Service方式启动Gitblit.  </p>
+<h2 id="4-管理GitBlit"><a href="#4-管理GitBlit" class="headerlink" title="4.管理GitBlit"></a>4.管理GitBlit</h2><p>在浏览器地址栏中输入命令行中提示的服务器ip和端口号</p>
+<p>如果成功加载，说明服务器搭建完毕。默认账号密码均为admin</p>
+<h2 id="5-设置开启自启动"><a href="#5-设置开启自启动" class="headerlink" title="5.设置开启自启动"></a>5.设置开启自启动</h2><p>设置以Windows Service方式启动Gitblit.  </p>
 <ol>
 <li>在Gitblit目录下，找到installService.cmd文件。鼠标右键使用记事本打开。  </li>
 <li>设置 CD 为程序目录 <code>SET CD=D:\Program Files\gitblit-xxx(xxx修改为你自己的目录)</code>  </li>

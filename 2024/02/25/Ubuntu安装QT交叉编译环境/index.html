@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ubuntu-%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-text">Ubuntu 安装QT交叉编译环境</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ARM64%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">安装ARM64编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85qt%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">安装qt开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85qt%E5%B7%A5%E5%85%B7"><span class="toc-text">安装qt工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEQt%EF%BC%8C%E6%B7%BB%E5%8A%A0%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-text">配置Qt，添加交叉编译环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B-%E7%BC%96%E8%AF%91"><span class="toc-text">新建工程&amp;编译</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Ubuntu-%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-text">1.Ubuntu 安装QT交叉编译环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85ARM64%E7%BC%96%E8%AF%91%E5%99%A8"><span class="toc-text">2.安装ARM64编译器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%85qt%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83"><span class="toc-text">3.安装qt开发环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85qt%E5%B7%A5%E5%85%B7"><span class="toc-text">4.安装qt工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E9%85%8D%E7%BD%AEQt%EF%BC%8C%E6%B7%BB%E5%8A%A0%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83"><span class="toc-text">5.配置Qt，添加交叉编译环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%96%B0%E5%BB%BA%E5%B7%A5%E7%A8%8B-%E7%BC%96%E8%AF%91"><span class="toc-text">6.新建工程&amp;编译</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#Ubuntu x86 ARM64 Qt 交叉编译" title="Ubuntu x86 ARM64 Qt 交叉编译">Ubuntu x86 ARM64 Qt 交叉编译</a>
+        <a class="tag" href="/tags/#Qt" title="Qt">Qt</a>
         <span>/</span>
         
         
@@ -142,14 +142,14 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="Ubuntu-安装QT交叉编译环境"><a href="#Ubuntu-安装QT交叉编译环境" class="headerlink" title="Ubuntu 安装QT交叉编译环境"></a>Ubuntu 安装QT交叉编译环境</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guohuaqu/article/details/109519744">参考</a></p>
+        <h2 id="1-Ubuntu-安装QT交叉编译环境"><a href="#1-Ubuntu-安装QT交叉编译环境" class="headerlink" title="1.Ubuntu 安装QT交叉编译环境"></a>1.Ubuntu 安装QT交叉编译环境</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guohuaqu/article/details/109519744">参考</a></p>
 <p>需求实现再x86机器下完成对ARM64平台的程序开发</p>
-<h2 id="安装ARM64编译器"><a href="#安装ARM64编译器" class="headerlink" title="安装ARM64编译器"></a>安装ARM64编译器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装ARM64编译器"><a href="#2-安装ARM64编译器" class="headerlink" title="2.安装ARM64编译器"></a>2.安装ARM64编译器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu</span><br></pre></td></tr></table></figure>
 <p>查看</p>
 <p><img src="/2024/02/25/Ubuntu%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/1667790599228.png" alt="shell aarch64-linux-gnu-"></p>
-<h2 id="安装qt开发环境"><a href="#安装qt开发环境" class="headerlink" title="安装qt开发环境"></a>安装qt开发环境</h2><p>qt安装包：qt-opensource-linux-x64-5.12.12.run</p>
+<h2 id="3-安装qt开发环境"><a href="#3-安装qt开发环境" class="headerlink" title="3.安装qt开发环境"></a>3.安装qt开发环境</h2><p>qt安装包：qt-opensource-linux-x64-5.12.12.run</p>
 <p>sudo chmod +x，然后运行，就会出现图形界面，按步骤一步步安装即可。</p>
-<h2 id="安装qt工具"><a href="#安装qt工具" class="headerlink" title="安装qt工具"></a>安装qt工具</h2><p>ARM64交叉编译器，例如qmake、库等</p>
+<h2 id="4-安装qt工具"><a href="#4-安装qt工具" class="headerlink" title="4.安装qt工具"></a>4.安装qt工具</h2><p>ARM64交叉编译器，例如qmake、库等</p>
 <p>下载qt源码包：<a target="_blank" rel="noopener" href="http://download.qt.io/archive/qt/5.14/5.12.12/single/qt-everywhere-src-5.12.12.tar.xz">qt-everywhere-src-5.12.12.tar.xz</a> </p>
 <p>解压 xz -d qt-everywhere-src-5.12.12.tar.xz</p>
 <p>修改编译配置文件</p>
@@ -174,7 +174,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make install</span><br></pre></td></tr></table></figure>
 <p>查看结果</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yi@linux:~/Qt5.12.12/5.12.12/aarch64$ <span class="built_in">ls</span></span><br><span class="line">bin  doc  include  lib  mkspecs  plugins  translations</span><br></pre></td></tr></table></figure>
-<h2 id="配置Qt，添加交叉编译环境"><a href="#配置Qt，添加交叉编译环境" class="headerlink" title="配置Qt，添加交叉编译环境"></a>配置Qt，添加交叉编译环境</h2><p>4.配置Qt，添加交叉编译环境</p>
+<h2 id="5-配置Qt，添加交叉编译环境"><a href="#5-配置Qt，添加交叉编译环境" class="headerlink" title="5.配置Qt，添加交叉编译环境"></a>5.配置Qt，添加交叉编译环境</h2><p>4.配置Qt，添加交叉编译环境</p>
 <p>a.打开Qt</p>
 <p>b.tools → options,打开面板</p>
 <p>c.设置compilers,手动添加ARM64交叉编译器</p>
@@ -185,7 +185,7 @@
 <p>e.手动add Kits</p>
 <p><img src="/2024/02/25/Ubuntu%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/1667797929755.png" alt="qt kits-Manual"></p>
 <p><img src="/2024/02/25/Ubuntu%E5%AE%89%E8%A3%85QT%E4%BA%A4%E5%8F%89%E7%BC%96%E8%AF%91%E7%8E%AF%E5%A2%83/1667797958269.png" alt="qt Debugger"></p>
-<h2 id="新建工程-编译"><a href="#新建工程-编译" class="headerlink" title="新建工程&amp;编译"></a>新建工程&amp;编译</h2><p>选择刚刚手动添加的kits</p>
+<h2 id="6-新建工程-编译"><a href="#6-新建工程-编译" class="headerlink" title="6.新建工程&amp;编译"></a>6.新建工程&amp;编译</h2><p>选择刚刚手动添加的kits</p>
 
         
         <br />

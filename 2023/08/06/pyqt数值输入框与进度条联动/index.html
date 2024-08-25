@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E4%BB%B6%E8%81%94%E5%8A%A8%E5%92%8C%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="toc-text">控件联动和信号的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%BB%91%E5%9D%97%E5%8D%95%E6%9C%BA%E6%97%A0%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">解决滑块单机无信号的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9D%9F"><span class="toc-text">结束</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%83%8C%E6%99%AF"><span class="toc-text">1.背景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%8E%A7%E4%BB%B6%E8%81%94%E5%8A%A8%E5%92%8C%E4%BF%A1%E5%8F%B7%E7%9A%84%E4%BA%A7%E7%94%9F"><span class="toc-text">2.控件联动和信号的产生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%A7%A3%E5%86%B3%E6%BB%91%E5%9D%97%E5%8D%95%E6%9C%BA%E6%97%A0%E4%BF%A1%E5%8F%B7%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">3.解决滑块单机无信号的问题</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#pyqt Qt Python QSlider QSpinBox QDoubleSpinBox" title="pyqt Qt Python QSlider QSpinBox QDoubleSpinBox">pyqt Qt Python QSlider QSpinBox QDoubleSpinBox</a>
+        <a class="tag" href="/tags/#PyQt" title="PyQt">PyQt</a>
         <span>/</span>
         
         
@@ -142,7 +142,8 @@
 </span>
     </div>
     <div class="post-content ">
-        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><ol>
+        <p>QSlider QSpinBox QDoubleSpinBox</p>
+<h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1.背景</h2><ol>
 <li><p>QSpinBox&#x2F;QDoubleSpinBox（数值输入框）：</p>
 <p>使用<code>valuechange</code>信号，在修改数值的过程中会发送信号，如输入123，则会触发1、12、123三条信号。若是删除原有数据，产生的信号会更多。<code>editingFinished</code>在输入完成后鼠标离开控件（失去焦点）或按下回车才会触发信号。</p>
 </li>
@@ -150,7 +151,7 @@
 <p>使用<code>valuechange</code>信号，在滑块拖动过程中，信号将会被频繁发送。 如果是上位机通过串口向下位机发送指令，一般下位机（简单MCU做主控）无法响应高频率的指令。	<code>released</code>信号只有在释放滑块时才会发送，但点击slider部件造成的滑块移动，并不会发送released信号，就造成当前滑块位置与实际参数不一致的BUG。</p>
 </li>
 </ol>
-<h2 id="控件联动和信号的产生"><a href="#控件联动和信号的产生" class="headerlink" title="控件联动和信号的产生"></a>控件联动和信号的产生</h2><ol>
+<h2 id="2-控件联动和信号的产生"><a href="#2-控件联动和信号的产生" class="headerlink" title="2.控件联动和信号的产生"></a>2.控件联动和信号的产生</h2><ol>
 <li>创建控件</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 整数</span></span><br><span class="line">self.d_slider = QtWidgets.QSlider(self.xxx)</span><br><span class="line">self.d_spin_box = QtWidgets.QSpinBox(self.xxx)</span><br><span class="line"><span class="comment"># 小数</span></span><br><span class="line">self.f_slider = QtWidgets.QSlider(self.xxx)</span><br><span class="line">self.f_slider = QtWidgets.QDoubleSpinBox(self.xxx)</span><br></pre></td></tr></table></figure>
@@ -188,7 +189,7 @@
 <ol start="6">
 <li>以上实现了控件联动和信号的产生发送，但是开头提到的<strong>滑块位置与实际参数不一致的BUG</strong>没有解决</li>
 </ol>
-<h2 id="解决滑块单机无信号的问题"><a href="#解决滑块单机无信号的问题" class="headerlink" title="解决滑块单机无信号的问题"></a>解决滑块单机无信号的问题</h2><ol>
+<h2 id="3-解决滑块单机无信号的问题"><a href="#3-解决滑块单机无信号的问题" class="headerlink" title="3.解决滑块单机无信号的问题"></a>3.解决滑块单机无信号的问题</h2><ol>
 <li>安装事件过滤器</li>
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 为滑块安装过滤器</span></span><br><span class="line">self.d_slider.installEventFilter(self)</span><br><span class="line">self.f_slider.installEventFilter(self)</span><br></pre></td></tr></table></figure>
@@ -200,8 +201,6 @@
 </ol>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">eventFilter</span>(<span class="params">self, a0: <span class="string">&#x27;QObject&#x27;</span>, a1: <span class="string">&#x27;QEvent&#x27;</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">    name = a0.objectName()</span><br><span class="line">    <span class="comment"># 判断控件名称 防止与其他安装了过滤器的控件相互影响</span></span><br><span class="line">    <span class="keyword">if</span> name.endswith(<span class="string">&quot;_slider&quot;</span>) <span class="keyword">or</span> name.endswith(<span class="string">&quot;_dslider&quot;</span>):</span><br><span class="line">        <span class="keyword">if</span> a1.<span class="built_in">type</span>() == a1.MouseButtonRelease <span class="keyword">and</span> a1.button() == <span class="number">1</span>: <span class="comment"># 判断左键</span></span><br><span class="line">            <span class="number">0.</span>setSliderDown(<span class="literal">True</span>)  <span class="comment">#模拟滑块的点击</span></span><br><span class="line">            a0.setSliderDown(<span class="literal">False</span>) <span class="comment">#模拟滑块的点击</span></span><br><span class="line">            <span class="comment"># 必需先按下后释放，才能触发sliderReleased信号</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
 
-
-<h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2>
         
         <br />
         <div id="comment-container">

@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RT-Thread-Studio"><span class="toc-text">RT-Thread Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CubeMX-Settings"><span class="toc-text">CubeMX Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RT-Thread-Setting"><span class="toc-text">RT-Thread Setting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Build-Test"><span class="toc-text">Build &amp;&amp; Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#End"><span class="toc-text">End</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-RT-Thread-Studio"><span class="toc-text">1.RT-Thread Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-CubeMX-Settings"><span class="toc-text">2.CubeMX Settings</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-RT-Thread-Setting"><span class="toc-text">3.RT-Thread Setting</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Code"><span class="toc-text">4.Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Build-Test"><span class="toc-text">5.Build &amp;&amp; Test</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#stm32 flash w25q64 easyFlash rt-thread studio" title="stm32 flash w25q64 easyFlash rt-thread studio">stm32 flash w25q64 easyFlash rt-thread studio</a>
+        <a class="tag" href="/tags/#STM32" title="STM32">STM32</a>
         <span>/</span>
         
         
@@ -142,13 +142,12 @@
 </span>
     </div>
     <div class="post-content ">
-        <h2 id="RT-Thread-Studio"><a href="#RT-Thread-Studio" class="headerlink" title="RT-Thread Studio"></a>RT-Thread Studio</h2><hr>
-<ol>
+        <p>stm32 flash w25q64 easyFlash rt-thread studio</p>
+<h2 id="1-RT-Thread-Studio"><a href="#1-RT-Thread-Studio" class="headerlink" title="1.RT-Thread Studio"></a>1.RT-Thread Studio</h2><ol>
 <li>new project</li>
 </ol>
 <p><img src="/2021/11/11/Stm32F407-W25Q64-easyFlash/image-20211111213804740.png" alt="image-20211111213804740"></p>
-<h2 id="CubeMX-Settings"><a href="#CubeMX-Settings" class="headerlink" title="CubeMX Settings"></a>CubeMX Settings</h2><hr>
-<ol>
+<h2 id="2-CubeMX-Settings"><a href="#2-CubeMX-Settings" class="headerlink" title="2.CubeMX Settings"></a>2.CubeMX Settings</h2><ol>
 <li>System Core &gt;&gt; RCC &gt;&gt; HSE &gt;&gt; Crystal(外部晶振)  </li>
 <li>System Core &gt;&gt; SYS &gt;&gt; Debug(选择调试接口)   </li>
 <li>Connectivity &gt;&gt; USART3 &gt;&gt; Asynchronous(用于finsh命令行)  </li>
@@ -166,8 +165,7 @@
 </ol>
 <p><img src="/2021/11/11/Stm32F407-W25Q64-easyFlash/image-20211111212753066.png" alt="image-20211111212753066"></p>
 <p><img src="/2021/11/11/Stm32F407-W25Q64-easyFlash/image-20210630224307585.png" alt="image-20210630224307585"></p>
-<h2 id="RT-Thread-Setting"><a href="#RT-Thread-Setting" class="headerlink" title="RT-Thread Setting"></a>RT-Thread Setting</h2><hr>
-<ol>
+<h2 id="3-RT-Thread-Setting"><a href="#3-RT-Thread-Setting" class="headerlink" title="3.RT-Thread Setting"></a>3.RT-Thread Setting</h2><ol>
 <li>Packages &gt;&gt; add &gt;&gt; EasyFlash</li>
 </ol>
 <p><img src="/2021/11/11/Stm32F407-W25Q64-easyFlash/image-20211111234323900.png" alt="image-20211111234323900"></p>
@@ -178,8 +176,7 @@
 <p><img src="/2021/11/11/Stm32F407-W25Q64-easyFlash/image-20211111234429187.png" alt="image-20211111234429187"></p>
 </li>
 </ol>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><hr>
-<ol>
+<h2 id="4-Code"><a href="#4-Code" class="headerlink" title="4.Code"></a>4.Code</h2><ol>
 <li><em>drivers&#x2F;board.h</em></li>
 </ol>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_USING_UART3</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_UART3_TX_PIN       <span class="string">&quot;PD8&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_UART3_RX_PIN       <span class="string">&quot;PD9&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> BSP_USING_SPI2</span></span><br></pre></td></tr></table></figure>
@@ -196,9 +193,8 @@
 <p>packages\EasyFlash-v4.1.0\ports\ef_sfud_port.c  &gt;&gt;  applications&#x2F;usr_flash.c</p>
 </li>
 </ol>
-<h2 id="Build-Test"><a href="#Build-Test" class="headerlink" title="Build &amp;&amp; Test"></a>Build &amp;&amp; Test</h2><p>   <img src="/2021/11/11/Stm32F407-W25Q64-easyFlash/image-20211112221002533.png" alt="image-20211112221002533"></p>
-<hr>
-<h2 id="End"><a href="#End" class="headerlink" title="End"></a>End</h2>
+<h2 id="5-Build-Test"><a href="#5-Build-Test" class="headerlink" title="5.Build &amp;&amp; Test"></a>5.Build &amp;&amp; Test</h2><p>   <img src="/2021/11/11/Stm32F407-W25Q64-easyFlash/image-20211112221002533.png" alt="image-20211112221002533"></p>
+
         
         <br />
         <div id="comment-container">

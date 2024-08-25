@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Stm32F407-PWM-External-Sync"><span class="toc-text">Stm32F407_PWM_External_Sync</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Test"><span class="toc-text">Test</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#END"><span class="toc-text">END</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-PWM%E4%B8%8E%E5%A4%96%E9%83%A8%E8%A7%A6%E5%8F%91%E4%BF%A1%E5%8F%B7%E5%90%8C%E6%AD%A5"><span class="toc-text">1.PWM与外部触发信号同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Code"><span class="toc-text">2.Code</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Test"><span class="toc-text">3.Test</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#stm32 pwm external sync" title="stm32 pwm external sync">stm32 pwm external sync</a>
+        <a class="tag" href="/tags/#STM32" title="STM32">STM32</a>
         <span>/</span>
         
         
@@ -142,8 +142,7 @@
 </span>
     </div>
     <div class="post-content ">
-        <h1 id="Stm32F407-PWM-External-Sync"><a href="#Stm32F407-PWM-External-Sync" class="headerlink" title="Stm32F407_PWM_External_Sync"></a>Stm32F407_PWM_External_Sync</h1><p>pwm 与 外部触发信号同步</p>
-<hr>
+        <h2 id="1-PWM与外部触发信号同步"><a href="#1-PWM与外部触发信号同步" class="headerlink" title="1.PWM与外部触发信号同步"></a>1.PWM与外部触发信号同步</h2><hr>
 <ol>
 <li><p>new progect</p>
 </li>
@@ -167,15 +166,14 @@
 </ul>
 </li>
 </ol>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><hr>
+<h2 id="2-Code"><a href="#2-Code" class="headerlink" title="2.Code"></a>2.Code</h2><hr>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">/* USER CODE BEGIN 1 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END 1 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* MCU Configuration--------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Reset of all peripherals, Initializes the Flash interface and the Systick. */</span></span><br><span class="line">  HAL_Init();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN Init */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END Init */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Configure the system clock */</span></span><br><span class="line">  SystemClock_Config();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN SysInit */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END SysInit */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Initialize all configured peripherals */</span></span><br><span class="line">  MX_GPIO_Init();</span><br><span class="line">  MX_TIM1_Init();</span><br><span class="line">  <span class="comment">/* USER CODE BEGIN 2 */</span></span><br><span class="line">  HAL_TIM_PWM_Start(&amp;htim1, TIM_CHANNEL_1);</span><br><span class="line">  HAL_TIM_PWM_Start(&amp;htim1, TIM_CHANNEL_2);</span><br><span class="line">  HAL_TIM_PWM_Start(&amp;htim1, TIM_CHANNEL_3);</span><br><span class="line">  HAL_TIM_PWM_Start(&amp;htim1, TIM_CHANNEL_4);</span><br><span class="line">  <span class="comment">/* USER CODE END 2 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Infinite loop */</span></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN WHILE */</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">/* USER CODE END WHILE */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE BEGIN 3 */</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* USER CODE END 3 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-
-<h2 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h2><hr>
+<h2 id="3-Test"><a href="#3-Test" class="headerlink" title="3.Test"></a>3.Test</h2><hr>
 <p><img src="/2022/01/18/Stm32F407-PWM-External-Sync/image-20220118212029035.png" alt="image-20220118212029035"></p>
 <p><img src="/2022/01/18/Stm32F407-PWM-External-Sync/image-20220118212038552.png" alt="image-20220118212038552"></p>
-<h2 id="END"><a href="#END" class="headerlink" title="END"></a>END</h2>
+
         
         <br />
         <div id="comment-container">

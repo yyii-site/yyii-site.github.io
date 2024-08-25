@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="toc-text">项目搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="toc-text">测试脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E8%A7%A3%E7%A0%81%E8%A7%84%E5%88%99"><span class="toc-text">新增解码规则</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA"><span class="toc-text">1.项目搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC"><span class="toc-text">2.测试脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%96%B0%E5%A2%9E%E8%A7%A3%E7%A0%81%E8%A7%84%E5%88%99"><span class="toc-text">3.新增解码规则</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#IOT Theengs Decoder Python" title="IOT Theengs Decoder Python">IOT Theengs Decoder Python</a>
+        <a class="tag" href="/tags/#IoT" title="IoT">IoT</a>
         <span>/</span>
         
         
@@ -142,7 +142,8 @@
 </span>
     </div>
     <div class="post-content ">
-        <h2 id="项目搭建"><a href="#项目搭建" class="headerlink" title="项目搭建"></a>项目搭建</h2><ol>
+        <p>Theengs Decoder Python</p>
+<h2 id="1-项目搭建"><a href="#1-项目搭建" class="headerlink" title="1.项目搭建"></a>1.项目搭建</h2><ol>
 <li>clone工程</li>
 <li>将下载arduino_json项目并复制到src\arduino_json文件夹中</li>
 <li>如果是python使用，查看<a target="_blank" rel="noopener" href="https://decoder.theengs.io/use/python.html#dependencies">https://decoder.theengs.io/use/python.html#dependencies</a> (windows 下不用apt-get install cmake指令，在pip install . 指令脚本会自动安装依赖)</li>
@@ -150,11 +151,9 @@
 <li>decoder.h中将新硬件加入列表（BLE_ID_MAX的前面）</li>
 <li>注意每次修改完解码规则文件，必须重新编译(例如python下使用pip install .)生效后方可测试</li>
 </ol>
-<h2 id="测试脚本"><a href="#测试脚本" class="headerlink" title="测试脚本"></a>测试脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> TheengsDecoder <span class="keyword">import</span> decodeBLE <span class="keyword">as</span> dble</span><br><span class="line"></span><br><span class="line">data_json = &#123;<span class="string">&quot;manufacturerdata&quot;</span>: <span class="string">&quot;1E5F0041004B00E107070C080A194000000400&quot;</span>, <span class="string">&quot;name&quot;</span>: <span class="string">&quot;YE600X&quot;</span>&#125;</span><br><span class="line"><span class="comment"># data_json = &#123;&quot;manufacturerdata&quot;: &quot;af097C1801f99c4408&quot;, &quot;name&quot;: &quot;sps&quot;&#125;</span></span><br><span class="line">data = dble(json.dumps(data_json))</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
+<h2 id="2-测试脚本"><a href="#2-测试脚本" class="headerlink" title="2.测试脚本"></a>2.测试脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">from</span> TheengsDecoder <span class="keyword">import</span> decodeBLE <span class="keyword">as</span> dble</span><br><span class="line"></span><br><span class="line">data_json = &#123;<span class="string">&quot;manufacturerdata&quot;</span>: <span class="string">&quot;1E5F0041004B00E107070C080A194000000400&quot;</span>, <span class="string">&quot;name&quot;</span>: <span class="string">&quot;YE600X&quot;</span>&#125;</span><br><span class="line"><span class="comment"># data_json = &#123;&quot;manufacturerdata&quot;: &quot;af097C1801f99c4408&quot;, &quot;name&quot;: &quot;sps&quot;&#125;</span></span><br><span class="line">data = dble(json.dumps(data_json))</span><br><span class="line"><span class="built_in">print</span>(data)</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="新增解码规则"><a href="#新增解码规则" class="headerlink" title="新增解码规则"></a>新增解码规则</h2><p>YE600X_json.h</p>
+<h2 id="3-新增解码规则"><a href="#3-新增解码规则" class="headerlink" title="3.新增解码规则"></a>3.新增解码规则</h2><p>YE600X_json.h</p>
 <p>被<code>/*R&quot;&quot;&quot;&quot;(</code>注释的代码要符合json格式</p>
 <p>删除空格回车，将<code>&quot;</code>前增加转义符<code>\</code></p>
 <p>索引编号从0开始，每个字符占一个；因为每个字符都是分开计算的，故位编号范围0-3</p>

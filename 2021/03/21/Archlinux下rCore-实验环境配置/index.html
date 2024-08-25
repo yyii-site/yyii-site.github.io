@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Rust-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">Rust 开发环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Qemu-%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%AE%89%E8%A3%85"><span class="toc-text">Qemu 模拟器安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GDB-%E8%B0%83%E8%AF%95%E6%94%AF%E6%8C%81"><span class="toc-text">GDB 调试支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C-rCore-Tutorial-v3"><span class="toc-text">运行 rCore-Tutorial-v3</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Archlinux%E4%B8%8BrCore-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">1.Archlinux下rCore 实验环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Rust-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">2.Rust 开发环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Qemu-%E6%A8%A1%E6%8B%9F%E5%99%A8%E5%AE%89%E8%A3%85"><span class="toc-text">3.Qemu 模拟器安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-GDB-%E8%B0%83%E8%AF%95%E6%94%AF%E6%8C%81"><span class="toc-text">4.GDB 调试支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%BF%90%E8%A1%8C-rCore-Tutorial-v3"><span class="toc-text">5.运行 rCore-Tutorial-v3</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#rCore Rust Qemu GDB Archlinux" title="rCore Rust Qemu GDB Archlinux">rCore Rust Qemu GDB Archlinux</a>
+        <a class="tag" href="/tags/#Rust" title="Rust">Rust</a>
         <span>/</span>
         
         
@@ -142,15 +142,14 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>Archlinux下rCore 实验环境配置</p>
-<p>原文：<a target="_blank" rel="noopener" href="https://rcore-os.github.io/rCore-Tutorial-Book-v3/chapter0/5setup-devel-env.html#rust">rCore-Tutorial-Book 第三版 实验环境配置</a></p>
+        <h2 id="1-Archlinux下rCore-实验环境配置"><a href="#1-Archlinux下rCore-实验环境配置" class="headerlink" title="1.Archlinux下rCore 实验环境配置"></a>1.Archlinux下rCore 实验环境配置</h2><p>原文：<a target="_blank" rel="noopener" href="https://rcore-os.github.io/rCore-Tutorial-Book-v3/chapter0/5setup-devel-env.html#rust">rCore-Tutorial-Book 第三版 实验环境配置</a></p>
 <ul>
 <li>系统环境配置（使用Archlinux）</li>
 <li>Rust开发环境配置</li>
 <li>Qemu模拟器安装</li>
 <li>GDB 调试支持</li>
 </ul>
-<h2 id="Rust-开发环境配置"><a href="#Rust-开发环境配置" class="headerlink" title="Rust 开发环境配置"></a>Rust 开发环境配置</h2><p>首先安装Rust包管理器cargo和Rust版本管理器rustup</p>
+<h2 id="2-Rust-开发环境配置"><a href="#2-Rust-开发环境配置" class="headerlink" title="2.Rust 开发环境配置"></a>2.Rust 开发环境配置</h2><p>首先安装Rust包管理器cargo和Rust版本管理器rustup</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S cargo</span><br><span class="line">sudo pacman -S rustup</span><br></pre></td></tr></table></figure>
 
 <p>修改Rust Crates源 <a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/help/crates.io-index.html">ustc</a>，在 <code>$HOME/.cargo/config</code> 中添加如下内容：</p>
@@ -162,15 +161,15 @@
 <p>接下来安装一些Rust相关的软件包</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rustup target add riscv64gc-unknown-none-elf</span><br><span class="line">cargo install cargo-binutils</span><br><span class="line">rustup component add llvm-tools-preview</span><br><span class="line">rustup component add rust-src</span><br></pre></td></tr></table></figure>
 
-<h2 id="Qemu-模拟器安装"><a href="#Qemu-模拟器安装" class="headerlink" title="Qemu 模拟器安装"></a>Qemu 模拟器安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qemu-emulators-full</span><br></pre></td></tr></table></figure>
+<h2 id="3-Qemu-模拟器安装"><a href="#3-Qemu-模拟器安装" class="headerlink" title="3.Qemu 模拟器安装"></a>3.Qemu 模拟器安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S qemu-emulators-full</span><br></pre></td></tr></table></figure>
 
 <p>随后即可在当前终端 <code>source ~/.bashrc</code> 更新系统路径，或者直接重启一个新的终端。此时我们可以确认 Qemu 的版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">qemu-system-riscv64 --version</span><br><span class="line">qemu-riscv64 --version</span><br></pre></td></tr></table></figure>
 
-<h2 id="GDB-调试支持"><a href="#GDB-调试支持" class="headerlink" title="GDB 调试支持"></a>GDB 调试支持</h2><p>在 <code>os</code> 目录下 <code>make debug</code> 可以调试我们的内核，这需要安装终端复用工具 <code>tmux</code> ，还需要基于 riscv64 平台的 gdb 调试器 <code>riscv64-unknown-elf-gdb</code> 。该调试器包含在 riscv64 gcc 工具链中。</p>
+<h2 id="4-GDB-调试支持"><a href="#4-GDB-调试支持" class="headerlink" title="4.GDB 调试支持"></a>4.GDB 调试支持</h2><p>在 <code>os</code> 目录下 <code>make debug</code> 可以调试我们的内核，这需要安装终端复用工具 <code>tmux</code> ，还需要基于 riscv64 平台的 gdb 调试器 <code>riscv64-unknown-elf-gdb</code> 。该调试器包含在 riscv64 gcc 工具链中。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S riscv64-unknown-elf-gdb</span><br></pre></td></tr></table></figure>
 
-<h2 id="运行-rCore-Tutorial-v3"><a href="#运行-rCore-Tutorial-v3" class="headerlink" title="运行 rCore-Tutorial-v3"></a>运行 rCore-Tutorial-v3</h2><p>如果是在 Qemu 平台上运行，只需在<code>os</code>目录下 <code>make run</code> 即可。在内核加载完毕之后，可以看到目前可以用的 应用程序。 <code>usertests</code> 打包了其中的很大一部分，所以我们可以运行它，只需输入在终端中输入它的名字即可。运行后，可以先按下 <code>Ctrl+A</code> ，再按下 <code>X</code> 来退出 Qemu。</p>
+<h2 id="5-运行-rCore-Tutorial-v3"><a href="#5-运行-rCore-Tutorial-v3" class="headerlink" title="5.运行 rCore-Tutorial-v3"></a>5.运行 rCore-Tutorial-v3</h2><p>如果是在 Qemu 平台上运行，只需在<code>os</code>目录下 <code>make run</code> 即可。在内核加载完毕之后，可以看到目前可以用的 应用程序。 <code>usertests</code> 打包了其中的很大一部分，所以我们可以运行它，只需输入在终端中输入它的名字即可。运行后，可以先按下 <code>Ctrl+A</code> ，再按下 <code>X</code> 来退出 Qemu。</p>
 
         
         <br />

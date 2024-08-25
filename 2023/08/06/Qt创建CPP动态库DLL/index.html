@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Qt%E5%88%9B%E5%BB%BAC-%E5%8A%A8%E6%80%81%E5%BA%93DLL"><span class="toc-text">Qt创建C++动态库DLL</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Qt%E6%96%B0%E5%BB%BA%E5%85%B1%E4%BA%AB%E5%BA%93%E5%B7%A5%E7%A8%8B"><span class="toc-text">Qt新建共享库工程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Qt%E8%B0%83%E7%94%A8%E5%8A%A8%E6%80%81%E5%BA%93"><span class="toc-text">Qt调用动态库</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9B%E5%BB%BAC-%E5%8A%A8%E6%80%81%E5%BA%93DLL"><span class="toc-text">1.创建C++动态库DLL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E6%96%B0%E5%BB%BA%E5%85%B1%E4%BA%AB%E5%BA%93%E5%B7%A5%E7%A8%8B"><span class="toc-text">1.1新建共享库工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2%E8%B0%83%E7%94%A8%E5%8A%A8%E6%80%81%E5%BA%93"><span class="toc-text">1.2调用动态库</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#QT CPP DLL" title="QT CPP DLL">QT CPP DLL</a>
+        <a class="tag" href="/tags/#Qt" title="Qt">Qt</a>
         <span>/</span>
         
         
@@ -142,8 +142,8 @@
 </span>
     </div>
     <div class="post-content ">
-        <h2 id="Qt创建C-动态库DLL"><a href="#Qt创建C-动态库DLL" class="headerlink" title="Qt创建C++动态库DLL"></a>Qt创建C++动态库DLL</h2><p>为了提高代码复用性，实现模块化开发，我们通常会对一些常用函数进行封装，通过调用动态链接库的方法实现，Qt自生便能构建共享库。</p>
-<h3 id="Qt新建共享库工程"><a href="#Qt新建共享库工程" class="headerlink" title="Qt新建共享库工程"></a>Qt新建共享库工程</h3><ul>
+        <h2 id="1-创建C-动态库DLL"><a href="#1-创建C-动态库DLL" class="headerlink" title="1.创建C++动态库DLL"></a>1.创建C++动态库DLL</h2><p>为了提高代码复用性，实现模块化开发，我们通常会对一些常用函数进行封装，通过调用动态链接库的方法实现，Qt自生便能构建共享库。</p>
+<h2 id="1-1新建共享库工程"><a href="#1-1新建共享库工程" class="headerlink" title="1.1新建共享库工程"></a>1.1新建共享库工程</h2><ul>
 <li>新建工程，选择动态库，命名为DynamicLibrary，实现一个简单的方法(method) : int test()</li>
 </ul>
 <p>DynamicLibrary_global.h</p>
@@ -160,7 +160,7 @@
 <ul>
 <li>Build(Debug) 得到动态库<code>DynamicLibrary.dll</code></li>
 </ul>
-<h3 id="Qt调用动态库"><a href="#Qt调用动态库" class="headerlink" title="Qt调用动态库"></a>Qt调用动态库</h3><ul>
+<h2 id="1-2调用动态库"><a href="#1-2调用动态库" class="headerlink" title="1.2调用动态库"></a>1.2调用动态库</h2><ul>
 <li>新建一个控制台工程LoadDynamic，用于测试调用前面构建的动态库dll</li>
 <li>导入相关头文件，先复制头文件至工程路径下(DynamicLibrary_global.h  dynamiclibrary.h)，然后项目单击右键添加现有文件。</li>
 <li>链接库，配置pro文件，增加动态链接库的路径<code>LIBS += xxx\debug\DynamicLibrary.dll</code></li>

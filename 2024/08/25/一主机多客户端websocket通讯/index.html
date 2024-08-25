@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        一主机多客户端websocket通讯 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%A8%8B%E5%BA%8F%E6%96%87%E4%BB%B6"><span class="toc-text">2.程序文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E8%AF%B4%E6%98%8E"><span class="toc-text">3.服务器端说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-text">4.客户端</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E6%B5%8B%E8%AF%95"><span class="toc-text">5.测试</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        一主机多客户端websocket通讯
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-08-25 16:25:39</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Python" title="Python">Python</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>uvicorn FastAPI WebSocket</p>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p>websocket服务器，接收多个客户端连接。接收客户端的数据经由算法处理后，将结果返回给对应客户端。</p>
+<p>fastapi同时支持http协议，可自行增加可提供网页服务。</p>
+<h2 id="2-程序文件"><a href="#2-程序文件" class="headerlink" title="2.程序文件"></a>2.程序文件</h2><p>自行准备一张jpg格式的图片，复制到程序文件夹中，并重命名为<code>picture_in.jpg</code></p>
+<p>将以下代码存储为对应名称的文件，并全部放到程序文件夹中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># pyqt_app.py</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> Qt</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> QThread</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtWidgets <span class="keyword">import</span> QApplication, QMainWindow, QVBoxLayout, QWidget, QLabel</span><br><span class="line"><span class="keyword">from</span> web_api <span class="keyword">import</span> WebTask, ProcessingTask</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MainWindow</span>(<span class="title class_ inherited__">QMainWindow</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.setWindowTitle(<span class="string">&quot;FastAPI + PyQt&quot;</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建一个垂直布局</span></span><br><span class="line">        layout = QVBoxLayout()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建一个标签并添加到布局中</span></span><br><span class="line">        self.label = QLabel()</span><br><span class="line">        layout.addWidget(self.label)</span><br><span class="line"></span><br><span class="line">        self.lab_img = QLabel()</span><br><span class="line">        layout.addWidget(self.lab_img)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 创建一个 widget 并设置布局</span></span><br><span class="line">        central_widget = QWidget()</span><br><span class="line">        central_widget.setLayout(layout)</span><br><span class="line">        self.setCentralWidget(central_widget)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">change_txt</span>(<span class="params">self, msg</span>):</span><br><span class="line">        self.label.setText(msg)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">display_img</span>(<span class="params">self, <span class="built_in">id</span>, num, im</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;socket:<span class="subst">&#123;<span class="built_in">id</span>&#125;</span>, image:<span class="subst">&#123;num&#125;</span>&#x27;</span>)</span><br><span class="line">        cv2.imshow(<span class="string">&#x27;im&#x27;</span>, im)</span><br><span class="line">        cv2.waitKey(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    app = QApplication(sys.argv)</span><br><span class="line">    window = MainWindow()</span><br><span class="line">    window.show()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Web</span></span><br><span class="line">    webThread = QThread()</span><br><span class="line">    web = WebTask()</span><br><span class="line">    web.moveToThread(webThread)</span><br><span class="line">    webThread.started.connect(web.long_running)</span><br><span class="line">    web.signal_text.connect(window.change_txt)</span><br><span class="line">    <span class="comment"># web.signal_client_msg.connect(window.display_img)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Processing</span></span><br><span class="line">    procThread = QThread()</span><br><span class="line">    proc = ProcessingTask()</span><br><span class="line">    proc.moveToThread(procThread)</span><br><span class="line">    procThread.started.connect(proc.long_running)</span><br><span class="line">    <span class="comment"># web.signal_client_msg.connect(proc.receive_msg, Qt.DirectConnection)</span></span><br><span class="line"></span><br><span class="line">    webThread.start()</span><br><span class="line">    procThread.start()</span><br><span class="line"></span><br><span class="line">    sys.exit(app.exec_())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># web_api.py</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> uvicorn</span><br><span class="line"><span class="keyword">from</span> io <span class="keyword">import</span> BytesIO</span><br><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span></span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">from</span> fastapi <span class="keyword">import</span> FastAPI, WebSocket, WebSocketDisconnect</span><br><span class="line"><span class="keyword">from</span> PyQt5.QtCore <span class="keyword">import</span> QObject, pyqtSignal</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">from</span> IDQueue <span class="keyword">import</span> IDQueue</span><br><span class="line"></span><br><span class="line">max_len_queue = <span class="number">5</span></span><br><span class="line">socket_to_ai_queue = deque(maxlen=max_len_queue)</span><br><span class="line">ai_to_socket_queue = IDQueue()</span><br><span class="line">socket_to_ai_lock = threading.Lock()</span><br><span class="line">ai_to_socket_lock = threading.Lock()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ConnectionManager</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.active_connections: <span class="type">List</span>[WebSocket] = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">connect</span>(<span class="params">self, websocket: WebSocket</span>):</span><br><span class="line">        <span class="keyword">await</span> websocket.accept()</span><br><span class="line">        self.active_connections.append(websocket)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">disconnect</span>(<span class="params">self, websocket: WebSocket</span>):</span><br><span class="line">        self.active_connections.remove(websocket)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">send_personal_message</span>(<span class="params">self, message: <span class="built_in">str</span>, websocket: WebSocket</span>):</span><br><span class="line">        <span class="keyword">await</span> websocket.send_text(message)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">broadcast</span>(<span class="params">self, message: <span class="built_in">str</span></span>):</span><br><span class="line">        <span class="keyword">for</span> connection <span class="keyword">in</span> self.active_connections:</span><br><span class="line">            <span class="keyword">await</span> connection.send_text(message)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">WebTask</span>(<span class="title class_ inherited__">QObject</span>):</span><br><span class="line">    signal_text = pyqtSignal(<span class="built_in">str</span>)</span><br><span class="line">    signal_client_msg = pyqtSignal(<span class="built_in">int</span>, <span class="built_in">int</span>, np.ndarray)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line">        self.app = FastAPI()</span><br><span class="line">        self.manager = ConnectionManager()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">long_running</span>(<span class="params">self</span>):</span><br><span class="line"><span class="meta">        @self.app.websocket(<span class="params"><span class="string">&quot;/ws_bytes/&#123;client_id&#125;&quot;</span></span>)</span></span><br><span class="line">        <span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">websocket_client_msg</span>(<span class="params">websocket: WebSocket, client_id: <span class="built_in">int</span></span>):</span><br><span class="line">            <span class="keyword">await</span> self.manager.connect(websocket)</span><br><span class="line">            ai_to_socket_queue.clear(client_id)</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                    data = <span class="keyword">await</span> websocket.receive_json()</span><br><span class="line">                    images = data.get(<span class="string">&quot;images&quot;</span>, &#123;&#125;)</span><br><span class="line">                    img_b64 = images.get(<span class="string">&quot;encoded&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">                    img_id_send = images.get(<span class="string">&quot;image_id&quot;</span>, -<span class="number">1</span>)</span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">len</span>(img_b64) &gt; <span class="number">0</span>:</span><br><span class="line">                        img_file = BytesIO(base64.b64decode(img_b64))</span><br><span class="line">                        <span class="comment"># 方式一  Image</span></span><br><span class="line">                        <span class="comment"># im = Image.open(img_file)</span></span><br><span class="line">                        <span class="comment"># im.save(&#x27;picture_out.jpg&#x27;, &quot;JPEG&quot;)</span></span><br><span class="line">                        <span class="comment"># 方式二  cv2</span></span><br><span class="line">                        img_array = np.frombuffer(img_file.getvalue(), dtype=np.uint8)</span><br><span class="line">                        im = cv2.imdecode(img_array, cv2.IMREAD_COLOR)</span><br><span class="line">                        <span class="comment"># cv2.imshow(&#x27;im&#x27;, im)</span></span><br><span class="line">                        <span class="comment"># cv2.waitKey(1)</span></span><br><span class="line">                        <span class="comment"># cv2.destroyAllWindows()</span></span><br><span class="line">                        <span class="comment"># self.signal_client_msg.emit(client_id, img_id, im)</span></span><br><span class="line"></span><br><span class="line">                        <span class="comment"># 发送给处理线程</span></span><br><span class="line">                        <span class="keyword">if</span> <span class="built_in">len</span>(socket_to_ai_queue) &lt; max_len_queue:</span><br><span class="line">                            <span class="keyword">with</span> socket_to_ai_lock:</span><br><span class="line">                                <span class="built_in">print</span>(<span class="string">&quot;socket_to_ai_queue append&quot;</span>)</span><br><span class="line">                                socket_to_ai_queue.append((client_id, img_id_send, im))</span><br><span class="line">                        <span class="keyword">else</span>:</span><br><span class="line">                            <span class="built_in">print</span>(<span class="string">&quot;socket_to_ai_queue full&quot;</span>)</span><br><span class="line">                        <span class="comment"># 从处理线程接收结果</span></span><br><span class="line">                        timeout = <span class="number">1000</span>  <span class="comment"># 超时时长 1000*0.003=3秒</span></span><br><span class="line">                        <span class="keyword">while</span> timeout:</span><br><span class="line">                            timeout -= <span class="number">1</span></span><br><span class="line">                            <span class="keyword">if</span> ai_to_socket_queue.<span class="built_in">len</span>(client_id):</span><br><span class="line">                                <span class="keyword">with</span> ai_to_socket_lock:</span><br><span class="line">                                    <span class="built_in">print</span>(<span class="string">&quot;ai_to_socket_queue pop&quot;</span>)</span><br><span class="line">                                    img_id_read, count = ai_to_socket_queue.pop(client_id)</span><br><span class="line">                                    <span class="keyword">if</span> img_id_send == img_id_read:</span><br><span class="line">                                        <span class="keyword">break</span></span><br><span class="line">                                    <span class="keyword">else</span>:</span><br><span class="line">                                        <span class="built_in">print</span>(<span class="string">f&quot;img_id_send:<span class="subst">&#123;img_id_send&#125;</span> != img_id_read:<span class="subst">&#123;img_id_read&#125;</span>&quot;</span>)</span><br><span class="line">                            <span class="keyword">else</span>:</span><br><span class="line">                                <span class="keyword">await</span> asyncio.sleep(<span class="number">0.003</span>)</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">await</span> self.manager.send_personal_message(<span class="string">f&quot;You client_id:<span class="subst">&#123;client_id&#125;</span>, img_id:<span class="subst">&#123;img_id_send&#125;</span>, count:<span class="subst">&#123;count&#125;</span>&quot;</span>, websocket)</span><br><span class="line">            <span class="keyword">except</span> WebSocketDisconnect:</span><br><span class="line">                self.manager.disconnect(websocket)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 启动 Uvicorn 服务器</span></span><br><span class="line">        asyncio.create_task(uvicorn.run(self.app, host=<span class="string">&quot;0.0.0.0&quot;</span>, port=<span class="number">8000</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">ProcessingTask</span>(<span class="title class_ inherited__">QObject</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">work</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;work start&quot;</span>)</span><br><span class="line">        time.sleep(<span class="number">0.1</span>)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;work finsh&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">send_result</span>(<span class="params">self, client_id, val</span>):</span><br><span class="line">        <span class="keyword">if</span> ai_to_socket_queue.<span class="built_in">len</span>(client_id) &lt; max_len_queue:</span><br><span class="line">            <span class="keyword">with</span> ai_to_socket_lock:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;ai_to_socket_queue append&quot;</span>)</span><br><span class="line">                ai_to_socket_queue.add(client_id, val)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;ai_to_socket_queue full&quot;</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">long_running</span>(<span class="params">self</span>):</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&#x27;ProcessingTask running&#x27;</span>)</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(socket_to_ai_queue) &gt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">with</span> socket_to_ai_lock:</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">&quot;socket_to_ai_lock popleft&quot;</span>)</span><br><span class="line">                    client_id, img_id, im = socket_to_ai_queue.popleft()</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&quot;thread count:<span class="subst">&#123;count&#125;</span>&quot;</span>)</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">                self.work()</span><br><span class="line">                self.send_result(client_id, (img_id, count))</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                time.sleep(<span class="number">0.003</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IDQueue.py</span></span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> OrderedDict, deque</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">IDQueue</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.queue_dict = OrderedDict()</span><br><span class="line">        self.queue_lengths = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add</span>(<span class="params">self, <span class="built_in">id</span>, item</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">id</span> <span class="keyword">not</span> <span class="keyword">in</span> self.queue_dict:</span><br><span class="line">            self.queue_dict[<span class="built_in">id</span>] = deque()</span><br><span class="line">            self.queue_lengths[<span class="built_in">id</span>] = <span class="number">0</span></span><br><span class="line">        self.queue_dict[<span class="built_in">id</span>].append(item)</span><br><span class="line">        self.queue_lengths[<span class="built_in">id</span>] += <span class="number">1</span></span><br><span class="line">        self.queue_dict.move_to_end(<span class="built_in">id</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">pop</span>(<span class="params">self, <span class="built_in">id</span></span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">id</span> <span class="keyword">not</span> <span class="keyword">in</span> self.queue_dict <span class="keyword">or</span> <span class="keyword">not</span> self.queue_dict[<span class="built_in">id</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        item = self.queue_dict[<span class="built_in">id</span>].popleft()</span><br><span class="line">        self.queue_lengths[<span class="built_in">id</span>] -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> self.queue_lengths[<span class="built_in">id</span>] == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">del</span> self.queue_dict[<span class="built_in">id</span>]</span><br><span class="line">            <span class="keyword">del</span> self.queue_lengths[<span class="built_in">id</span>]</span><br><span class="line">        <span class="keyword">return</span> item</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">len</span>(<span class="params">self, <span class="built_in">id</span></span>):</span><br><span class="line">        <span class="keyword">return</span> self.queue_lengths.get(<span class="built_in">id</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">get_queue</span>(<span class="params">self, <span class="built_in">id</span></span>):</span><br><span class="line">        <span class="keyword">return</span> self.queue_dict.get(<span class="built_in">id</span>, <span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">clear</span>(<span class="params">self, <span class="built_in">id</span></span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;IDQueue <span class="subst">&#123;<span class="built_in">id</span>&#125;</span> clear&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">id</span> <span class="keyword">in</span> self.queue_dict:</span><br><span class="line">            <span class="keyword">del</span> self.queue_dict[<span class="built_in">id</span>]</span><br><span class="line">            <span class="keyword">del</span> self.queue_lengths[<span class="built_in">id</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">queue = IDQueue()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加元素</span></span><br><span class="line">queue.add(<span class="number">1</span>, <span class="string">&#x27;apple&#x27;</span>)</span><br><span class="line">queue.add(<span class="number">1</span>, <span class="string">&#x27;banana&#x27;</span>)</span><br><span class="line">queue.add(<span class="number">2</span>, <span class="string">&#x27;cherry&#x27;</span>)</span><br><span class="line">queue.add(<span class="number">2</span>, <span class="string">&#x27;date&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取队列长度</span></span><br><span class="line"><span class="built_in">print</span>(queue.<span class="built_in">len</span>(<span class="number">1</span>))  <span class="comment"># Output: 2</span></span><br><span class="line"><span class="built_in">print</span>(queue.<span class="built_in">len</span>(<span class="number">2</span>))  <span class="comment"># Output: 2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 弹出元素</span></span><br><span class="line"><span class="built_in">print</span>(queue.pop(<span class="number">1</span>))  <span class="comment"># Output: &#x27;apple&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(queue.pop(<span class="number">2</span>))  <span class="comment"># Output: &#x27;cherry&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取队列</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(queue.get_queue(<span class="number">1</span>)))  <span class="comment"># Output: [&#x27;banana&#x27;]</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(queue.get_queue(<span class="number">2</span>)))  <span class="comment"># Output: [&#x27;date&#x27;]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fastapi_websockets_client1.py</span></span><br><span class="line"><span class="keyword">import</span> asyncio</span><br><span class="line"><span class="keyword">import</span> base64, json</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> websockets</span><br><span class="line"></span><br><span class="line">last_time = time.time()</span><br><span class="line">last_step = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ptime</span>():</span><br><span class="line">    <span class="keyword">global</span> last_time, last_step</span><br><span class="line">    now = time.time()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;step<span class="subst">&#123;last_step&#125;</span>: <span class="subst">&#123;now - last_time&#125;</span>s    now: <span class="subst">&#123;now&#125;</span>&quot;</span>)</span><br><span class="line">    last_time = now</span><br><span class="line">    last_step += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">def</span> <span class="title function_">send_image</span>(<span class="params">client_id, filename</span>):</span><br><span class="line">    <span class="keyword">async</span> <span class="keyword">with</span> websockets.connect(<span class="string">f&#x27;ws://127.0.0.1:8000/ws_bytes/<span class="subst">&#123;client_id&#125;</span>&#x27;</span>) <span class="keyword">as</span> websocket:</span><br><span class="line">        <span class="comment"># 替换为你的图片文件路径</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">20</span>):</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> imgfile:</span><br><span class="line">                base64_bytes = base64.b64encode(imgfile.read())</span><br><span class="line">                base64_encoded = base64_bytes.decode()</span><br><span class="line">            data = &#123;</span><br><span class="line">                <span class="string">&#x27;hard_info&#x27;</span>: &#123;</span><br><span class="line">                    <span class="string">&#x27;num&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">                    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;1号工位&quot;</span>,</span><br><span class="line">                    <span class="string">&#x27;ip&#x27;</span>: <span class="string">&quot;192.168.0.10&quot;</span></span><br><span class="line">                &#125;,</span><br><span class="line">                <span class="string">&#x27;images&#x27;</span>: &#123;</span><br><span class="line">                        <span class="string">&#x27;camera_index&#x27;</span>: <span class="number">1</span>,</span><br><span class="line">                        <span class="string">&#x27;image_id&#x27;</span>: i,</span><br><span class="line">                        <span class="string">&#x27;encoded&#x27;</span>: base64_encoded</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">f&quot;start<span class="subst">&#123;i&#125;</span>&quot;</span>)</span><br><span class="line">            <span class="keyword">await</span> websocket.send(json.dumps(data))</span><br><span class="line">            response = <span class="keyword">await</span> websocket.recv()</span><br><span class="line">            <span class="built_in">print</span>(response)</span><br><span class="line">            ptime()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 替换为你想要使用的客户端 ID</span></span><br><span class="line">client_id = <span class="number">1</span></span><br><span class="line">img_path = <span class="string">&#x27;picture_in.jpg&#x27;</span></span><br><span class="line">asyncio.get_event_loop().run_until_complete(send_image(client_id, img_path))</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-服务器端说明"><a href="#3-服务器端说明" class="headerlink" title="3.服务器端说明"></a>3.服务器端说明</h2><p>文件： pyqt_app.py  web_api.py  IDQueue.py</p>
+<p>主线程：  PyQt界面<br>子线程1：  <strong>WebTask</strong>  uvicorn + fastapi<br>子线程2 ： <strong>ProcessingTask</strong>  算法</p>
+<p>数据流一：从websocket到计算线程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">websocket1       ---</span><br><span class="line">websocket2       ---==== 队列 ====    计算线程</span><br><span class="line">websocket3       ---</span><br></pre></td></tr></table></figure>
+
+<p>数据流二：从计算线程到websocket</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">                                          ---    websocket1</span><br><span class="line">计算线程  ==== IDQueue 带socket Id的队列 ====---    websocket2</span><br><span class="line">                                          ---    websocket3</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-客户端"><a href="#4-客户端" class="headerlink" title="4.客户端"></a>4.客户端</h2><p>fastapi_websockets_client.py</p>
+<p>多复制几份，修改<code>client_id = 1</code>为其他数字。</p>
+<h2 id="5-测试"><a href="#5-测试" class="headerlink" title="5.测试"></a>5.测试</h2><p>1号终端运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  pyqt_app.py</span><br></pre></td></tr></table></figure>
+
+<p>1号终端运行服务器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  pyqt_app.py</span><br></pre></td></tr></table></figure>
+
+<p>2号终端运行客户端1</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  fastapi_websockets_client1.py</span><br></pre></td></tr></table></figure>
+
+<p>3号终端运行客户端2</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python  fastapi_websockets_client2.py</span><br></pre></td></tr></table></figure>
+
+<p>客户端日志</p>
+<p><img src="/2024/08/25/%E4%B8%80%E4%B8%BB%E6%9C%BA%E5%A4%9A%E5%AE%A2%E6%88%B7%E7%AB%AFwebsocket%E9%80%9A%E8%AE%AF/client_log.png" alt="client_log.png"></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a target="_blank" rel="noopener" href="https://t.me/joinchat/D_yNdxwFpBzB5Nr4PPOZ9w">Telegram</a></span>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">mail</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>

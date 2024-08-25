@@ -93,7 +93,7 @@
     </div>
     
         <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E4%B8%8E-PyBind11-%E5%85%B1%E4%BA%AB-C-%E7%B1%BB"><span class="toc-text">1、与 PyBind11 共享 C++ 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E4%BB%8E-Python-%E8%B0%83%E7%94%A8-C-%E5%BA%93"><span class="toc-text">2、从 Python 调用 C++ 库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="toc-text">3、结束语</span></a></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%A6%82%E8%BF%B0"><span class="toc-text">1.概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%8E-PyBind11-%E5%85%B1%E4%BA%AB-C-%E7%B1%BB"><span class="toc-text">2.与 PyBind11 共享 C++ 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BB%8E-Python-%E8%B0%83%E7%94%A8-C-%E5%BA%93"><span class="toc-text">3.从 Python 调用 C++ 库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E7%BB%93%E6%9D%9F%E8%AF%AD"><span class="toc-text">4.结束语</span></a></li></ol>
 </div>
     
 </div>
@@ -132,7 +132,7 @@
         
         <span class="attr">Tags：/
         
-        <a class="tag" href="/tags/#python cpp PyBind11" title="python cpp PyBind11">python cpp PyBind11</a>
+        <a class="tag" href="/tags/#Python" title="Python">Python</a>
         <span>/</span>
         
         
@@ -142,7 +142,8 @@
 </span>
     </div>
     <div class="post-content ">
-        <p>原文链接: <a target="_blank" rel="noopener" href="https://www.matecdev.com/posts/cpp-call-from-python.html">How to Call C++ from Python</a></p>
+        <p>python通过PyBind11调用cpp</p>
+<h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><p>原文链接: <a target="_blank" rel="noopener" href="https://www.matecdev.com/posts/cpp-call-from-python.html">How to Call C++ from Python</a></p>
 <p>翻译整理: <a target="_blank" rel="noopener" href="http://www.bimant.com/blog/pybind11-crash-tutorial/">BimAnt</a></p>
 <p>从 Python 调用 C++ 基本上有两种方法：使用 PyBind11 C++ 库生成 Python 模块，或使用 cytpes Python 包访问已编译的共享库。 使用 PyBind11 我们可以更轻松地共享许多数据类型，而使用 ctypes 是一种低级 C 风格的解决方案。</p>
 <p>就我而言，我希望能够利用 C++ 的性能和可移植性，但我不想放弃解释语言的交互性以进行快速探索和调试。</p>
@@ -157,7 +158,7 @@
 <p>使用 ctypes 的问题是共享许多数据类型需要大量的低级解决方法。 例如，虽然 ctypes 不支持复数等基本内容，但 PyBind11 使 Numpy 能够与 Eigen 完全互操作，并且需要最少的代码。</p>
 <p>不过，我也发现了 PyBind11 的一个小问题。 事实证明，重新编译 C++ 代码并尝试重新加载 PyBind 生成的 Python 模块后，什么也没发生。 重新加载已编译模块的唯一方法是重新启动我的 Python 会话。 无论如何，这不是什么大问题，因为 Python 的启动时间可以忽略不计。 也许，这个步骤可以在 IDE 级别自动化。</p>
 <p>因此，现在的问题是如何充分利用 PyBind11。</p>
-<h2 id="1、与-PyBind11-共享-C-类"><a href="#1、与-PyBind11-共享-C-类" class="headerlink" title="1、与 PyBind11 共享 C++ 类"></a>1、与 PyBind11 共享 C++ 类</h2><p>PyBind11 的官方文档非常好，我能够毫无问题地开始使用它。 然而，我想分享这个库的超级快速入门指南，以及我打算如何使用它。</p>
+<h2 id="2-与-PyBind11-共享-C-类"><a href="#2-与-PyBind11-共享-C-类" class="headerlink" title="2.与 PyBind11 共享 C++ 类"></a>2.与 PyBind11 共享 C++ 类</h2><p>PyBind11 的官方文档非常好，我能够毫无问题地开始使用它。 然而，我想分享这个库的超级快速入门指南，以及我打算如何使用它。</p>
 <p>Pybind11 是一个仅包含头文件的库，你可以通过以下方式获取它：</p>
 <p><code>pip install pybind11</code></p>
 <p>虽然没有必要将所有 C++ 代码构造为类，但如果你有一个要在 C++ 和 Python 之间共享的类，Pybind11 将使事情变得非常容易。 实际上，我更像是一个struct向量类型的人，我总是想在给定的项目中引入最少数量的类。</p>
@@ -182,7 +183,7 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cmake_minimum_required(VERSION 3.10)</span><br><span class="line"></span><br><span class="line">project(MyLib)</span><br><span class="line">set(CMAKE_CXX_STANDARD 20)</span><br><span class="line">set(PYBIND11_PYTHON_VERSION 3.6)</span><br><span class="line">set(CMAKE_CXX_FLAGS &quot;-Wall -Wextra -fPIC&quot;)</span><br><span class="line"></span><br><span class="line">find_package(pybind11 REQUIRED)</span><br><span class="line">find_package(Eigen3 REQUIRED)</span><br><span class="line"></span><br><span class="line">pybind11_add_module($&#123;PROJECT_NAME&#125; pywrap.cpp)</span><br><span class="line"></span><br><span class="line">target_compile_definitions($&#123;PROJECT_NAME&#125; PRIVATE VERSION_INFO=$&#123;EXAMPLE_VERSION_INFO&#125;)</span><br><span class="line">target_include_directories($&#123;PROJECT_NAME&#125; PRIVATE $&#123;PYBIND11_INCLUDE_DIRS&#125;)</span><br><span class="line">target_link_libraries($&#123;PROJECT_NAME&#125; PRIVATE Eigen3::Eigen)</span><br></pre></td></tr></table></figure>
 <p>现在已准备好了。 如果你使用 VS Code，配置 CMake 扩展后，只需按 F7 即可编译 C++ 库。</p>
-<h2 id="2、从-Python-调用-C-库"><a href="#2、从-Python-调用-C-库" class="headerlink" title="2、从 Python 调用 C++ 库"></a>2、从 Python 调用 C++ 库</h2><p>这个过程非常简单，并且应该开箱即用。 然而，有一些步骤可以优化交互式工作流程，这些步骤稍微棘手，但也值得实施。</p>
+<h2 id="3-从-Python-调用-C-库"><a href="#3-从-Python-调用-C-库" class="headerlink" title="3.从 Python 调用 C++ 库"></a>3.从 Python 调用 C++ 库</h2><p>这个过程非常简单，并且应该开箱即用。 然而，有一些步骤可以优化交互式工作流程，这些步骤稍微棘手，但也值得实施。</p>
 <p>例如，如果正在执行 Python 环境并且编译的库进入构建目录，可以执行以下操作：</p>
 <p>import sys<br>sys.path.append(“build&#x2F;“)<br>from MyLib import MyClass</p>
 <p>import matplotlib.pyplot as plt</p>
@@ -197,7 +198,7 @@
 
 <p>什么都没发生。 原因是编译后的代码无法在Python中重新加载。</p>
 <p>因此，使用 PyBind11 时，每次重新编译 C++ 代码时都需要重新启动 Python 会话，这对于开发目的来说有点烦人。 然而，这是一个很小的代价，因为 Python 的启动时间可以忽略不计，并且可能有一种方法可以使用一些 IDE 热键或其他工具来自动化该过程。</p>
-<h2 id="3、结束语"><a href="#3、结束语" class="headerlink" title="3、结束语"></a>3、结束语</h2><p>好了，这就是可以轻松地从 Python 调用 C++ 库的方法。教程的示例代码可以从github获取。</p>
+<h2 id="4-结束语"><a href="#4-结束语" class="headerlink" title="4.结束语"></a>4.结束语</h2><p>好了，这就是可以轻松地从 Python 调用 C++ 库的方法。教程的示例代码可以从github获取。</p>
 <p>特别是，这个两步过程可以产生非常交互式的开发工作流程。 尽管我们有一个编辑-编译-运行工作流程，但我们在最后添加了一个解释器，所以现在我们的工作流程看起来像编辑-编译-运行-探索。</p>
 <p>将来，我计划将两个功能合并到此工作流程中：</p>
 <ul>
