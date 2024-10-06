@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        vim安装coc-nvim插件实现代码补全 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vim-%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-text">vim 插件管理器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-text">使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#coc-nvim-%E6%8F%92%E4%BB%B6"><span class="toc-text">coc.nvim 插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#c-c-%E8%A1%A5%E5%85%A8%E6%8F%92%E4%BB%B6"><span class="toc-text">c&#x2F;c++ 补全插件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-clangd"><span class="toc-text">安装 clangd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-1"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%8F%92%E4%BB%B6"><span class="toc-text">其他插件</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        vim安装coc-nvim插件实现代码补全
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-10-06 14:10:59</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#vim" title="vim">vim</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="vim-插件管理器"><a href="#vim-插件管理器" class="headerlink" title="vim 插件管理器"></a>vim 插件管理器</h2><p><a target="_blank" rel="noopener" href="https://github.com/junegunn/vim-plug">vim-plug</a> Minimalist Vim Plugin Manager </p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \</span><br><span class="line">    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>edit <code>~/.vimrc</code></p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> plug#begin()</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; List your plugins here</span></span><br><span class="line">Plug <span class="string">&#x27;tpope/vim-sensible&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> plug#end()</span><br></pre></td></tr></table></figure>
+
+<p>重启 vim, 即可执行以下命令</p>
+<ul>
+<li><code>:PlugInstall</code> to install the plugins</li>
+<li><code>:PlugUpdate</code> to install or update the plugins</li>
+<li><code>:PlugDiff</code> to review the changes from the last update</li>
+<li><code>:PlugClean</code> to remove plugins no longer in the list</li>
+</ul>
+<h2 id="coc-nvim-插件"><a href="#coc-nvim-插件" class="headerlink" title="coc.nvim 插件"></a>coc.nvim 插件</h2><p><a target="_blank" rel="noopener" href="https://github.com/neoclide/coc.nvim">coc.nvim</a> Make your Vim&#x2F;Neovim as smart as VS Code</p>
+<p>编辑 <code>~/.vimrc</code> 加入 vim-plug 插件列表</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&quot; Use release branch (recommended)</span></span><br><span class="line">Plug <span class="string">&#x27;neoclide/coc.nvim&#x27;</span>, &#123;<span class="string">&#x27;branch&#x27;</span>: <span class="string">&#x27;release&#x27;</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&quot; Or build from source code by using npm</span></span><br><span class="line">Plug <span class="string">&#x27;neoclide/coc.nvim&#x27;</span>, &#123;<span class="string">&#x27;branch&#x27;</span>: <span class="string">&#x27;master&#x27;</span>, <span class="string">&#x27;do&#x27;</span>: <span class="string">&#x27;npm ci&#x27;</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启 vim 然后执行 <code>:PlugInstall</code> 命令安装coc.nvim</p>
+<p>安装完成后，再次编辑 <code>~/.vimrc</code> 加入默认配置参数(快捷键等) <a target="_blank" rel="noopener" href="https://github.com/neoclide/coc.nvim#example-vim-configuration">链接</a></p>
+<h2 id="c-c-补全插件"><a href="#c-c-补全插件" class="headerlink" title="c&#x2F;c++ 补全插件"></a>c&#x2F;c++ 补全插件</h2><p><a target="_blank" rel="noopener" href="https://github.com/clangd/coc-clangd">coc-clangd</a> clangd extension for coc.nvim </p>
+<p>vim 中执行 <code>:CocInstall coc-clangd</code> 安装插件，此插件用于连接下一小节安装的clangd服务</p>
+<p>修改配置参数 <code>:CocConfig</code> ，配置参数也可参考<a target="_blank" rel="noopener" href="https://clangd.llvm.org/installation.html">llvm.org</a> </p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;clangd.arguments&quot;</span>: [<span class="string">&quot;--background-index&quot;</span>, <span class="string">&quot;--clang-tidy&quot;</span>],</span><br><span class="line">  <span class="string">&quot;clangd.fallbackFlags&quot;</span>: [<span class="string">&quot;-std=c++23&quot;</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-clangd"><a href="#安装-clangd" class="headerlink" title="安装 clangd"></a>安装 clangd</h2><p><a target="_blank" rel="noopener" href="https://clangd.llvm.org/installation.html">llvm.org</a> 中 Editor plugins 小节</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install clangd</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h2><p>vim新建main.cpp文件编写代码</p>
+<p>Coc快捷键：</p>
+<ol>
+<li><code>Tab</code>切换补全 <code>Enter</code>确认</li>
+<li><code>gd</code> to jump to definition</li>
+<li><code>gr</code> for references</li>
+<li><code>gy</code> for type definition</li>
+<li><code>K</code>  for documentation</li>
+<li><code>&lt;leader&gt;rn</code> for renaming  <code>&lt;leader&gt;</code>默认为 <code>\</code> 按键</li>
+<li><code>if</code>, <code>ic</code> for func&#x2F;class selection in visual mode</li>
+<li><code>&lt;space&gt;a</code> to list diagnostics</li>
+<li><code>[g</code> and <code>]g</code> to go prev&#x2F;next in diagnostics</li>
+</ol>
+<h2 id="其他插件"><a href="#其他插件" class="headerlink" title="其他插件"></a>其他插件</h2><ol>
+<li>auto-pairs 自动补括号</li>
+<li>fzf 文件搜索</li>
+<li>nerdtree 文件列表</li>
+<li>lightline 好看的状态栏</li>
+</ol>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">call</span> plug#begin()</span><br><span class="line"></span><br><span class="line">Plug <span class="string">&#x27;jiangmiao/auto-pairs&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;junegunn/fzf&#x27;</span>, &#123; <span class="string">&#x27;do&#x27;</span>: &#123; -&gt; fzf#install() &#125; &#125;</span><br><span class="line">Plug <span class="string">&#x27;junegunn/fzf.vim&#x27;</span></span><br><span class="line"><span class="comment">&quot;Plug &#x27;voldikss/vim-floaterm&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;preservim/nerdtree&#x27;</span>, &#123; <span class="string">&#x27;on&#x27;</span>: <span class="string">&#x27;NERDTreeToggle&#x27;</span> &#125;</span><br><span class="line">Plug <span class="string">&#x27;itchyny/lightline.vim&#x27;</span></span><br><span class="line">Plug <span class="string">&#x27;neoclide/coc.nvim&#x27;</span>, &#123; <span class="string">&#x27;branch&#x27;</span>: <span class="string">&#x27;release&#x27;</span> &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">call</span> plug#end()</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">Email</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
