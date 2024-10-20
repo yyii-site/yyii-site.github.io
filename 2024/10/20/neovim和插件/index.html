@@ -11,7 +11,7 @@
 
     <title>
         
-        
+        neovim和插件 - undefined
         
     </title>
 
@@ -57,7 +57,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -92,6 +92,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85neovim"><span class="toc-text">安装neovim</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">新建配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-text">命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">快捷键</span></a></li></ol></li></ol>
+</div>
+    
 </div>
 
 
@@ -116,51 +120,60 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2020-11-22</div>
-        <div class="post-info">
-            <a href="/2020/11/22/Gitblit-安装使用/">
-                <h3>
-                    Gitblit 安装使用
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Gitblit" title="Gitblit">Gitblit</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        neovim和插件
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-24</div>
-        <div class="post-info">
-            <a href="/2020/05/24/hello-world/">
-                <h3>
-                    Hello World
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-10-20 13:28:50</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#nvim" title="nvim">nvim</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
+    <div class="post-content ">
+        <h2 id="安装neovim"><a href="#安装neovim" class="headerlink" title="安装neovim"></a>安装neovim</h2><p><a target="_blank" rel="noopener" href="https://github.com/neovim/neovim-releases/releases">neovim-releases</a>下载安装包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo dpkg -i  nvim-linux64.deb</span><br></pre></td></tr></table></figure>
+
+<h2 id="新建配置文件"><a href="#新建配置文件" class="headerlink" title="新建配置文件"></a>新建配置文件</h2><p><a target="_blank" rel="noopener" href="https://github.com/nvim-lua/kickstart.nvim">kickstart.nvim</a></p>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/stqUbv-5u2s?si=MZ-nfA6-Y0KOlqe9">YouTube教程</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/nvim-lua/kickstart.nvim.git <span class="string">&quot;<span class="variable">$&#123;XDG_CONFIG_HOME:-<span class="variable">$HOME</span>/.config&#125;</span>&quot;</span>/nvim</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><p><code>:Lazy</code> 插件状态</p>
+<p><code>:Mason</code> LSP自动补全插件</p>
+<p><code>:Telescope keymap</code></p>
+<h3 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h3><p><code>C+F</code> 查找  <code>i</code> 安装</p>
+<p><code>C+N</code> 下一条  <code>C+P</code> 上一条 <code>C+Y</code> 接受</p>
+<p><code>[</code> <code>]</code> 跳转</p>
+<p><code>leader</code> 被配置为 Space空格键</p>
+<p><code>&lt;leader&gt;?</code> 最近打开的文件</p>
+<p><code>&lt;leader&gt;&lt;leader&gt;</code> 当前打开的缓冲区</p>
+<p><code>&lt;leader&gt;/</code> 当前文件搜索</p>
+<p><code>gd</code> Goto Definiton</p>
+<p><code>gr</code> Goto References</p>
+<p><code>gI</code> Goto Implementation</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/4/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
 
     </div>
 </div>
@@ -224,7 +237,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
