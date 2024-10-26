@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        OhMyZsh_powerlevel10k快速打造好看好用的Terminal - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="toc-text">前情提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E3%80%81%E8%A8%AD%E5%AE%9A%E6%96%B9%E5%BC%8F"><span class="toc-text">安裝、設定方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh"><span class="toc-text">安裝 zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-oh-my-zsh"><span class="toc-text">安裝 oh-my-zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh-theme-powerlevel10k"><span class="toc-text">安裝 zsh theme: powerlevel10k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E5%AD%97%E5%9E%8B"><span class="toc-text">安裝字型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh-%E5%A5%BD%E7%94%A8-plugins"><span class="toc-text">安裝 zsh 好用 plugins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-powerlevel10k-%E8%A8%AD%E5%AE%9A"><span class="toc-text">修改 powerlevel10k 設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-terminal-%E7%9A%84-color-scheme"><span class="toc-text">修改 terminal 的 color scheme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E6%8C%87%E4%BB%A4%E5%88%97%E5%9C%A8%E7%B5%82%E7%AB%AF%E6%A9%9F%E5%BA%95%E9%83%A8"><span class="toc-text">固定指令列在終端機底部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C"><span class="toc-text">最後</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        OhMyZsh_powerlevel10k快速打造好看好用的Terminal
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-10-26 16:02:00</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Linux" title="Linux">Linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p><a target="_blank" rel="noopener" href="https://holychung.medium.com/%E5%88%86%E4%BA%AB-oh-my-zsh-powerlevel10k-%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84-command-line-%E7%92%B0%E5%A2%83-f66846117921">原帖</a></p>
+<h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>此篇是以 ubuntu 20.04 作為範例，同時也可以使用在 mac、windows WSL 當中，稍微會有一點不同的設定可以參考 <a target="_blank" rel="noopener" href="https://github.com/Holychung/My_Terminal_Theme">My_Terminal_Theme</a></p>
+<p><img src="/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/pic1.gif" alt="最終成果"></p>
+<h2 id="安裝、設定方式"><a href="#安裝、設定方式" class="headerlink" title="安裝、設定方式"></a>安裝、設定方式</h2><p>總共有以下步驟：</p>
+<ul>
+<li>安裝 zsh</li>
+<li>安裝 oh-my-zsh</li>
+<li>安裝 zsh theme: powerlevel10k</li>
+<li>安裝 zsh 好用 plugins</li>
+<li>安裝 powerline font</li>
+<li>修改 powerlevel10k 設定</li>
+<li>修改 terminal 的 color scheme</li>
+<li>固定指令列在終端機底部</li>
+</ul>
+<p>首先，如果 ubuntu 系統是剛灌完，建議利用下面兩步驟先更新一下，如果是舊玩家直接跳過這一步驟進入 zsh 基本安裝即可。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>順便把一些套件裝一下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install vim curl git</span><br></pre></td></tr></table></figure>
+
+<h2 id="安裝-zsh"><a href="#安裝-zsh" class="headerlink" title="安裝 zsh"></a>安裝 zsh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install zsh</span><br></pre></td></tr></table></figure>
+
+<p>如果裝好了可以用這個指令查看。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/shells</span><br></pre></td></tr></table></figure>
+
+<p>更換 login shell，要記得 logout 才會生效。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chsh -s $(<span class="built_in">which</span> zsh)</span><br></pre></td></tr></table></figure>
+
+<h2 id="安裝-oh-my-zsh"><a href="#安裝-oh-my-zsh" class="headerlink" title="安裝 oh-my-zsh"></a>安裝 oh-my-zsh</h2><p><a target="_blank" rel="noopener" href="https://github.com/ohmyzsh/ohmyzsh">ohmyzsh github</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</span><br><span class="line">sh install.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="安裝-zsh-theme-powerlevel10k"><a href="#安裝-zsh-theme-powerlevel10k" class="headerlink" title="安裝 zsh theme: powerlevel10k"></a>安裝 zsh theme: powerlevel10k</h2><p><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k?tab=readme-ov-file#meslo-nerd-font-patched-for-powerlevel10k">powerlevel10k github</a></p>
+<p>Oh My Zsh 安裝 powerlevel10k。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+
+<p>安裝好後要修改 zsh 設定檔 .zshrc，先把主題換成剛剛安裝的 powerlevel10k</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZSH_THEME=<span class="string">&quot;powerlevel10k/powerlevel10k&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>然後下這個指令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p>可以去對 prompt 做基本的設定，包含 prompt style 等。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p10k configure</span><br></pre></td></tr></table></figure>
+
+<h2 id="安裝字型"><a href="#安裝字型" class="headerlink" title="安裝字型"></a>安裝字型</h2><p>Powerlevel10k 推薦使用 Meslo Nerd Font。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf">MesloLGS NF Regular.ttf</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold.ttf">MesloLGS NF Bold.ttf</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf">MesloLGS NF Italic.ttf</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf">MesloLGS NF Bold Italic.ttf</a></li>
+</ul>
+<p>下載好後，修改 GNOME Terminal (the default Ubuntu terminal) 步驟如下。<br><code>Open Terminal</code> → <code>Preferences</code> and click on the selected profile under Profiles. Check Custom font under <code>Text Appearance</code> and select <code>MesloLGS NF Regular</code>.</p>
+<p>如果是 xfce4 双击字体文件没有安装选项时，需安装<a target="_blank" rel="noopener" href="https://askmeaboutlinux.com/2023/10/04/how-to-add-fonts-on-the-xfce-desktop-in-linux/">font-manager</a> </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install thunar-font-manager</span><br><span class="line">font-manager</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/TerminalSettings.jpg" alt="Terminal Settings"></p>
+<h2 id="安裝-zsh-好用-plugins"><a href="#安裝-zsh-好用-plugins" class="headerlink" title="安裝 zsh 好用 plugins"></a>安裝 zsh 好用 plugins</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-completions">zsh-completions</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/zsh-users/zsh-syntax-highlighting">zsh-syntax-highlighting</a></li>
+</ul>
+<p>裝好後修改 .zshrc 把 plugins 加到設定檔。</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">plugins=(</span><br><span class="line">git</span><br><span class="line">zsh-completions </span><br><span class="line">zsh-autosuggestions </span><br><span class="line">zsh-<span class="keyword">syntax</span>-highlighting</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>立即生效。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-powerlevel10k-設定"><a href="#修改-powerlevel10k-設定" class="headerlink" title="修改 powerlevel10k 設定"></a>修改 powerlevel10k 設定</h2><p>設定檔 <code>.p10k.zsh</code>，修改完要下 <code>source ~/.p10k.zsh</code>。</p>
+<p>這邊我只簡單介紹兩個我有修改的東西，其他也是差不多改法，可以參考 <a target="_blank" rel="noopener" href="https://github.com/romkatv/powerlevel10k">powerlevel10k</a> 有很詳細的說明。</p>
+<p>修改 prompt 資料夾路徑如果太長超過過一個長度，中間的資料夾名稱會變成縮寫如下圖，這邊我把它改成大於 20 個字，不過可以視自己螢幕大小修改。</p>
+<p><code>typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=20</code></p>
+<p>修改 prompt 當前目錄的顏色，這邊可以參考 directory-is-difficult-to-see-in-prompt-when-using-rainbow-style 有很詳細的說明，底下是我自己更改的版本還要配合修改 terminal 的 color scheme，也可以依照自己喜好修改。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># Current directory background color.</span><br><span class="line">typeset -g POWERLEVEL9K_DIR_BACKGROUND=4</span><br><span class="line"># Default current directory foreground color.</span><br><span class="line">typeset -g POWERLEVEL9K_DIR_FOREGROUND=0</span><br><span class="line"># If directory is too long, shorten some of its segments to the shortest possible unique</span><br><span class="line"># prefix. The shortened directory can be tab-completed to the original.</span><br><span class="line">typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique</span><br><span class="line"># Replace removed segment suffixes with this symbol.</span><br><span class="line">typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=</span><br><span class="line"># Color of the shortened directory segments.</span><br><span class="line">typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=232</span><br><span class="line"># Color of the anchor directory segments. Anchor segments are never shortened. The first</span><br><span class="line"># segment is always an anchor.</span><br><span class="line">typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=232</span><br><span class="line"># Display anchor directory segments in bold.</span><br><span class="line">typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=false</span><br></pre></td></tr></table></figure>
+
+<h2 id="修改-terminal-的-color-scheme"><a href="#修改-terminal-的-color-scheme" class="headerlink" title="修改 terminal 的 color scheme"></a>修改 terminal 的 color scheme</h2><p>這邊提供我自己改的顏色，有參考 Windows Terminal Themes 當中的 Brogrammer，還有 Mac 的 terminal 進行修改。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;black&quot;: &quot;#1f1f1f&quot;,</span><br><span class="line">  &quot;red&quot;: &quot;#f81118&quot;,</span><br><span class="line">  &quot;green&quot;: &quot;#85D29A&quot;,</span><br><span class="line">  &quot;yellow&quot;: &quot;#ecba0f&quot;,</span><br><span class="line">  &quot;blue&quot;: &quot;#5C97CF&quot;,</span><br><span class="line">  &quot;purple&quot;: &quot;#4e5ab7&quot;,</span><br><span class="line">  &quot;cyan&quot;: &quot;#1081d6&quot;,</span><br><span class="line">  &quot;white&quot;: &quot;#ffffff&quot;,</span><br><span class="line">  &quot;brightBlack&quot;: &quot;#d6dbe5&quot;,</span><br><span class="line">  &quot;brightRed&quot;: &quot;#de352e&quot;,</span><br><span class="line">  &quot;brightGreen&quot;: &quot;#1dd361&quot;,</span><br><span class="line">  &quot;brightYellow&quot;: &quot;#f3bd09&quot;,</span><br><span class="line">  &quot;brightBlue&quot;: &quot;#1081d6&quot;,</span><br><span class="line">  &quot;brightPurple&quot;: &quot;#5350b9&quot;,</span><br><span class="line">  &quot;brightCyan&quot;: &quot;#0f7ddb&quot;,</span><br><span class="line">  &quot;brightWhite&quot;: &quot;#ffffff&quot;,</span><br><span class="line"></span><br><span class="line">  &quot;background&quot;: &quot;#2D2D2D&quot;,</span><br><span class="line">  &quot;foreground&quot;: &quot;#d6dbe5&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="固定指令列在終端機底部"><a href="#固定指令列在終端機底部" class="headerlink" title="固定指令列在終端機底部"></a>固定指令列在終端機底部</h2><p>可以在 .zshrc 當中加入這行，把命令列固定在最底下，視線就不用一直改動，我自己是很喜歡這個功能，不過這個有時候會有一些時候還是會跑掉，e.g. 下 clear 指令的時候，期待有人能找到更好的方法XD</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Fix prompt at the bottom of the terminal window</span><br><span class="line">printf &#x27;\n%.0s&#x27; &#123;1..100&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="最後"><a href="#最後" class="headerlink" title="最後"></a>最後</h2><p>如果有看到哪個地方可以修改的或是有不錯的套件歡迎告訴我，一起打造一個高效率的開發環境。</p>
+<p>歡迎參考 <a target="_blank" rel="noopener" href="https://github.com/Holychung/My_Terminal_Theme">My_Terminal_Theme</a> 當中的配置，也可以找到 Mac、WSL 的版本，都是可行的。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Holychung/My_Terminal_Theme/tree/main/mac">Mac 設定</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Holychung/My_Terminal_Theme/tree/main/WSL">Windows WSL 設定</a></p>
+<p><a target="_blank" rel="noopener" href="https://holychung.github.io/">作者Blog</a></p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">Email</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
