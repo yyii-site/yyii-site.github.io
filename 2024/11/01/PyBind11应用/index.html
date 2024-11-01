@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        PyBind11应用 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B%E7%9B%AE%E5%BD%95"><span class="toc-text">工程目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%81%E8%A3%85SDK"><span class="toc-text">封装SDK</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA-python-%E5%8C%85%E8%A3%85%E5%99%A8%E6%89%80%E9%9C%80%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">创建 python 包装器所需的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%9C%9F%E8%B0%83%E8%AF%95"><span class="toc-text">前期调试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91%E7%94%9F%E6%88%90%E5%BA%93%E6%96%87%E4%BB%B6"><span class="toc-text">编译生成库文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#python-%E8%B0%83%E7%94%A8"><span class="toc-text">python 调用</span></a></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        PyBind11应用
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2024-11-01 21:43:51</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Python C/C++" title="Python C/C++">Python C/C++</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>网上思岚激光雷达的应用教程一上来就是基于ROS2系统的。这种方法可以通过GUI方式查看测试数据，直观又强大。</p>
+<p>但是如果想环境和依赖简单一点，硬件资源占用少一点，可以用思岚提供的SDK。<a target="_blank" rel="noopener" href="https://github.com/slamtec/rplidar_sdk">SDK</a>是以持C++源代码的方式提供的，自带例程。</p>
+<p>项目需要python读取的雷达数据。一开始是由docker中的ROS2作为数据处理和通讯的中转站。但发现占用资源多，操作有点复杂。</p>
+<p>转而考虑python直接调用sdk, 由于头文件非常多ctypes方式没怎么尝试就放弃了。中途用qt6调sdk然后通过UDP传给python，虽然数据通了，但部署得交叉编译还得依赖qt6. 性能也有损失。</p>
+<p>最后就用到主角 pybind11 (blog中搜索 <strong>PyBind11简明教程</strong>) 和 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Facade_pattern">外观设计模式</a> <em>实现 python 调用 cpp 的 sdk</em></p>
+<h2 id="工程目录"><a href="#工程目录" class="headerlink" title="工程目录"></a>工程目录</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">├── build</span><br><span class="line">├── CMakeLists.txt</span><br><span class="line">├── main.cpp</span><br><span class="line">├── mylib.h</span><br><span class="line">├── pywrap.cpp</span><br><span class="line">├── readme.md</span><br><span class="line">├── sdk</span><br><span class="line">│   ├── CMakeLists.txt</span><br><span class="line">│   ├── include</span><br><span class="line">│   └── src</span><br><span class="line">└── test.py</span><br></pre></td></tr></table></figure>
+
+<h2 id="封装SDK"><a href="#封装SDK" class="headerlink" title="封装SDK"></a>封装SDK</h2><p>外观设计模式简单来说就是把零散复杂的SDK根据使用流程做一个抽象和封装。</p>
+<p>让别人调用的时候不再关注流程和操作上的技术细节。</p>
+<p>比如此处的mylib.h (如果将类的实现分开写道单独的如mylib.cpp文件中，python调用的时候会报错，好像是CPP编译器给函数名增加了一些信息。)</p>
+<p>注意：</p>
+<ul>
+<li>本项目仅用的串口，网络通讯方式已被省略，如有需要请参考SDK例程</li>
+<li>由于udev已经将雷达串口映射为 “&#x2F;dev&#x2F;rplidar” 波特率100000 请自行修改。</li>
+</ul>
+<figure class="highlight hpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifndef</span> __MY_RADAR</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> __MY_RADAR</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pybind11/pybind11.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pybind11/stl.h&gt;</span> <span class="comment">// 包含 STL 支持</span></span></span><br><span class="line"><span class="keyword">namespace</span> py = pybind11;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;sl_lidar.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;sl_lidar_driver.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _countof</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _countof(_Array) (int)(sizeof(_Array) / sizeof(_Array[0]))</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">ifdef</span> _WIN32</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> delay(x)   ::Sleep(x)</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;unistd.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">void</span> <span class="title">delay</span><span class="params">(<span class="type">sl_word_size_t</span> ms)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (ms &gt;= <span class="number">1000</span>) &#123;</span><br><span class="line">        <span class="built_in">usleep</span>(<span class="number">1000</span> * <span class="number">1000</span>);</span><br><span class="line">        ms -= <span class="number">1000</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">if</span> (ms != <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">usleep</span>(ms * <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> sl;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyClass</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span>:    </span><br><span class="line">    <span class="built_in">MyClass</span>(<span class="type">int</span> com)</span><br><span class="line">    &#123;</span><br><span class="line">        IChannel* _channel;</span><br><span class="line">        sl_result     op_result;</span><br><span class="line"></span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;init&quot;</span> &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">        drv = *<span class="built_in">createLidarDriver</span>();</span><br><span class="line">        <span class="keyword">if</span> (!drv) &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;insufficent memory, exit\n&quot;</span>);</span><br><span class="line">            <span class="built_in">exit</span>(<span class="number">-2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">sl_lidar_response_device_info_t</span> devinfo;</span><br><span class="line">        <span class="type">bool</span> connectSuccess = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">        _channel = (*<span class="built_in">createSerialPortChannel</span>(<span class="string">&quot;/dev/rplidar&quot;</span>, <span class="number">1000000</span>));</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">SL_IS_OK</span>((drv)-&gt;<span class="built_in">connect</span>(_channel))) &#123;</span><br><span class="line">            op_result = drv-&gt;<span class="built_in">getDeviceInfo</span>(devinfo);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">SL_IS_OK</span>(op_result))</span><br><span class="line">            &#123;</span><br><span class="line">                connectSuccess = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">delete</span> drv;</span><br><span class="line">                drv = <span class="literal">NULL</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (!connectSuccess) &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;Error, cannot bind to the specified serial port.\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">goto</span> on_finished;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;SLAMTEC LIDAR S/N: &quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> pos = <span class="number">0</span>; pos &lt; <span class="number">16</span>; ++pos) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%02X&quot;</span>, devinfo.serialnum[pos]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span></span><br><span class="line">            <span class="string">&quot;Firmware Ver: %d.%02d\n&quot;</span></span><br><span class="line">            <span class="string">&quot;Hardware Rev: %d\n&quot;</span></span><br><span class="line">            , devinfo.firmware_version &gt;&gt; <span class="number">8</span></span><br><span class="line">            , devinfo.firmware_version &amp; <span class="number">0xFF</span></span><br><span class="line">            , (<span class="type">int</span>)devinfo.hardware_version);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// check health...</span></span><br><span class="line">        <span class="keyword">if</span> (!<span class="built_in">checkSLAMTECLIDARHealth</span>(drv)) &#123;</span><br><span class="line">            <span class="keyword">goto</span> on_finished;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        drv-&gt;<span class="built_in">setMotorSpeed</span>();</span><br><span class="line">        drv-&gt;<span class="built_in">startScan</span>(<span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    on_finished:</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    ~<span class="built_in">MyClass</span>() &#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;uninit&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        drv-&gt;<span class="built_in">stop</span>();</span><br><span class="line">        <span class="built_in">delay</span>(<span class="number">200</span>);</span><br><span class="line">        <span class="keyword">if</span> (drv) &#123;</span><br><span class="line">            drv-&gt;<span class="built_in">setMotorSpeed</span>(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">delete</span> drv;</span><br><span class="line">            drv = <span class="literal">NULL</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">run</span><span class="params">(<span class="type">void</span>)</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;run&quot;</span> &lt;&lt; std::endl;</span><br><span class="line">        <span class="keyword">if</span> (drv) &#123;</span><br><span class="line">            <span class="type">sl_lidar_response_measurement_node_hq_t</span> nodes[<span class="number">8192</span>];</span><br><span class="line">            <span class="type">size_t</span>   count = _countof(nodes);</span><br><span class="line"></span><br><span class="line">            sl_result op_result = drv-&gt;<span class="built_in">grabScanDataHq</span>(nodes, count);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">SL_IS_OK</span>(op_result)) &#123;</span><br><span class="line">                drv-&gt;<span class="built_in">ascendScanData</span>(nodes, count);</span><br><span class="line">                <span class="keyword">if</span> (data_angle.<span class="built_in">size</span>() != count)</span><br><span class="line">                &#123;</span><br><span class="line">                    data_angle.<span class="built_in">resize</span>(count);</span><br><span class="line">                    data_dist.<span class="built_in">resize</span>(count);</span><br><span class="line">                    data_quality.<span class="built_in">resize</span>(count);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> pos = <span class="number">0</span>; pos &lt; (<span class="type">int</span>)count; ++pos) &#123;</span><br><span class="line">                    <span class="comment">// printf(&quot;%s theta: %03.2f Dist: %08.2f Q: %d \n&quot;,</span></span><br><span class="line">                    <span class="comment">//     (nodes[pos].flag &amp; SL_LIDAR_RESP_HQ_FLAG_SYNCBIT) ? &quot;S &quot; : &quot;  &quot;,</span></span><br><span class="line">                    <span class="comment">//     (nodes[pos].angle_z_q14 * 90.f) / 16384.f,</span></span><br><span class="line">                    <span class="comment">//     nodes[pos].dist_mm_q2 / 4.0f,</span></span><br><span class="line">                    <span class="comment">//     nodes[pos].quality &gt;&gt; SL_LIDAR_RESP_MEASUREMENT_QUALITY_SHIFT);</span></span><br><span class="line">                    data_angle.<span class="built_in">at</span>(pos) = (nodes[pos].angle_z_q14 * <span class="number">90.f</span>) / <span class="number">16384.f</span>;</span><br><span class="line">                    data_dist.<span class="built_in">at</span>(pos) = nodes[pos].dist_mm_q2 / <span class="number">4.0f</span>;</span><br><span class="line">                    data_quality.<span class="built_in">at</span>(pos) = nodes[pos].quality &gt;&gt; SL_LIDAR_RESP_MEASUREMENT_QUALITY_SHIFT;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">const</span> std::vector&lt;<span class="type">double</span>&gt;&amp; <span class="title">get_angle</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> data_angle;&#125;</span><br><span class="line">    <span class="function"><span class="type">const</span> std::vector&lt;<span class="type">double</span>&gt;&amp; <span class="title">get_dist</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> data_dist;&#125;</span><br><span class="line">    <span class="function"><span class="type">const</span> std::vector&lt;<span class="type">int</span>&gt;&amp; <span class="title">get_quality</span><span class="params">()</span> <span class="type">const</span> </span>&#123; <span class="keyword">return</span> data_quality;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    std::vector&lt;<span class="type">double</span>&gt; data_angle;</span><br><span class="line">    std::vector&lt;<span class="type">double</span>&gt; data_dist;</span><br><span class="line">    std::vector&lt;<span class="type">int</span>&gt;    data_quality;</span><br><span class="line"></span><br><span class="line">    ILidarDriver* drv;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">checkSLAMTECLIDARHealth</span><span class="params">(ILidarDriver* drv)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        sl_result     op_result;</span><br><span class="line">        <span class="type">sl_lidar_response_device_health_t</span> healthinfo;</span><br><span class="line"></span><br><span class="line">        op_result = drv-&gt;<span class="built_in">getHealth</span>(healthinfo);</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">SL_IS_OK</span>(op_result)) &#123; <span class="comment">// the macro IS_OK is the preperred way to judge whether the operation is succeed.</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;SLAMTEC Lidar health status : %d\n&quot;</span>, healthinfo.status);</span><br><span class="line">            <span class="keyword">if</span> (healthinfo.status == SL_LIDAR_STATUS_ERROR) &#123;</span><br><span class="line">                <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;Error, slamtec lidar internal error detected. Please reboot the device to retry.\n&quot;</span>);</span><br><span class="line">                <span class="comment">// enable the following code if you want slamtec lidar to be reboot by software</span></span><br><span class="line">                <span class="comment">// drv-&gt;reset();</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(stderr, <span class="string">&quot;Error, cannot retrieve the lidar health code: %x\n&quot;</span>, op_result);</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+
+<p>虽然内容很多，但对于 python 上层调用方来讲。就只有</p>
+<ul>
+<li>构造函数：雷达初始化，完成准备工作</li>
+<li>run函数：串口将雷达数据保存到私有变量</li>
+<li>get_angle&#x2F;get_dist&#x2F;data_quality等数据传递函数：从私有变量将数据传递给python</li>
+<li>析构函数：关闭雷达释放资源</li>
+</ul>
+<p>这也是上面提到的 <strong>外观设计模式</strong></p>
+<h2 id="创建-python-包装器所需的内容"><a href="#创建-python-包装器所需的内容" class="headerlink" title="创建 python 包装器所需的内容"></a>创建 python 包装器所需的内容</h2><p>照猫画虎实现的 pywrap.cpp 文件</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pybind11/pybind11.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mylib.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> py = pybind11;</span><br><span class="line"><span class="keyword">constexpr</span> <span class="keyword">auto</span> byref = py::return_value_policy::reference_internal;</span><br><span class="line"></span><br><span class="line"><span class="built_in">PYBIND11_MODULE</span>(MyLib, m) &#123;</span><br><span class="line">    m.<span class="built_in">doc</span>() = <span class="string">&quot;optional module docstring&quot;</span>;</span><br><span class="line"></span><br><span class="line">    py::<span class="built_in">class_</span>&lt;MyClass&gt;(m, <span class="string">&quot;MyClass&quot;</span>)</span><br><span class="line">    .<span class="built_in">def</span>(py::<span class="built_in">init</span>&lt;<span class="type">int</span>&gt;())</span><br><span class="line">    .<span class="built_in">def</span>(<span class="string">&quot;run&quot;</span>, &amp;MyClass::run, py::<span class="built_in">call_guard</span>&lt;py::gil_scoped_release&gt;())</span><br><span class="line">    .<span class="built_in">def</span>(<span class="string">&quot;get_angle&quot;</span>, &amp;MyClass::get_angle)</span><br><span class="line">    .<span class="built_in">def</span>(<span class="string">&quot;get_dist&quot;</span>, &amp;MyClass::get_dist)</span><br><span class="line">    .<span class="built_in">def</span>(<span class="string">&quot;get_quality&quot;</span>, &amp;MyClass::get_quality)</span><br><span class="line">    ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="前期调试"><a href="#前期调试" class="headerlink" title="前期调试"></a>前期调试</h2><p>此文件仅用于前期验证库文件功能是否正常</p>
+<p>main.cpp</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;signal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;sl_lidar.h&quot;</span> </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;sl_lidar_driver.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;mylib.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    <span class="function">MyClass <span class="title">radar</span><span class="params">(<span class="number">1</span>)</span></span>;</span><br><span class="line">    radar.<span class="built_in">run</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译生成库文件"><a href="#编译生成库文件" class="headerlink" title="编译生成库文件"></a>编译生成库文件</h2><p>安装 pybind11。安装方式除了下面，还有 pip 和 conda 等</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install pybind11-dev</span><br></pre></td></tr></table></figure>
+
+<p>将 sdk 和 pybing11 教程中的 cmake 文件结合到一起（注意pybind11_DIR 文件目录根据自己的实际情况修改）</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cmake_minimum_required</span>(VERSION <span class="number">3.10</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">project</span>(MyLib)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_STANDARD <span class="number">11</span>)</span><br><span class="line"><span class="keyword">set</span>(PYBIND11_PYTHON_VERSION <span class="number">3.6</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_CXX_FLAGS <span class="string">&quot;-Wall -Wextra -fPIC&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(pybind11_DIR <span class="string">&quot;/usr/local/lib/python3.6/dist-packages/pybind11/share/cmake/pybind11&quot;</span>)</span><br><span class="line"><span class="keyword">find_package</span>(pybind11 REQUIRED)</span><br><span class="line"><span class="keyword">find_package</span>(Threads REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 静态库生成的路径</span></span><br><span class="line"><span class="keyword">set</span>(LIB_PATH <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/lib)</span><br><span class="line"><span class="comment"># 第三方库头文件路径</span></span><br><span class="line"><span class="keyword">list</span>(APPEND HEAD_PATH <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/sdk/<span class="keyword">include</span>)</span><br><span class="line"><span class="keyword">list</span>(APPEND HEAD_PATH <span class="variable">$&#123;CMAKE_CURRENT_SOURCE_DIR&#125;</span>/sdk/src)</span><br><span class="line"><span class="comment"># 静态库的名字</span></span><br><span class="line"><span class="keyword">set</span>(RADRA_LIB <span class="string">&quot;rplidar_driver&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加子目录</span></span><br><span class="line"><span class="keyword">add_subdirectory</span>(sdk)</span><br><span class="line"></span><br><span class="line"><span class="keyword">include_directories</span>(<span class="variable">$&#123;HEAD_PATH&#125;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">link_directories</span>(<span class="variable">$&#123;LIB_PATH&#125;</span>)</span><br><span class="line"><span class="comment"># link_libraries($&#123;RPLIDAR_LIB&#125;)</span></span><br><span class="line"></span><br><span class="line">pybind11_add_module(<span class="variable">$&#123;PROJECT_NAME&#125;</span> pywrap.cpp)</span><br><span class="line"></span><br><span class="line"><span class="comment"># exe 前期编写main.cpp调库调试功能，后面生成库供python调用（exe 和 so 不能同时启用）</span></span><br><span class="line"><span class="comment"># file(GLOB SRC_LIST $&#123;CMAKE_CURRENT_SOURCE_DIR&#125;/*.cpp)</span></span><br><span class="line"><span class="comment"># add_executable(app $&#123;SRC_LIST&#125;)</span></span><br><span class="line"><span class="comment"># target_link_libraries(app $&#123;RADRA_LIB&#125; Threads::Threads)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># so</span></span><br><span class="line"><span class="keyword">target_compile_definitions</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PRIVATE VERSION_INFO=<span class="variable">$&#123;EXAMPLE_VERSION_INFO&#125;</span>)</span><br><span class="line"><span class="keyword">target_include_directories</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PRIVATE <span class="variable">$&#123;PYBIND11_INCLUDE_DIRS&#125;</span>)</span><br><span class="line"><span class="keyword">target_link_libraries</span>(<span class="variable">$&#123;PROJECT_NAME&#125;</span> PRIVATE <span class="variable">$&#123;RADRA_LIB&#125;</span> Threads::Threads)</span><br></pre></td></tr></table></figure>
+
+<p>编译库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>顺利的话会生成类似 <code>MyLib.cpython-36m-aarch64-linux-gnu.so</code> 文件</p>
+<h2 id="python-调用"><a href="#python-调用" class="headerlink" title="python 调用"></a>python 调用</h2><p>test.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">sys.path.append(<span class="string">&quot;build/&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> MyLib <span class="keyword">import</span> MyClass</span><br><span class="line"></span><br><span class="line">radar = MyClass(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    radar.run()</span><br><span class="line">    l_angle = radar.get_angle()</span><br><span class="line">    l_dist = radar.get_dist()</span><br><span class="line">    l_quality = radar.get_quality()</span><br><span class="line">    <span class="built_in">print</span>(l_angle)</span><br></pre></td></tr></table></figure>
+
+<p>测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 test.py</span><br></pre></td></tr></table></figure>
+<p>可以按 <code>Ctrl+C</code> 停止</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+
+        <div id="lv-container">
+        </div>
+
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">Email</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+</html>
