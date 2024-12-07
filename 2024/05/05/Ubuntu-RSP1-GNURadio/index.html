@@ -149,6 +149,7 @@
 <p>按照 <a target="_blank" rel="noopener" href="https://revspace.nl/Msi2500SDR">Rev Space</a> 教程，可将其识别为miri，且能正常采样。</p>
 <p>使用方式一： <a target="_blank" rel="noopener" href="https://github.com/merbanan/rtl_433">rtl_433</a></p>
 <p>使用方式二： <a target="_blank" rel="noopener" href="https://www.gnuradio.org/">GNU Radio</a></p>
+<p>两种方式下面均有使用教程。</p>
 <p>对于ubuntu下整个系统框架我是这样理解的：</p>
 <p><img src="/2024/05/05/Ubuntu-RSP1-GNURadio/Ubuntu_RSP1.png" alt="Ubuntu_RSP1"></p>
 <h2 id="2-Hardware-硬件"><a href="#2-Hardware-硬件" class="headerlink" title="2.Hardware 硬件"></a>2.Hardware 硬件</h2><p>BG7YZF 黄淮创客空间</p>
@@ -202,7 +203,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://git.osmocom.org/sdr/gr-osmosdr.git</span><br></pre></td></tr></table></figure>
 
 <p>build and install</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> libmirisdr-5</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> gr-osmosdr</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
 
 
 <h2 id="7-GNU-Radio"><a href="#7-GNU-Radio" class="headerlink" title="7.GNU Radio"></a>7.GNU Radio</h2><p>GNU Radio 是一个流程图驱动的开源软件工具包，用于构建软件无线电系统和信号处理应用程序。gr-osmosdr 是 GNU Radio 的一个模块，它提供了与各种SDR硬件设备进行通信的功能。</p>
