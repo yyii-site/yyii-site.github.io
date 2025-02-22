@@ -12,7 +12,7 @@
 
     <title>
         
-        
+        hexo写文档流程 - undefined
         
     </title>
 
@@ -69,7 +69,7 @@
     </div>
     <div class="contents" id="nav-content">
         <ul>
-            <li  class=active >
+            <li >
                 <a href="/">
                     <i class="iconfont icon-shouye1"></i>
                     <span>HOME</span>
@@ -110,6 +110,10 @@
         </ul>
     </div>
     
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Hexo"><span class="toc-text">Hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A8%E9%80%81%E6%BA%90%E6%96%87%E6%A1%A3"><span class="toc-text">推送源文档</span></a></li></ol>
+</div>
+    
 </div>
 
 
@@ -135,191 +139,56 @@
     <div class="index-middle">
         <!-- Main Content -->
         
-<div class="post-preview-container" style="min-height: 720px">
-    
-    <div class="post-preview">
-        <div class="post-time">2022-01-18</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2022/01/18/Stm32F407-PWM-External-Sync/">
-                <h3>
-                    Stm32F407_PWM_External_Sync
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#STM32" title="STM32">STM32</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+
+<div class="post-container">
+    <div class="post-title">
+        hexo写文档流程
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2022-01-18</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2022/01/18/Stm32F407-PWM-Master-Slave/">
-                <h3>
-                    Stm32F407_PWM_Master_Slave
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#STM32" title="STM32">STM32</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2025-02-22 17:08:06</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#hexo" title="hexo">hexo</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-11-12</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2021/11/12/Stm32F407-ADC-DMA/">
-                <h3>
-                    Stm32F407-ADC-DMA
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#STM32" title="STM32">STM32</a>
-                <span>/</span>
-                
-                
-            </p>
+    <div class="post-content ">
+        <p>远程master分支存储hexo处理后的文件，用于让github-pages显示网页。</p>
+<p>分支hexo用来存储原始文档</p>
+<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>新建文档：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new xxx</span><br></pre></td></tr></table></figure>
+
+<p>本地服务器预览：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+
+<p>部署到github</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+
+<p>清除本地缓存：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="推送源文档"><a href="#推送源文档" class="headerlink" title="推送源文档"></a>推送源文档</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;xxx&quot;</span></span><br><span class="line">git push origin hexo</span><br></pre></td></tr></table></figure>
+
+
+        
+        <br />
+        <div id="comment-container">
         </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
     </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-11-11</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2021/11/11/Stm32F407-W25Q64-easyFlash/">
-                <h3>
-                    Stm32F407_W25Q64_easyFlash
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#STM32" title="STM32">STM32</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-07-01</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2021/07/01/Stm32F407-USB-OTG-HS/">
-                <h3>
-                    Stm32F407_USB_OTG_HS
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#STM32" title="STM32">STM32</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-03-21</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2021/03/21/Archlinux%E4%B8%8BrCore-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">
-                <h3>
-                    Archlinux下rCore 实验环境配置
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Rust" title="Rust">Rust</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2021-03-21</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2021/03/21/Mosquitto-%E6%90%AD%E5%BB%BA%E5%8F%8A%E9%85%8D%E7%BD%AE/">
-                <h3>
-                    Mosquitto 搭建及配置
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#IoT" title="IoT">IoT</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-11-22</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2020/11/22/Gitblit-%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/">
-                <h3>
-                    Gitblit 安装使用
-                </h3>
-            </a>
-            <p>
-                
-                <span>/</span>
-                
-                <a class="tag" href="/tags/#Gitblit" title="Gitblit">Gitblit</a>
-                <span>/</span>
-                
-                
-            </p>
-        </div>
-    </div>
-    
-    <div class="post-preview">
-        <div class="post-time">2020-05-24</div>
-        <div class="post-info">
-            <a href="https://yyii.site/2020/05/24/hello-world/">
-                <h3>
-                    Hello World
-                </h3>
-            </a>
-            <p>
-                
-            </p>
-        </div>
-    </div>
-    
 </div>
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/page/4/">&larr; Newer Posts</a>
-    </li>
-    
-    
-</ul>
 
     </div>
 </div>
@@ -383,7 +252,7 @@
     // We expose some of the variables needed by the front end
     window.hexo_search_path = "search.json"
     window.hexo_root = "/"
-    window.isPost = false
+    window.isPost = true
 </script>
 <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
