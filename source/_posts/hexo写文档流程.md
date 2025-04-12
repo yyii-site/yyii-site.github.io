@@ -24,6 +24,8 @@ hexo new xxx
 hexo s
 ```
 
+如果 hexo 安装在远程服务器需使用 ip:4000 访问
+
 部署到github
 
 ```bash
