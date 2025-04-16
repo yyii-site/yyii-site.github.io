@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        micropython下载文件 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>COLLECT</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#micropython-%E4%BD%BF%E7%94%A8-requests-%E5%BA%93%E4%B8%8B%E8%BD%BD%E6%96%87%E4%BB%B6"><span class="toc-text">micropython 使用 requests 库下载文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0HTTP%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">本地HTTP服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-text">解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-text">其他</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B"><span class="toc-text">完整示例</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        micropython下载文件
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2025-04-16 21:14:06</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#micropython" title="micropython">micropython</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="micropython-使用-requests-库下载文件"><a href="#micropython-使用-requests-库下载文件" class="headerlink" title="micropython 使用 requests 库下载文件"></a>micropython 使用 requests 库下载文件</h2><p>库源码：<a target="_blank" rel="noopener" href="https://github.com/micropython/micropython-lib/blob/master/python-ecosys/requests/requests/__init__.py">requests github</a></p>
+<p>socket 中文文档：<a target="_blank" rel="noopener" href="http://micropython.86x.net/en/latet/library/socket.html">http://micropython.86x.net/en/latet/library/socket.html</a></p>
+<p>socket 英文文档：<a target="_blank" rel="noopener" href="https://docs.micropython.org/en/latest/library/socket.html">https://docs.micropython.org/en/latest/library/socket.html</a></p>
+<h3 id="本地HTTP服务器"><a href="#本地HTTP服务器" class="headerlink" title="本地HTTP服务器"></a>本地HTTP服务器</h3><p>启动用于测试的简单本地HTTP服务器： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/shengshengwang/p/17939492">https://www.cnblogs.com/shengshengwang/p/17939492</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m http.server</span><br></pre></td></tr></table></figure>
+
+<p>运行这个命令后，默认会在当前目录下启动一个 HTTP 服务器，监听在本地的 8000 端口。可以通过浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:8000/">http://localhost:8000</a> 来查看当前目录的文件列表。 也可以自定义端口号 <code>python -m http.server 8888</code></p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>下面是 requests 库的 content 属性的实现，会通过 socket 库的 read() 函数将数据一次性全部去读到 self._cached 变量，也就是内存中。这种方式在读取小文件时没有问题，但是文件体积稍大一些后就会出现<strong>响应缓慢</strong>，严重的话会<strong>爆内存</strong>的情况，毕竟运行 micropython 的嵌入式设备资源都比较紧张。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@property</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">content</span>(<span class="params">self</span>):</span><br><span class="line">    <span class="keyword">if</span> self._cached <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self._cached = self.raw.read()</span><br><span class="line">            <span class="keyword">finally</span>:</span><br><span class="line">                self.raw.close()</span><br><span class="line">                self.raw = <span class="literal">None</span></span><br><span class="line">                <span class="keyword">return</span> self._cached</span><br></pre></td></tr></table></figure>
+
+<h3 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h3><p>参考 python requests 库的用法，链接：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/hls-code/p/15012629.html">https://www.cnblogs.com/hls-code/p/15012629.html</a></p>
+<p>流式下载能满足要求，但是 micropython 的 requests 库并没有 <code>iter_content()</code> 函数的实现。</p>
+<p>通过循环，每次读取一定量的数据是否可行？代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">url = &quot;http://xx.xxx.xxx.xxx:8888/yolov8n_224.kmodel&quot;</span><br><span class="line">r = libs.requests.get(url, stream=True)</span><br><span class="line">if r.status_code == 200:</span><br><span class="line">	print(&quot;Downloading file...&quot;)</span><br><span class="line">	with open(&#x27;/sdcard/yolov8n_224.kmodel&#x27;, &#x27;wb&#x27;) as pic_file:  # 保存文件</span><br><span class="line">		while True:</span><br><span class="line">			chunk = r.raw.recv(1024*20)</span><br><span class="line">			if not chunk:</span><br><span class="line">				break</span><br><span class="line">			pic_file.write(chunk)</span><br><span class="line">			pic_size += len(chunk)</span><br><span class="line">			print(pic_size)</span><br><span class="line">	print(&quot;Downloading finish&quot;)</span><br><span class="line">r.close()</span><br></pre></td></tr></table></figure>
+
+<p>提示：在开发板运行代码时注意将 xxx 替换为 http 服务器的 ip，而不是127.0.0.1 或者 localhost；检查拉取和存储的文件名称和路径。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><ol>
+<li><p>read()  最后一包数据丢失。</p>
+<p>使用 r.raw.read(1024) 发现最后一包数据总是收不到，查看 socket 文档 <code>socket.read([size])</code> 有一段说明</p>
+<p><em>This function tries to read as much data as requested (no “short reads”). This may be not possible with non-blocking socket though, and then less data will be returned.</em> </p>
+<p><strong>没有短读</strong>：即不会返回“短读取”（即少于请求字节数的数据） 造成最后一包数据丢失。</p>
+</li>
+<li><p>content()  非常慢</p>
+</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;/sdcard/6.bmp&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> pic_file:  <span class="comment"># 保存文件</span></span><br><span class="line">    pic_file.write(r.content)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="完整示例"><a href="#完整示例" class="headerlink" title="完整示例"></a>完整示例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> network,time</span><br><span class="line"><span class="keyword">from</span> machine <span class="keyword">import</span> Pin</span><br><span class="line"><span class="keyword">import</span> libs.requests</span><br><span class="line"></span><br><span class="line"><span class="comment">#WIFI连接函数</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">WIFI_Connect</span>():</span><br><span class="line"></span><br><span class="line">    WIFI_LED=Pin(<span class="number">52</span>, Pin.OUT) <span class="comment">#初始化WIFI指示灯</span></span><br><span class="line"></span><br><span class="line">    wlan = network.WLAN(network.STA_IF) <span class="comment">#STA模式</span></span><br><span class="line">    wlan.active(<span class="literal">True</span>)                   <span class="comment">#激活接口</span></span><br><span class="line">    start_time=time.time()              <span class="comment">#记录时间做超时判断</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> wlan.isconnected():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;connecting to network...&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>): <span class="comment">#重复连接3次</span></span><br><span class="line">            <span class="comment">#输入WIFI账号密码（仅支持2.4G信号）, 连接超过5秒为超时</span></span><br><span class="line">            wlan.connect(<span class="string">&#x27;xxxxx&#x27;</span>, <span class="string">&#x27;xxxx&#x27;</span>)</span><br><span class="line">            <span class="keyword">if</span> wlan.isconnected(): <span class="comment">#连接成功</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> wlan.isconnected(): <span class="comment">#连接成功</span></span><br><span class="line">        <span class="comment">#LED蓝灯点亮</span></span><br><span class="line">        WIFI_LED.value(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">#等待获取IP地址</span></span><br><span class="line">        <span class="keyword">while</span> wlan.ifconfig()[<span class="number">0</span>] == <span class="string">&#x27;0.0.0.0&#x27;</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#串口打印信息</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;network information:&#x27;</span>, wlan.ifconfig())</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>: <span class="comment">#连接失败</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#LED闪烁3次提示</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">            WIFI_LED.value(<span class="number">1</span>)</span><br><span class="line">            time.sleep_ms(<span class="number">300</span>)</span><br><span class="line">            WIFI_LED.value(<span class="number">0</span>)</span><br><span class="line">            time.sleep_ms(<span class="number">300</span>)</span><br><span class="line"></span><br><span class="line">        wlan.active(<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">DownloadFile</span>():</span><br><span class="line">    pic_size = <span class="number">0</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        url = <span class="string">&quot;http://192.168.1.100:8888/6.bmp&quot;</span></span><br><span class="line">        r = libs.requests.get(url, timeout=<span class="literal">None</span>, stream=<span class="literal">True</span>)</span><br><span class="line">        <span class="keyword">if</span> r.status_code == <span class="number">200</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Downloading file...&quot;</span>)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;/sdcard/6.bmp&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> pic_file:  <span class="comment"># 保存文件</span></span><br><span class="line"><span class="comment">#                pic_file.write(r.content)  # 非常慢</span></span><br><span class="line">                <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"><span class="comment">#                    chunk = r.raw.read(1024*20)  # 没有短读 即不会返回“短读取”（即少于请求字节数的数据） 造成丢最后一包数据</span></span><br><span class="line">                    chunk = r.raw.recv(<span class="number">1024</span>*<span class="number">20</span>)</span><br><span class="line">                    <span class="keyword">if</span> <span class="keyword">not</span> chunk:</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">                    pic_file.write(chunk)</span><br><span class="line">                    pic_size += <span class="built_in">len</span>(chunk)</span><br><span class="line">                    <span class="built_in">print</span>(pic_size)</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Downloading finish&quot;</span>)</span><br><span class="line">        r.close()</span><br><span class="line">    <span class="keyword">except</span> UnicodeError <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Unicode error:&quot;</span>, e)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;HTTP request error:&quot;</span>, e)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">WIFI_Connect()</span><br><span class="line">DownloadFile()</span><br></pre></td></tr></table></figure>
+
+<p>修改 wifi 文件名 和存储路径</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">Email</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
