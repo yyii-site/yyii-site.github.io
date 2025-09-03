@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        linux系统进程管理systemd - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>홈</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>태그</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>아카이브</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>모으다</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>about</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>검색</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D"><span class="toc-text">介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#systemd-unit-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">systemd unit 配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#service"><span class="toc-text">service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#timer"><span class="toc-text">timer</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">검색</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        linux系统进程管理systemd
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">등록시간：<span>2025-07-27 11:27:52</span></span>
+        
+        <span class="attr">태그：/
+        
+        <a class="tag" href="/tags/#linux" title="linux">linux</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">방문：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <p>视频 <a target="_blank" rel="noopener" href="https://youtu.be/y5E98mjcZfc?si=i5-pACE_PS9Nq1jM">https://youtu.be/y5E98mjcZfc?si=i5-pACE_PS9Nq1jM</a></p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>systemd 作为 init 进程，其他进程是他的子进程</p>
+<p>systemctl 是systemd 的管理工具</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p><code>htop</code> 按 t 键可以树状视图查看进程列表</p>
+<p><code>pstree -p</code> 可以树状视图查看列表</p>
+<p><code>systemctl list-unit</code> 分类查看当前系统定义的系统unit (device mount path service socket timer)</p>
+<p>要具体查看其中某一个unit 的状态，例如：<code>systemctl status sshd.service</code> 例如：systemctl status dnf-makecache.timer</p>
+<p>停止 <code>systemctl stop chronyd.service</code></p>
+<p>启动 <code>systemctl start chronyd.service</code></p>
+<p>开机自启 <code>systemctl enable chronyd</code></p>
+<p>禁用自启 <code>systemctl disable chronyd</code></p>
+<h2 id="systemd-unit-配置文件"><a href="#systemd-unit-配置文件" class="headerlink" title="systemd unit 配置文件"></a>systemd unit 配置文件</h2><p>查看当前系统中存在的配置文件 systemctl list-unit-files</p>
+<p>查看文件路径和内容 systemctl cat chronyd.service</p>
+<p>修改配置文件 systemctl edit chronyd.service 退出的时候如果有错误会有提示，也可以通过vim nano</p>
+<p>&#x2F;etc&#x2F;systemd&#x2F;system         自定义的</p>
+<p>&#x2F;lib&#x2F;systemd&#x2F;system          系统</p>
+<p>&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system   用户安装软件产生的</p>
+<h3 id="service"><a href="#service" class="headerlink" title="service"></a>service</h3><p>编写配置文件 man 5 systemd.service 内部还有 examples</p>
+<p>包含三个部分 [Unit] [Install] [Service]</p>
+<p><code>vim /etc/systemd/system/hello-world.service</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Hello Wrold</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">ExecStart=/usr/bin/python3 /root/hello-world.py</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p><code>cat hello-world.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">logging.basicConfig(<span class="built_in">format</span>=<span class="string">&#x27;Date-Time ： %(asctime)s : Line No. : %(lineno)d - %(message)s&#x27;</span>, \</span><br><span class="line">                   Level = logging.DEBUG)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    logging.debug(<span class="string">&quot;A Debug Logging Message&quot;</span>)</span><br><span class="line">    time.sleep(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>systemctl status hello-world</code>  如果没有找到服务 需要使用 <code>systemctl daemon-reload</code></p>
+<p><code>systemctl start hello-world</code> 开始执行 status 查看状态</p>
+<p>systemctl 可以查看的日志不多，可以使用 <code>journalctl -u hello-world.service</code></p>
+<h3 id="timer"><a href="#timer" class="headerlink" title="timer"></a>timer</h3><p><code>systemctl list-timers</code></p>
+<p><code>man 5 systemd.timer</code></p>
+<p>包含三个部分 [Unit] [Install] [Timer]</p>
+<p>cat hello-world.timer</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=My Service Timer</span><br><span class="line"></span><br><span class="line">[Timer]</span><br><span class="line">OnUnitActiveSec=1min</span><br><span class="line">Unit=hello-world.service</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=timers.target</span><br></pre></td></tr></table></figure>
+
+<p>每隔一分钟执行一下 hello-world.service 的内容</p>
+<p>hello-world.py 取消循环</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import logging</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">logging.basicConfig(format=<span class="string">&#x27;Date-Time ： %(asctime)s : Line No. : %(lineno)d - %(message)s&#x27;</span>, \</span><br><span class="line">                   Level = logging.DEBUG)</span><br><span class="line">logging.debug(<span class="string">&quot;A Debug Logging Message&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p><code>journalctl -u hello-world.service</code> 查看日志核每隔一分钟运行一次。</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">Email</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
