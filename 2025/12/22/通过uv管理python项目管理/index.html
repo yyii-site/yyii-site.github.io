@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang=zh-CN>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:description" content="">
+    <meta property="og:type" content="website">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        通过uv管理python项目管理 - undefined
+        
+    </title>
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/aircloud.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+
+    
+
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> Still lonely, still waiting... </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar radius">
+            <img src="/img/favicon.jpg" />
+        </div>
+        <div class="name">
+            <i>yi</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>HOME</span>
+                </a>
+            </li>
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>TAGS</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>ARCHIVES</span>
+                </a>
+            </li>
+            <li >
+                <a href="/collect/">
+                    <i class="iconfont icon-shoucang1"></i>
+                    <span>COLLECT</span>
+                </a>
+            </li>
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>ABOUT</span>
+                </a>
+            </li>
+            
+            <li>
+                <a id="search">
+                    <i class="iconfont icon-sousuo1"></i>
+                    <span>SEARCH</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%AF%E6%89%8B%E5%B7%A5%E7%AE%A1%E7%90%86%E9%A1%B9%E7%9B%AE"><span class="toc-text">纯手工管理项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8uv%E6%8C%87%E4%BB%A4"><span class="toc-text">使用uv指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%93%E9%97%A8%E5%AD%A6%E4%B9%A0%E4%BD%BF%E7%94%A8uv"><span class="toc-text">专门学习使用uv</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#python%E7%89%88%E6%9C%AC%E5%91%A2"><span class="toc-text">python版本呢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96"><span class="toc-text">依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E5%B7%A5%E5%85%B7"><span class="toc-text">检查工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%93%E5%8C%85"><span class="toc-text">打包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7"><span class="toc-text">其他工具</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-bg" id="search-bg"></div>
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">search</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+
+        <div class="index-about-mobile">
+            <i> Still lonely, still waiting... </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        通过uv管理python项目管理
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">Post：<span>2025-12-22 22:30:11</span></span>
+        
+        <span class="attr">Tags：/
+        
+        <a class="tag" href="/tags/#Python" title="Python">Python</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="纯手工管理项目"><a href="#纯手工管理项目" class="headerlink" title="纯手工管理项目"></a>纯手工管理项目</h2><p>在项目文件夹中</p>
+<p>创建python运行环境</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m venv .venv</span><br></pre></td></tr></table></figure>
+
+<p>激活环境</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .venv/<span class="built_in">bin</span>/activate</span><br></pre></td></tr></table></figure>
+
+<p>编辑项目管理文件，其中包含依赖声明</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">edit pyproject.toml</span><br></pre></td></tr></table></figure>
+
+<p>安装依赖 并把自身安装到依赖中，并创建源码的链接</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -e .</span><br></pre></td></tr></table></figure>
+
+<p>如果使用<code>pip install .</code>会把项目打包成一个标准软件包并安装这个软件包，但这样会造成 .venv 中和项目中都有一份项目源代码，所以要加 -e 选项。</p>
+<p>传统方式运行代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">source .venv/<span class="built_in">bin</span>/activate</span><br><span class="line">python main.py</span><br></pre></td></tr></table></figure>
+
+<p>导出项目中安装的包（会导出直接和间接依赖包，很难管理和维护）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip frzzeen &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="使用uv指令"><a href="#使用uv指令" class="headerlink" title="使用uv指令"></a>使用uv指令</h2><p>编辑pyproject.toml 基本信息（仅需包含项目名称和版本号）</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[project]</span></span><br><span class="line"><span class="attr">name</span> = <span class="string">&quot;uv_test&quot;</span></span><br><span class="line"><span class="attr">version</span> = <span class="string">&quot;0.1.0&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>下面的代码会将包信息加入 dependencies 列表，检查并自动创建 <code>.venv</code>虚拟环境，并将软件包和依赖安装到虚拟环境</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add flask</span><br></pre></td></tr></table></figure>
+
+<p>如果是别人的项目，只需要执行下面的代码即可自动读取 <code>pyproject.toml</code> 并配置好环境</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv sync</span><br></pre></td></tr></table></figure>
+
+<p>uv 运行代码（在虚拟环境上下文中执行代码）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run main.py</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="专门学习使用uv"><a href="#专门学习使用uv" class="headerlink" title="专门学习使用uv"></a>专门学习使用uv</h2><p><a target="_blank" rel="noopener" href="https://youtu.be/aVXs8lb7i9U?si=zoLFH2cVCGGLH8II">https://youtu.be/aVXs8lb7i9U?si=zoLFH2cVCGGLH8II</a></p>
+<p>要让一段程序运行需要解决两个问题：</p>
+<ul>
+<li>确定Python的版本 </li>
+<li>解决依赖</li>
+</ul>
+<h3 id="python版本呢"><a href="#python版本呢" class="headerlink" title="python版本呢"></a>python版本呢</h3><p>查看uv 支持的python版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv python list</span><br></pre></td></tr></table></figure>
+
+<p>安装需要的版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv python install cpython-3.12</span><br></pre></td></tr></table></figure>
+
+<p>使用指定python版本运行脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run -p 3.12 main.py</span><br></pre></td></tr></table></figure>
+
+<p>如果使用交互版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run -p 3.12 python</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="依赖"><a href="#依赖" class="headerlink" title="依赖"></a>依赖</h3><p>直接创建示例工程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv init -p 3.13</span><br></pre></td></tr></table></figure>
+
+<p>可以直接在.python-version 文件中修改python的版本，也可在 pyproject.toml 中定义 <code>requires-python = &quot;&gt;=3.10,&lt;3.13&quot;</code></p>
+<p>安装指定的依赖包，此时uv不仅会下载库也会为工程创建虚拟环境 .venv</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add flask</span><br></pre></td></tr></table></figure>
+
+<p>可以在vscode右下角选择我们的虚拟环境，vscode中的错误也消失了。</p>
+<p>运行脚本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run main.py</span><br></pre></td></tr></table></figure>
+
+<p>打印依赖树</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv tree</span><br></pre></td></tr></table></figure>
+
+<h3 id="检查工具"><a href="#检查工具" class="headerlink" title="检查工具"></a>检查工具</h3><p>使用 ruff 检查代码是否符合规范</p>
+<p>安装方式1：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv add ruff --dev</span><br></pre></td></tr></table></figure>
+
+<p><code>--dev</code> 是指在开发过程中使用，不要打包到软件中</p>
+<p>使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruff check</span><br></pre></td></tr></table></figure>
+
+<p>删除依赖或软件包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv remove ruff --dev</span><br></pre></td></tr></table></figure>
+
+
+
+<p>方式2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv tool install ruff</span><br></pre></td></tr></table></figure>
+
+<p>将 ruff 安装到系统中 （查看路径 which ruff）</p>
+<p>查看已经安装的工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv tool list</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h3><p>将项目打包成一个可以运行的脚本</p>
+<p>在 <code>pyproject.toml</code> 中加入一个  <code>project.scripts</code> 定义 <code>脚本名称 = 脚本:函数名</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[project.scripts]</span><br><span class="line">ai = “ai:main”</span><br></pre></td></tr></table></figure>
+
+<p>运行打包命令，把整个工程打包成 .whl 文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv build</span><br></pre></td></tr></table></figure>
+
+<p>whl 文件就可以发布到软件仓库让别人使用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">uv tool install xxx</span><br><span class="line">或者</span><br><span class="line">uv add xxx</span><br></pre></td></tr></table></figure>
+
+<p>本地安装</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv tool install dist/test-0.1.0-py3-none-any.whl</span><br></pre></td></tr></table></figure>
+
+<p>现在即可直接在终端使用脚本名称运行软件了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ai xxx</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="其他工具"><a href="#其他工具" class="headerlink" title="其他工具"></a>其他工具</h3><p>使用 uv tool 安装的脚本都拥有自己的虚拟环境，不依赖开发环境或者系统环境</p>
+<p>uv tool run ruff 也可以使用 uvx ruff</p>
+<p>单元测试 pytest </p>
+<p>mock 库</p>
+
+        
+        <br />
+        <div id="comment-container">
+        </div>
+        <div id="disqus_thread"></div>
+        <div id="lv-container"></div>
+        <div class="giscus"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        <li>
+            <a target="_blank" href="https://twitter.com/yyii_site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-twitter"></i>
+                            </span>
+            </a>
+        </li>
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="https://github.com/yyii-site">
+                            <span class="fa-stack fa-lg">
+                                <i class="iconfont icon-github"></i>
+                            </span>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span>/</span>
+        
+        <span><a href="mailto:yyii.site@gmail.com">Email</a></span>
+        <span>/</span>
+        
+    </p>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = "search.json"
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+</html>
