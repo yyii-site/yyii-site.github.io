@@ -97,6 +97,10 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-aircloud
+# theme: cactus
+# theme_config:
+#   colorscheme: white
+
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
