@@ -1,0 +1,22 @@
+[
+    {
+       "name":"电子负载",
+       "url":"https://github.com/yyii-site/Electronic_load_arduino",
+       "desc":"搁置中......缺个外壳"
+    },
+    {
+       "name":"SMU单片AD5522版",
+       "url":"https://github.com/yyii-site/smu-mini-ad5522",
+       "desc":"这个是单片机(STM32)程序"
+    },
+    {
+       "name":"SMU单片AD5522版",
+       "url":"https://github.com/yyii-site/smu-mini-qml",
+       "desc":"这个是上位机(Qt+qml)程序"
+    },
+      {
+       "name":"SMU单片AD5522版",
+       "url":"https://github.com/yyii-site/smu-mini-3d",
+       "desc":"这个是3D外壳模型(链接无效，因为还没上传)"
+    }
+]
