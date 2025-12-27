@@ -1,167 +1,169 @@
 <!DOCTYPE html>
-<html lang=zh-CN>
+<html lang=zh>
 <head>
+    <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:description" content="">
-    <meta property="og:type" content="website">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="原帖 前情提要此篇是以 ubuntu 20.04 作為範例，同時也可以使用在 mac、windows WSL 當中，稍微會有一點不同的設定可以參考 My_Terminal_Theme  安裝、設定方式總共有以下步驟：  安裝 zsh 安裝 oh-my-zsh 安裝 zsh theme: powerlevel10k 安裝 zsh 好用 plugins 安裝 powerline font 修改 pow">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OhMyZsh_powerlevel10k快速打造好看好用的Terminal">
+<meta property="og:url" content="https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/index.html">
+<meta property="og:site_name" content="yi的博客 | yi&#39;s blog">
+<meta property="og:description" content="原帖 前情提要此篇是以 ubuntu 20.04 作為範例，同時也可以使用在 mac、windows WSL 當中，稍微會有一點不同的設定可以參考 My_Terminal_Theme  安裝、設定方式總共有以下步驟：  安裝 zsh 安裝 oh-my-zsh 安裝 zsh theme: powerlevel10k 安裝 zsh 好用 plugins 安裝 powerline font 修改 pow">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/pic1.gif">
+<meta property="og:image" content="https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/TerminalSettings.jpg">
+<meta property="article:published_time" content="2024-10-26T08:02:00.000Z">
+<meta property="article:modified_time" content="2024-10-26T08:02:00.000Z">
+<meta property="article:author" content="yi">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/pic1.gif">
+    
+    
+      
         
-        OhMyZsh_powerlevel10k快速打造好看好用的Terminal - undefined
+          <link rel="shortcut icon" href="/images/favicon.ico">
         
-    </title>
-
-    <!-- Custom CSS -->
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
     
-<link rel="stylesheet" href="/css/aircloud.css">
+    <!-- title -->
+    <title>OhMyZsh_powerlevel10k快速打造好看好用的Terminal</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
 
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
     
-<link rel="stylesheet" href="/css/gitment.css">
+<link rel="stylesheet" href="/css/style.css">
 
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
-
+    <!-- persian styles -->
     
-
-
-
-
-
-
-
-
-
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
 <meta name="generator" content="Hexo 7.1.1"></head>
 
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> Still lonely, still waiting... </i>
-</div>
-
-<div class="index-container">
+<body class="max-width mx-auto px3 ltr">
     
-    <div class="index-left">
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
         
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar radius">
-            <img src="/img/favicon.jpg" />
-        </div>
-        <div class="name">
-            <i>yi</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
-                </a>
-            </li>
-            <li >
-                <a href="/collect/">
-                    <i class="iconfont icon-shoucang1"></i>
-                    <span>COLLECT</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>SEARCH</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="toc-text">前情提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E3%80%81%E8%A8%AD%E5%AE%9A%E6%96%B9%E5%BC%8F"><span class="toc-text">安裝、設定方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh"><span class="toc-text">安裝 zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-oh-my-zsh"><span class="toc-text">安裝 oh-my-zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh-theme-powerlevel10k"><span class="toc-text">安裝 zsh theme: powerlevel10k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E5%AD%97%E5%9E%8B"><span class="toc-text">安裝字型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh-%E5%A5%BD%E7%94%A8-plugins"><span class="toc-text">安裝 zsh 好用 plugins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-powerlevel10k-%E8%A8%AD%E5%AE%9A"><span class="toc-text">修改 powerlevel10k 設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-terminal-%E7%9A%84-color-scheme"><span class="toc-text">修改 terminal 的 color scheme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E6%8C%87%E4%BB%A4%E5%88%97%E5%9C%A8%E7%B5%82%E7%AB%AF%E6%A9%9F%E5%BA%95%E9%83%A8"><span class="toc-text">固定指令列在終端機底部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C"><span class="toc-text">最後</span></a></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-bg" id="search-bg"></div>
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">search</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> Still lonely, still waiting... </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
+        <li><a class="icon" aria-label="上一篇" href="/2024/11/01/PyBind11%E5%BA%94%E7%94%A8/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/10/20/neovim%E5%92%8C%E6%8F%92%E4%BB%B6/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&text=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&is_video=false&description=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=OhMyZsh_powerlevel10k快速打造好看好用的Terminal&body=Check out this article: https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&name=OhMyZsh_powerlevel10k快速打造好看好用的Terminal&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&t=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">前情提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E3%80%81%E8%A8%AD%E5%AE%9A%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">安裝、設定方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh"><span class="toc-number">3.</span> <span class="toc-text">安裝 zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-oh-my-zsh"><span class="toc-number">4.</span> <span class="toc-text">安裝 oh-my-zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh-theme-powerlevel10k"><span class="toc-number">5.</span> <span class="toc-text">安裝 zsh theme: powerlevel10k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E5%AD%97%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">安裝字型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh-%E5%A5%BD%E7%94%A8-plugins"><span class="toc-number">7.</span> <span class="toc-text">安裝 zsh 好用 plugins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-powerlevel10k-%E8%A8%AD%E5%AE%9A"><span class="toc-number">8.</span> <span class="toc-text">修改 powerlevel10k 設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-terminal-%E7%9A%84-color-scheme"><span class="toc-number">9.</span> <span class="toc-text">修改 terminal 的 color scheme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E6%8C%87%E4%BB%A4%E5%88%97%E5%9C%A8%E7%B5%82%E7%AB%AF%E6%A9%9F%E5%BA%95%E9%83%A8"><span class="toc-number">10.</span> <span class="toc-text">固定指令列在終端機底部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C"><span class="toc-number">11.</span> <span class="toc-text">最後</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
 
-<div class="post-container">
-    <div class="post-title">
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
         OhMyZsh_powerlevel10k快速打造好看好用的Terminal
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">yi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-10-26T08:02:00.000Z" class="dt-published" itemprop="datePublished">2024-10-26</time>
+        
+      
     </div>
 
-    <div class="post-meta">
-        <span class="attr">Post：<span>2024-10-26 16:02:00</span></span>
-        
-        <span class="attr">Tags：/
-        
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/linux/" rel="tag">linux</a>
     </div>
-    <div class="post-content ">
-        <p><a target="_blank" rel="noopener" href="https://holychung.medium.com/%E5%88%86%E4%BA%AB-oh-my-zsh-powerlevel10k-%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84-command-line-%E7%92%B0%E5%A2%83-f66846117921">原帖</a></p>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <p><a target="_blank" rel="noopener" href="https://holychung.medium.com/%E5%88%86%E4%BA%AB-oh-my-zsh-powerlevel10k-%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84-command-line-%E7%92%B0%E5%A2%83-f66846117921">原帖</a></p>
 <h2 id="前情提要"><a href="#前情提要" class="headerlink" title="前情提要"></a>前情提要</h2><p>此篇是以 ubuntu 20.04 作為範例，同時也可以使用在 mac、windows WSL 當中，稍微會有一點不同的設定可以參考 <a target="_blank" rel="noopener" href="https://github.com/Holychung/My_Terminal_Theme">My_Terminal_Theme</a></p>
 <p><img src="/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/pic1.gif" alt="最終成果"></p>
 <h2 id="安裝、設定方式"><a href="#安裝、設定方式" class="headerlink" title="安裝、設定方式"></a>安裝、設定方式</h2><p>總共有以下步驟：</p>
@@ -247,89 +249,143 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/Holychung/My_Terminal_Theme/tree/main/WSL">Windows WSL 設定</a></p>
 <p><a target="_blank" rel="noopener" href="https://holychung.github.io/">作者Blog</a></p>
 
+  </div>
+</article>
+
+
+
         
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-        <div id="lv-container"></div>
-        <div class="giscus"></div>
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li>
+        
+      </ul>
     </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E6%83%85%E6%8F%90%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">前情提要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E3%80%81%E8%A8%AD%E5%AE%9A%E6%96%B9%E5%BC%8F"><span class="toc-number">2.</span> <span class="toc-text">安裝、設定方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh"><span class="toc-number">3.</span> <span class="toc-text">安裝 zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-oh-my-zsh"><span class="toc-number">4.</span> <span class="toc-text">安裝 oh-my-zsh</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh-theme-powerlevel10k"><span class="toc-number">5.</span> <span class="toc-text">安裝 zsh theme: powerlevel10k</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D%E5%AD%97%E5%9E%8B"><span class="toc-number">6.</span> <span class="toc-text">安裝字型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%9D-zsh-%E5%A5%BD%E7%94%A8-plugins"><span class="toc-number">7.</span> <span class="toc-text">安裝 zsh 好用 plugins</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-powerlevel10k-%E8%A8%AD%E5%AE%9A"><span class="toc-number">8.</span> <span class="toc-text">修改 powerlevel10k 設定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-terminal-%E7%9A%84-color-scheme"><span class="toc-number">9.</span> <span class="toc-text">修改 terminal 的 color scheme</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BA%E5%AE%9A%E6%8C%87%E4%BB%A4%E5%88%97%E5%9C%A8%E7%B5%82%E7%AB%AF%E6%A9%9F%E5%BA%95%E9%83%A8"><span class="toc-number">10.</span> <span class="toc-text">固定指令列在終端機底部</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E5%BE%8C"><span class="toc-number">11.</span> <span class="toc-text">最後</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&text=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&is_video=false&description=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=OhMyZsh_powerlevel10k快速打造好看好用的Terminal&body=Check out this article: https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&title=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&name=OhMyZsh_powerlevel10k快速打造好看好用的Terminal&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yyii.site/2024/10/26/OhMyZsh-powerlevel10k%E5%BF%AB%E9%80%9F%E6%89%93%E9%80%A0%E5%A5%BD%E7%9C%8B%E5%A5%BD%E7%94%A8%E7%9A%84Terminal/&t=OhMyZsh_powerlevel10k快速打造好看好用的Terminal"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
 </div>
 
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
         
-        <li>
-            <a target="_blank" href="https://twitter.com/yyii_site">
-                            <span class="fa-stack fa-lg">
-                                <i class="iconfont icon-twitter"></i>
-                            </span>
-            </a>
-        </li>
-        
-        
-
-        
-
-        
-
-        
-        <li>
-            <a target="_blank"  href="https://github.com/yyii-site">
-                            <span class="fa-stack fa-lg">
-                                <i class="iconfont icon-github"></i>
-                            </span>
-            </a>
-        </li>
-        
-
-        
-
-    </ul>
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
     
-    <p>
-        <span>/</span>
-        
-        <span><a href="mailto:yyii.site@gmail.com">Email</a></span>
-        <span>/</span>
-        
-    </p>
     
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    2020-2025
+    yi
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
 </footer>
 
+    </div>
+    <!-- styles -->
 
 
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
 
 </body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.json"
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-
 </html>

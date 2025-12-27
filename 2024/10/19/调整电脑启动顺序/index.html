@@ -1,256 +1,309 @@
 <!DOCTYPE html>
-<html lang=zh-CN>
+<html lang=zh>
 <head>
+    <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:description" content="">
-    <meta property="og:type" content="website">
-    <meta name="description" content="">
-    <meta name="keyword"  content="">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
-    <title>
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="问题虽然Ubuntu 刚开始安装完成后，电脑默认会通过GRUB启动。但是 Windows 经常会越过 GRUB 直接启动。 此时只能在开机后通过 BIOS 自带启动选项，手动选择GRUB。非常麻烦。 解决链接 How to make UEFI bios start GRUB, not Windows? 我使用的是 efibootmgr – This Linux tool can adjust th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="调整电脑启动顺序">
+<meta property="og:url" content="https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/index.html">
+<meta property="og:site_name" content="yi的博客 | yi&#39;s blog">
+<meta property="og:description" content="问题虽然Ubuntu 刚开始安装完成后，电脑默认会通过GRUB启动。但是 Windows 经常会越过 GRUB 直接启动。 此时只能在开机后通过 BIOS 自带启动选项，手动选择GRUB。非常麻烦。 解决链接 How to make UEFI bios start GRUB, not Windows? 我使用的是 efibootmgr – This Linux tool can adjust th">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-10-19T03:26:35.000Z">
+<meta property="article:modified_time" content="2024-10-19T03:26:35.000Z">
+<meta property="article:author" content="yi">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+    
+    
+      
         
-        调整电脑启动顺序 - undefined
+          <link rel="shortcut icon" href="/images/favicon.ico">
         
-    </title>
-
-    <!-- Custom CSS -->
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
     
-<link rel="stylesheet" href="/css/aircloud.css">
+    <!-- title -->
+    <title>调整电脑启动顺序</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
 
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
     
-<link rel="stylesheet" href="/css/gitment.css">
+<link rel="stylesheet" href="/css/style.css">
 
-    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
-    <link href="//at.alicdn.com/t/font_620856_28hi1hpxx24.css" rel="stylesheet" type="text/css">
-    <!-- ga & ba script hoook -->
-    <script></script>
-
+    <!-- persian styles -->
     
-
-
-
-
-
-
-
-
-
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
 <meta name="generator" content="Hexo 7.1.1"></head>
 
-<body>
-
-<div class="site-nav-toggle" id="site-nav-toggle">
-    <button>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-        <span class="btn-bar"></span>
-    </button>
-</div>
-
-<div class="index-about">
-    <i> Still lonely, still waiting... </i>
-</div>
-
-<div class="index-container">
+<body class="max-width mx-auto px3 ltr">
     
-    <div class="index-left">
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
         
-<div class="nav" id="nav">
-    <div class="avatar-name">
-        <div class="avatar radius">
-            <img src="/img/favicon.jpg" />
-        </div>
-        <div class="name">
-            <i>yi</i>
-        </div>
-    </div>
-    <div class="contents" id="nav-content">
-        <ul>
-            <li >
-                <a href="/">
-                    <i class="iconfont icon-shouye1"></i>
-                    <span>HOME</span>
-                </a>
-            </li>
-            <li >
-                <a href="/tags">
-                    <i class="iconfont icon-biaoqian1"></i>
-                    <span>TAGS</span>
-                </a>
-            </li>
-            <li >
-                <a href="/archives">
-                    <i class="iconfont icon-guidang2"></i>
-                    <span>ARCHIVES</span>
-                </a>
-            </li>
-            <li >
-                <a href="/collect/">
-                    <i class="iconfont icon-shoucang1"></i>
-                    <span>COLLECT</span>
-                </a>
-            </li>
-            <li >
-                <a href="/about/">
-                    <i class="iconfont icon-guanyu2"></i>
-                    <span>ABOUT</span>
-                </a>
-            </li>
-            
-            <li>
-                <a id="search">
-                    <i class="iconfont icon-sousuo1"></i>
-                    <span>SEARCH</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    
-        <div id="toc" class="toc-article">
-    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-text">解决</span></a></li></ol>
-</div>
-    
-</div>
-
-
-<div class="search-field" id="search-field">
-    <div class="search-bg" id="search-bg"></div>
-    <div class="search-container">
-        <div class="search-input">
-            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
-            <input id="search-input"/>
-            <span id="begin-search">search</span>
-        </div>
-        <div class="search-result-container" id="search-result-container">
-
-        </div>
-    </div>
-</div>
-
-        <div class="index-about-mobile">
-            <i> Still lonely, still waiting... </i>
-        </div>
-    </div>
-    
-    <div class="index-middle">
-        <!-- Main Content -->
+        <li><a class="icon" aria-label="上一篇" href="/2024/10/19/VsCode%E4%B8%AD%E4%BD%BF%E7%94%A8PlatformIO/"><i class="fa-solid fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
+        
+        <li><a class="icon" aria-label="下一篇" href="/2024/10/06/vim%E5%AE%89%E8%A3%85coc-nvim%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81%E8%A1%A5%E5%85%A8/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&text=调整电脑启动顺序"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&is_video=false&description=调整电脑启动顺序"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=调整电脑启动顺序&body=Check out this article: https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&name=调整电脑启动顺序&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&t=调整电脑启动顺序"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
 
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a></li></ol>
+      </div>
+    
+  </span>
+</div>
 
-<div class="post-container">
-    <div class="post-title">
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
         调整电脑启动顺序
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">yi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2024-10-19T03:26:35.000Z" class="dt-published" itemprop="datePublished">2024-10-19</time>
+        
+      
     </div>
 
-    <div class="post-meta">
-        <span class="attr">Post：<span>2024-10-19 11:26:35</span></span>
-        
-        <span class="attr">Tags：/
-        
-        <a class="tag" href="/tags/#linux" title="linux">linux</a>
-        <span>/</span>
-        
-        
-        </span>
-        <span class="attr">Visit：<span id="busuanzi_value_page_pv"></span>
-</span>
-</span>
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fa-solid fa-tag"></i>
+        <a class="p-category" href="/tags/linux/" rel="tag">linux</a>
     </div>
-    <div class="post-content ">
-        <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>虽然Ubuntu 刚开始安装完成后，电脑默认会通过GRUB启动。但是 Windows 经常会越过 GRUB 直接启动。</p>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>虽然Ubuntu 刚开始安装完成后，电脑默认会通过GRUB启动。但是 Windows 经常会越过 GRUB 直接启动。</p>
 <p>此时只能在开机后通过 BIOS 自带启动选项，手动选择GRUB。非常麻烦。</p>
 <h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p>链接 <a target="_blank" rel="noopener" href="https://superuser.com/questions/1247300/how-to-make-uefi-bios-start-grub-not-windows">How to make UEFI bios start GRUB, not Windows?</a></p>
 <p>我使用的是</p>
 <p>efibootmgr – This Linux tool can adjust the boot order. Begin by typing sudo efibootmgr alone to see the options. Note the number (Boot####) associated with the ubuntu entry, and the current boot order (on the BootOrder line). You can then enter a new boot order with the ubuntu entry at the top by using the -o option. For instance, if the current boot order is 0000,0003,0007,0004 and ubuntu is 0007, you’d type sudo efibootmgr -o 0007,0000,0003,0004 to adjust the boot order.</p>
 <p>efibootmgr – 这个 Linux 工具可以调整启动顺序。 首先单独输入 sudo efibootmgr 查看选项。 注意与 ubuntu 条目相关的编号（Boot####）和当前启动顺序（在 BootOrder 行）。 然后，你可以使用 -o 选项输入一个新的启动顺序，将 ubuntu 条目放在最前面。 例如，如果当前的启动顺序是 0000,0003,0007,0004，而 ubuntu 是 0007，你就可以输入 sudo efibootmgr -o 0007,0000,0003,0004 来调整启动顺序。</p>
 
+  </div>
+</article>
+
+
+
         
-        <br />
-        <div id="comment-container">
-        </div>
-        <div id="disqus_thread"></div>
-        <div id="lv-container"></div>
-        <div class="giscus"></div>
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li>
+        
+      </ul>
     </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3"><span class="toc-number">2.</span> <span class="toc-text">解决</span></a></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&text=调整电脑启动顺序"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&is_video=false&description=调整电脑启动顺序"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=调整电脑启动顺序&body=Check out this article: https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&title=调整电脑启动顺序"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&name=调整电脑启动顺序&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yyii.site/2024/10/19/%E8%B0%83%E6%95%B4%E7%94%B5%E8%84%91%E5%90%AF%E5%8A%A8%E9%A1%BA%E5%BA%8F/&t=调整电脑启动顺序"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
 </div>
 
-    </div>
-</div>
-
-
-<footer class="footer">
-    <ul class="list-inline text-center">
         
-        <li>
-            <a target="_blank" href="https://twitter.com/yyii_site">
-                            <span class="fa-stack fa-lg">
-                                <i class="iconfont icon-twitter"></i>
-                            </span>
-            </a>
-        </li>
-        
-        
-
-        
-
-        
-
-        
-        <li>
-            <a target="_blank"  href="https://github.com/yyii-site">
-                            <span class="fa-stack fa-lg">
-                                <i class="iconfont icon-github"></i>
-                            </span>
-            </a>
-        </li>
-        
-
-        
-
-    </ul>
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
     
-    <p>
-        <span>/</span>
-        
-        <span><a href="mailto:yyii.site@gmail.com">Email</a></span>
-        <span>/</span>
-        
-    </p>
     
-    <p>
-        <span id="busuanzi_container_site_pv">
-            <span id="busuanzi_value_site_pv"></span>PV
-        </span>
-        <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>UV
-        </span>
-        Created By <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>  Theme <a target="_blank" rel="noopener" href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+    2020-2025
+    yi
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
 </footer>
 
+    </div>
+    <!-- styles -->
 
 
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
 
 </body>
-
-<script>
-    // We expose some of the variables needed by the front end
-    window.hexo_search_path = "search.json"
-    window.hexo_root = "/"
-    window.isPost = true
-</script>
-<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-
-
-
-
-
 </html>
