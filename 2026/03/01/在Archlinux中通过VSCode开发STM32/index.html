@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+    <meta name="description" content="在Archlinux中通过VSCode开发STM32ST官方连接：浏览器搜索 VSCode STM32 Windows 中需要安装 STM32CubeMX 和 VSCode + STM32CubeIDE for Visual Studio 插件，驱动在安装 STM32CubeMX 时已同步安装。直接开始新建项目即可。 安装STM32CubeMX可以使用 paru 或 yay 安装 AUR 软件包">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Archlinux中通过VSCode开发STM32">
+<meta property="og:url" content="https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/index.html">
+<meta property="og:site_name" content="yi的博客 | yi&#39;s blog">
+<meta property="og:description" content="在Archlinux中通过VSCode开发STM32ST官方连接：浏览器搜索 VSCode STM32 Windows 中需要安装 STM32CubeMX 和 VSCode + STM32CubeIDE for Visual Studio 插件，驱动在安装 STM32CubeMX 时已同步安装。直接开始新建项目即可。 安装STM32CubeMX可以使用 paru 或 yay 安装 AUR 软件包">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-01T12:19:05.000Z">
+<meta property="article:modified_time" content="2026-03-01T12:19:05.000Z">
+<meta property="article:author" content="yi">
+<meta property="article:tag" content="hexo,blog,stm32,raspberry,opensource">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>在Archlinux中通过VSCode开发STM32</title>
+    <!-- async scripts -->
+    <!-- Google Analytics -->
+
+
+    <!-- Umami Analytics -->
+
+
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+    <!-- rss -->
+    
+    
+	<!-- mathjax -->
+	
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#" aria-label="目录"><i class="fa-solid fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" aria-label="顶部" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa-solid fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li><!--
+     -->
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" aria-label="下一篇" href="/2025/12/22/%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%8F%8A%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6/"><i class="fa-solid fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" aria-label="返回顶部" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" aria-label="分享文章" href="#"><i class="fa-solid fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&text=在Archlinux中通过VSCode开发STM32"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&is_video=false&description=在Archlinux中通过VSCode开发STM32"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在Archlinux中通过VSCode开发STM32&body=Check out this article: https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/"><i class="fa-solid fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&name=在Archlinux中通过VSCode开发STM32&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&t=在Archlinux中通过VSCode开发STM32"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    
+    
+      <div id="toc">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32"><span class="toc-number">1.</span> <span class="toc-text">在Archlinux中通过VSCode开发STM32</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85STM32CubeMX"><span class="toc-number">1.1.</span> <span class="toc-text">安装STM32CubeMX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-vscode-%E6%8F%92%E4%BB%B6-STM32CubeIDE-for-Visual-Studio"><span class="toc-number">1.2.</span> <span class="toc-text">安装 vscode + 插件 STM32CubeIDE for Visual Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5-stlink-%E9%A9%B1%E5%8A%A8"><span class="toc-number">1.3.</span> <span class="toc-text">检查 stlink 驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%89%87%E6%9C%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.4.</span> <span class="toc-text">单片机项目</span></a></li></ol></li></ol>
+      </div>
+    
+  </span>
+</div>
+
+    
+    <div class="content index py4 ">
+        
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle p-name" itemprop="name headline">
+        在Archlinux中通过VSCode开发STM32
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author p-author h-card" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span class="p-name" itemprop="name">yi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2026-03-01T12:19:05.000Z" class="dt-published" itemprop="datePublished">2026-03-01</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content e-content" itemprop="articleBody">
+    <h1 id="在Archlinux中通过VSCode开发STM32"><a href="#在Archlinux中通过VSCode开发STM32" class="headerlink" title="在Archlinux中通过VSCode开发STM32"></a>在Archlinux中通过VSCode开发STM32</h1><p>ST官方连接：浏览器搜索 <code>VSCode STM32</code></p>
+<p>Windows 中需要安装 STM32CubeMX 和 VSCode + STM32CubeIDE for Visual Studio 插件，驱动在安装 STM32CubeMX 时已同步安装。直接开始新建项目即可。</p>
+<h2 id="安装STM32CubeMX"><a href="#安装STM32CubeMX" class="headerlink" title="安装STM32CubeMX"></a>安装STM32CubeMX</h2><p>可以使用 paru 或 yay 安装 AUR 软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S STM32CubeMX</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://javaguidepro.com/blog/java-jkd/">JDK 与 JRE、JVM 的关系</a></p>
+<p>JRE（Java Runtime Environment）：如果只是需要运行 Java 程序，安装 JRE 即可。</p>
+<p>JDK：JDK 包含了 JRE 和开发工具，所以开发 Java 程序需要安装 JDK。</p>
+<h2 id="安装-vscode-插件-STM32CubeIDE-for-Visual-Studio"><a href="#安装-vscode-插件-STM32CubeIDE-for-Visual-Studio" class="headerlink" title="安装 vscode + 插件 STM32CubeIDE for Visual Studio"></a>安装 vscode + 插件 STM32CubeIDE for Visual Studio</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yay -S visual-studio-code-bin</span><br></pre></td></tr></table></figure>
+
+<p>打开 VSCode 软件，搜索插件并安装</p>
+<h2 id="检查-stlink-驱动"><a href="#检查-stlink-驱动" class="headerlink" title="检查 stlink 驱动"></a>检查 stlink 驱动</h2><p><code>ls /dev</code> 如果没有自己的stlink 则需要检查和设置<a target="_blank" rel="noopener" href="https://my.oschina.net/emacs_8825600/blog/17355793">参考链接</a></p>
+<p>查看是否有如下的结果输出，没有的话就需要安装USB驱动</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo dmesg | grep -i stlink</span><br><span class="line">[  970.723661] usb 1-2.2: Product: STM32 STLink</span><br></pre></td></tr></table></figure>
+
+<p>设置 udev 让 linux 将 stlink 链接到 &#x2F;dev&#x2F;xxx （注意根据搜索结果修改路径; *.rules代表bin目录中的所有.rules文件）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find / -name <span class="string">&quot;*.rules&quot;</span></span><br><span class="line"><span class="built_in">cd</span> /home/xxx/.local/share/stm32cube/bundles/stlink-gdbserver/7.12.0+st.2/bin/</span><br><span class="line">sudo <span class="built_in">cp</span> *.rules /dev/udev/rules.d</span><br></pre></td></tr></table></figure>
+
+<p>注销或重启后再次检查 <code>/dev</code> 如下为 stlink-v2 的正确响应</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> -al /dev/stlinkv2_2</span><br><span class="line">lrwxrwxrwx 1 root root 15 Jan  8 23:46 /dev/stlinkv2_2 -&gt; bus/usb/001/036</span><br></pre></td></tr></table></figure>
+
+<p>连接好硬件后先通过 <code>STM32_Programmer_CLI</code> 测试一下 <a target="_blank" rel="noopener" href="https://blog.csdn.net/yxy244/article/details/108453398">参考链接</a></p>
+<p>找到 VSCode 插件安装的位置（可以用find指令），如下是我电脑中 VSCode 插件的安装路径</p>
+<p><code>~/.local/share/stm32cube/bundles/programmer/2.21.0/bin/STM32_Programmer_CLI</code></p>
+<p>检测到 ST-LINK 和 STM32F103 通过 SWD 方式连接的结果</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">./STM32_Programmer_CLI -c port=SWD freq=4000</span><br><span class="line">      -------------------------------------------------------------------</span><br><span class="line">                        STM32CubeProgrammer v2.21.0                  </span><br><span class="line">      -------------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">ST-LINK SN  : 48FF73068287555321441081</span><br><span class="line">ST-LINK FW  : V2J46S7</span><br><span class="line">Board       : --</span><br><span class="line">Voltage     : 2.40V</span><br><span class="line">SWD freq    : 4000 KHz</span><br><span class="line">Connect mode: Normal</span><br><span class="line">Reset mode  : Software reset</span><br><span class="line">Device ID   : 0x410</span><br><span class="line">Revision ID : Rev X</span><br><span class="line">Device name : STM32F101/F102/F103 Medium-density</span><br><span class="line">Flash size  : 128 KBytes</span><br><span class="line">Device <span class="built_in">type</span> : MCU</span><br><span class="line">Device CPU  : Cortex-M3</span><br><span class="line">BL Version  : --</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="单片机项目"><a href="#单片机项目" class="headerlink" title="单片机项目"></a>单片机项目</h2><p><a target="_blank" rel="noopener" href="https://youtu.be/aWMni01XGeI?si=U_slNKxz8TH2OBFK">参考链接</a></p>
+<p>在 VSCode 中点击 STM32 插件图标，点击 Launch STM32CubeMX （如果需要设置路径可通过 <code>which STM32CubeMX</code> 指令查询）。</p>
+<p>在弹出图形化界面中新建和设置stm32芯片。Project Manager 页面中设置项目名和存储路径，Tool&#x2F;IDE 选择 <code>CMake</code> ，最后点击 GENERATE CODE 按钮生成项目工程。关闭 STM32CubeMX</p>
+<p>返回 VSCode 界面，打开 CudeMX 生成的文件夹，在弹出气泡或 STM32 插件中自行点击 Setup STM32Cube project(s) 完成项目设置(重点，不然无法CMake插件中的编译选项没有被正确初始化，导致无法调试)。点击状态栏 build 选项查看是否编译成功，成功后点击 Run and Debug 按钮开始调试。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+        
+          <li><a href="/">首页</a></li>
+        
+          <li><a href="/archives/">归档</a></li>
+        
+          <li><a href="/about/">关于</a></li>
+        
+          <li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li>
+        
+      </ul>
+    </div>
+
+    
+    
+      <div id="toc-footer" style="display: none">
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32"><span class="toc-number">1.</span> <span class="toc-text">在Archlinux中通过VSCode开发STM32</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85STM32CubeMX"><span class="toc-number">1.1.</span> <span class="toc-text">安装STM32CubeMX</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-vscode-%E6%8F%92%E4%BB%B6-STM32CubeIDE-for-Visual-Studio"><span class="toc-number">1.2.</span> <span class="toc-text">安装 vscode + 插件 STM32CubeIDE for Visual Studio</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5-stlink-%E9%A9%B1%E5%8A%A8"><span class="toc-number">1.3.</span> <span class="toc-text">检查 stlink 驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%89%87%E6%9C%BA%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.4.</span> <span class="toc-text">单片机项目</span></a></li></ol></li></ol>
+      </div>
+    
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&text=在Archlinux中通过VSCode开发STM32"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&is_video=false&description=在Archlinux中通过VSCode开发STM32"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=在Archlinux中通过VSCode开发STM32&body=Check out this article: https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/"><i class="fa-solid fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&title=在Archlinux中通过VSCode开发STM32"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&name=在Archlinux中通过VSCode开发STM32&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=https://yyii.site/2026/03/01/%E5%9C%A8Archlinux%E4%B8%AD%E9%80%9A%E8%BF%87VSCode%E5%BC%80%E5%8F%91STM32/&t=在Archlinux中通过VSCode开发STM32"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa-solid fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        
+          <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa-solid fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa-solid fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa-solid fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2026
+    yi
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+        <!--
+       --><li><a href="/">首页</a></li><!--
+     --><!--
+       --><li><a href="/archives/">归档</a></li><!--
+     --><!--
+       --><li><a href="/about/">关于</a></li><!--
+     --><!--
+       --><li><a target="_blank" rel="noopener" href="https://github.com/yyii-site">项目</a></li><!--
+     -->
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+
+
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" onload="this.onload=null;this.rel='stylesheet'"/>
+
+
+    <!-- jquery -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" crossorigin="anonymous"></script>
+
+
+
+
+<!-- clipboard -->
+
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.7/clipboard.min.js" crossorigin="anonymous"></script>
+  
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板！\">";
+    btn += '<i class="fa-regular fa-clone"></i>';
+    btn += '</span>';
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功！");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Disqus Comments -->
+
+<!-- utterances Comments -->
+
+</body>
+</html>
